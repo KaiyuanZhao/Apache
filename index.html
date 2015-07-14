@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Après-midi</title>
+	<meta charset=UTF-8  />
+
+	<link href="amazeui/css/amazeui.flat.css" rel="stylesheet" type="text/css">
+	<script src="/amazeui/js/amazeui.js" rel="stylesheet" type="text/javascript"></script>
+
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+					<script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){		
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+						});
+					});
+					</script>
+<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+		<script type="text/javascript" id="sourcecode">
+			$(function()
+			{
+				$('.scroll-pane').jScrollPane();
+			});
+		</script>
+</head>
+<body>
+	<!--- Header Starts Here --->
+	<div class="header">
+		<div class="container">
+			<div class="logo invisible">
+				 <a href="index.html"><img src="images/logo.png" alt=""></a>
+			</div>
+			<div class="menu">
+				<ul class="menu-top">
+					<li><a class="play-icon popup-with-zoom-anim" href="#small-dialog">Log In</a></li>
+					<li><a class="play-icon popup-with-zoom-anim" href="#small-dialog1">Sign up</a></li>
+				</ul>	
+				<!---pop-up-box---->
+					  <script type="text/javascript" src="js/modernizr.custom.min.js"></script>
+					<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
+					<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+					<!---//pop-up-box---->
+				<div id="small-dialog" class="mfp-hide">
+						<div class="login">
+							<h3>Log In</h3>
+							<h4>Already a Member</h4>
+							<form class="form-group" role="form" id="login-form">
+							<input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" />
+							<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"/>
+							<input type="submit" value="Login" />
+							</form>
+						</div>
+					</div>
+					<div id="small-dialog1" class="mfp-hide">
+						<div class="signup am-form" data-am-validator>
+									<h3>Sign Up</h3>
+								<fieldset>
+									<h4>Enter Your Details Here</h4>
+									<div class="am-form-group">
+										<label class="hint" for="doc-vld-email-2">请输入公司邮箱：</label>
+										<input class="input" type="email" id="doc-vld-email-2" placeholder="输入邮箱" required/>
+									</div>
+
+									<div class="am-form-group">
+										<label class="hint"  for="doc-vld-name-2">请输入你的花名：</label>
+										<input class="input" type="text" id="doc-vld-name-2" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/>
+									</div>
+
+
+									<div class="am-form-group">
+										<label class="hint"  for="doc-select-1">个人口味偏好</label>
+										<select class="input" id="doc-select-1" required>
+											<option value="">吃货驾到 集体尖叫！</option>
+											<option value="口味偏咸">口味偏咸</option>
+											<option value="口味偏淡">口味偏淡</option>
+											<option value="口味偏甜">口味偏甜</option>
+										</select>
+										<span class="am-form-caret"></span>
+									</div>
+
+									<div class="am-form-group">
+										<label class="hint"  for="doc-vld-pwd-1">请输入密码：</label>
+										<input class="input" type="password" id="doc-vld-pwd-1" placeholder="请输入6位密码" pattern="^\d{6}$" required/>
+									</div>
+
+									<div class="am-form-group">
+										<label class="hint" for="doc-vld-pwd-2">请确认密码：</label>
+										<input class="input" type="password" id="doc-vld-pwd-2" placeholder="请与上面输入的值一致" data-equal-to="#doc-vld-pwd-1" required/>
+									</div>
+
+
+
+									<div class="am-form-group">
+										<label  class="hint" for="doc-vld-ta-2">个人描述：</label>
+										<textarea  id="doc-vld-ta-2" placeholder="你是吃货吗？" minlength="10" maxlength="100"></textarea>
+									</div>
+
+
+								 	<input type="submit"  onclick="submit()" value="SignUp"/>
+									</fieldset>
+						</div>
+					</div>
+
+					 <script type="text/javascript">
+
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+
+
+						$("")
+						});
+				</script>															
+			<a href="#" class="right_bt" id="activator"><img src="images/nav.png" alt=""/></a>
+				<div class="box" id="box">
+				   <div class="box_content_center">
+					   <div class="menu_box_list">
+						   <ul>
+							   <li><a href="#home" class="scroll">Bon Appétit</a></li>
+							   <li class="active"><a href="#about" class="scroll">Salut!</a></li>
+							   <li><a href="#contact" class="scroll">Bon Soir</a></li>
+							</ul>
+						</div>
+						<a class="boxclose" id="boxclose"><img src="images/close.png" alt=""/></a>
+					  </div>                
+					</div>
+					<script type="text/javascript" src="js/easing.js"></script>
+					     <script type="text/javascript">
+								var $ = jQuery.noConflict();
+									$(function() {
+										$('#activator').click(function(){
+												$('#box').animate({'top':'0px'},500);
+										});
+										$('#boxclose').click(function(){
+												$('#box').animate({'top':'-700px'},500);
+										});
+									});
+									$(document).ready(function(){
+									
+									//Hide (Collapse) the toggle containers on load
+									$(".toggle_container").hide(); 
+									
+									//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
+									$(".trigger").click(function(){
+										$(this).toggleClass("active").next().slideToggle("slow");
+										return false; //Prevent the browser jump to the link anchor
+									});
+									
+									});
+								</script>
+								
+				</div> 
+				<div class="clearfix"></div>
+				<div class="header-bottom">
+					<p>Ready for your</p>
+					<h1>Après Midi?</h1>
+				</div>
+		</div>
+	</div>
+	<!--- Header Ends Here --->
+	<!-- Footer Starts Here ---->
+	<div class="footer">
+		<div class="container">
+			<div class="logo invisible" >
+				 <a href="index.html"><img src="images/f_logo.png" class="foot-img" alt=""></a>
+			</div>
+			<p class="footer-head">Produced By <a href="http://tumblr.com/">Team Apache</a></p>
+			<div class="clearfix"></div>
+		</div>
+<!--		<script type="text/javascript">
+						$(document).ready(function() {
+							/*
+							var defaults = {
+					  			containerID: 'toTop', // fading element id
+								containerHoverID: 'toTopHover', // fading element hover id
+								scrollSpeed: 1200,
+								easingType: 'linear' 
+					 		};
+							*/
+							
+							$().UItoTop({ easingType: 'easeOutQuart' });
+							
+						});
+					</script>-->
+	</div>
+	<!-- Footer Ends Here ---->
+</body>
+</html>

@@ -1,6 +1,7 @@
 <?php
 
 /**
+ *
  * Created by PhpStorm.
  * User: Administrator
  * Date: 2015/7/13
@@ -13,7 +14,7 @@ class MealAction
      * @param $mealName String
      * @return bool|Integer success or error code
      */
-    public function addMeal($mealName)
+    public static function addMeal($mealName)
     {
         return true;
     }
@@ -21,7 +22,7 @@ class MealAction
     /**
      * @return array|bool get all the meals or fail
      */
-    public function getMeals()
+    public static function getMeals()
     {
         return array(new Meal(0, "糖醋里脊"), new Meal(1, "红烧鲤鱼"));
     }
@@ -31,7 +32,7 @@ class MealAction
      * @param $date DateTime
      * @return bool|Integer success or error code
      */
-    public function addTodayMeal($mealId, $date)
+    public static function addTodayMeal($mealId, $date)
     {
         return true;
     }
@@ -40,7 +41,7 @@ class MealAction
      * @param $date DateTime
      * @return array|bool get $date's meals or fail
      */
-    public function getTodayMeals($date)
+    public static function getTodayMeals($date)
     {
         return array(new Meal(0, "糖醋里脊"), new Meal(1, "红烧鲤鱼"));
     }
@@ -50,7 +51,7 @@ class MealAction
      * @param $mealId String
      * @return bool|Integer success or error code
      */
-    public function favor($userId, $mealId)
+    public static function favor($userId, $mealId)
     {
         return true;
     }
@@ -60,7 +61,7 @@ class MealAction
      * @param $mealId String
      * @return bool|Integer success or error code
      */
-    public function cancleFavor($userId, $mealId)
+    public static function cancleFavor($userId, $mealId)
     {
         return true;
     }
@@ -68,7 +69,7 @@ class MealAction
     /**
      * @return array|Integer top ten favourite meal or error code
      */
-    public function getTopTenMeals()
+    public static function getTopTenMeals()
     {
         return array(new MealFavor(new Meal(0, "糖醋里脊"), 100), new MealFavor(new Meal(1, "红烧鲤鱼"), 84));
     }

@@ -17,11 +17,11 @@ class Order
      */
     private $user;
     /**
-     * @var DateTime
+     * @var String
      */
     private $createdTime;
     /**
-     * @var DateTime
+     * @var String
      */
     private $date;
 

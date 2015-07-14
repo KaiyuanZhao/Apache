@@ -14,14 +14,14 @@ class MealDay
      */
     private $meal;
     /**
-     * @var DateTime
+     * @var String
      */
     private $date;
 
     /**
      * MealDay constructor.
-     * @param $meal
-     * @param $date
+     * @param $meal String
+     * @param $date String
      */
     public function __construct($meal, $date)
     {

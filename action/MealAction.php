@@ -19,6 +19,14 @@ class MealAction
     }
 
     /**
+     * @return array|bool get all the meals or fail
+     */
+    public function getMeals()
+    {
+        return array(new Meal(0, "糖醋里脊"), new Meal(1, "红烧鲤鱼"));
+    }
+
+    /**
      * @param $mealId String
      * @param $date DateTime
      * @return bool|Integer success or error code
@@ -29,21 +37,30 @@ class MealAction
     }
 
     /**
+     * @param $date DateTime
+     * @return array|bool get $date's meals or fail
+     */
+    public function getTodayMeals($date)
+    {
+        return array(new Meal(0, "糖醋里脊"), new Meal(1, "红烧鲤鱼"));
+    }
+
+    /**
+     * @param $userId String
      * @param $mealId String
-     * @param $orderId String
      * @return bool|Integer success or error code
      */
-    public function favor($mealId, $orderId)
+    public function favor($userId, $mealId)
     {
         return true;
     }
 
     /**
+     * @param $userId String
      * @param $mealId String
-     * @param $orderId String
      * @return bool|Integer success or error code
      */
-    public function cancleFavor($mealId, $orderId)
+    public function cancleFavor($userId, $mealId)
     {
         return true;
     }
@@ -51,9 +68,9 @@ class MealAction
     /**
      * @return array|Integer top ten favourite meal or error code
      */
-    public function getTopTen()
+    public function getTopTenMeals()
     {
-        return array(new MealFavor(new Meal(0, "�Ǵ��Ｙ"), 100), new MealFavor(new Meal(1, "��������"), 84));
+        return array(new MealFavor(new Meal(0, "糖醋里脊"), 100), new MealFavor(new Meal(1, "红烧鲤鱼"), 84));
     }
 
 }

@@ -11,21 +11,19 @@ class OrderAction
 
     /**
      * @param $userId Integer
-     * @param $orderId Integer
-     * @param $createdTime DateTime
      * @param $date DateTime
      * @return bool|Integer order success or error code
      */
-    public function orderMeal($userId, $orderId, $createdTime, $date)
+    public function orderMeal($userId, $date)
     {
         return true;
     }
 
     /**
-     * @param $orderId String
-     * @return bool|INteger cancel success or error code
+     * @param $userId String
+     * @return bool|Integer cancel success or error code
      */
-    public function cancelOrder($orderId)
+    public function cancelOrder($userId)
     {
         return true;
     }
@@ -36,7 +34,7 @@ class OrderAction
      */
     public function getOrders($date)
     {
-        return array(new Order(0,new User(0, "zhaokaiyuan@baixing.net", "ÕÔ¿ªÔª", "Kyle", "ÊîÆÚÊµÏ°Éú", "1806", ""), new DateTime(), $date));
+        return array(new Order(0,new User(0, "zhaokaiyuan@baixing.net", "èµµå¼€å…ƒ", "Kyle", "æš‘æœŸå®žä¹ ç”Ÿ", "1806", ""), new DateTime(), $date));
     }
 
 }

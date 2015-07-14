@@ -10,7 +10,7 @@
 /**
  * mysql server name
  */
-define("SERVER_NAME", "127.0.0.1");
+define("SERVER_NAME", "localhost");
 /**
  * mysql username
  */
@@ -18,7 +18,7 @@ define("USERNAME", "root");
 /**
  * mysql password
  */
-define("PASSWORD", "123456");
+define("PASSWORD", "baixing");
 /**
  * mysql database name
  */

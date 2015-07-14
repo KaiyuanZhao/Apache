@@ -7,7 +7,6 @@
  * Date: 2015/7/13
  * Time: 22:41
  */
-
 class Database
 {
     /**
@@ -31,7 +30,7 @@ class Database
      * get Singleton class
      * @return Database
      */
-    public static function getConnection()
+    public static function getInstance()
     {
         if (self::$database == NULL)
             self::$database = new Database();
@@ -46,5 +45,12 @@ class Database
         $this->connection->close();
     }
 
+    /**
+     * @return mysqli
+     */
+    public function getConnection()
+    {
+        return $this->connection;
+    }
 
 }

@@ -11,9 +11,9 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT = @@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS = @@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION = @@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
 --
@@ -27,11 +27,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `meal` (
-  `mealId` int(11) NOT NULL AUTO_INCREMENT,
-  `mealName` varchar(40) NOT NULL,
+  `mealId`   INT(11)     NOT NULL AUTO_INCREMENT,
+  `mealName` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`mealId`),
   UNIQUE KEY `mealName` (`mealName`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
+  AUTO_INCREMENT = 1;
 
 -- --------------------------------------------------------
 
@@ -40,11 +43,13 @@ CREATE TABLE IF NOT EXISTS `meal` (
 --
 
 CREATE TABLE IF NOT EXISTS `mealfavor` (
-  `orderId` int(11) NOT NULL,
-  `mealId` int(11) NOT NULL,
-  PRIMARY KEY (`orderId`,`mealId`),
+  `orderId` INT(11) NOT NULL,
+  `mealId`  INT(11) NOT NULL,
+  PRIMARY KEY (`orderId`, `mealId`),
   KEY `foreign_favor_mealid` (`mealId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 
 -- --------------------------------------------------------
 
@@ -53,11 +58,13 @@ CREATE TABLE IF NOT EXISTS `mealfavor` (
 --
 
 CREATE TABLE IF NOT EXISTS `mealrecord` (
-  `date` date NOT NULL,
-  `mealId` int(11) NOT NULL,
-  PRIMARY KEY (`date`,`mealId`),
+  `date`   DATE    NOT NULL,
+  `mealId` INT(11) NOT NULL,
+  PRIMARY KEY (`date`, `mealId`),
   KEY `foreignMealRecord` (`mealId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 
 -- --------------------------------------------------------
 
@@ -66,13 +73,16 @@ CREATE TABLE IF NOT EXISTS `mealrecord` (
 --
 
 CREATE TABLE IF NOT EXISTS `order` (
-  `orderId` int(11) NOT NULL AUTO_INCREMENT,
-  `userId` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `orderId`    INT(11)   NOT NULL AUTO_INCREMENT,
+  `userId`     INT(11)   NOT NULL,
+  `date`       DATE      NOT NULL,
+  `createTime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`orderId`),
   UNIQUE KEY `userId` (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
+  AUTO_INCREMENT = 1;
 
 -- --------------------------------------------------------
 
@@ -81,17 +91,20 @@ CREATE TABLE IF NOT EXISTS `order` (
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `userId` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `nickname` varchar(20) NOT NULL,
-  `department` varchar(20) NOT NULL,
-  `location` varchar(10) NOT NULL,
-  `description` varchar(140) DEFAULT NULL,
+  `userId`      INT(11)     NOT NULL AUTO_INCREMENT,
+  `email`       VARCHAR(30) NOT NULL,
+  `password`    VARCHAR(20) NOT NULL,
+  `username`    VARCHAR(20) NOT NULL,
+  `nickname`    VARCHAR(20) NOT NULL,
+  `department`  VARCHAR(20) NOT NULL,
+  `location`    VARCHAR(10) NOT NULL,
+  `description` VARCHAR(140)         DEFAULT NULL,
   PRIMARY KEY (`userId`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8
+  AUTO_INCREMENT = 11;
 
 --
 -- 限制导出的表
@@ -101,21 +114,29 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- 限制表 `mealfavor`
 --
 ALTER TABLE `mealfavor`
-  ADD CONSTRAINT `foreign_favor_mealid` FOREIGN KEY (`mealId`) REFERENCES `meal` (`mealId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `foreign_favor_orderid` FOREIGN KEY (`orderId`) REFERENCES `order` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `foreign_favor_mealid` FOREIGN KEY (`mealId`) REFERENCES `meal` (`mealId`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE,
+ADD CONSTRAINT `foreign_favor_orderid` FOREIGN KEY (`orderId`) REFERENCES `order` (`orderId`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
 
 --
 -- 限制表 `mealrecord`
 --
 ALTER TABLE `mealrecord`
-  ADD CONSTRAINT `foreignMealRecord` FOREIGN KEY (`mealId`) REFERENCES `meal` (`mealId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `foreignMealRecord` FOREIGN KEY (`mealId`) REFERENCES `meal` (`mealId`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
 
 --
 -- 限制表 `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `orderUser` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `orderUser` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS = @OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION = @OLD_COLLATION_CONNECTION */;

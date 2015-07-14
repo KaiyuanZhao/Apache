@@ -12,10 +12,9 @@ class OrderAction
 
     /**
      * @param $userId Integer
-     * @param $date DateTime
      * @return bool|Integer order success or error code
      */
-    public static function orderMeal($userId, $date)
+    public static function orderMeal($userId)
     {
         return true;
     }
@@ -30,7 +29,7 @@ class OrderAction
     }
 
     /**
-     * @param $date DateTime
+     * @param $date String
      * @return array|Integer get orders success or error code
      */
     public static function getOrders($date)

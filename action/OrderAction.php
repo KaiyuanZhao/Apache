@@ -10,7 +10,7 @@
 class OrderAction
 {
     public static $ORDER_MEAL_FAIL = -1;
-    public static $CANCEL_ORDER_NOT_ORDER_BEFOR = -2;
+    public static $CANCEL_ORDER_NOT_ORDER_BEFORE = -2;
     public static $GET_ORDERS_FAIL = -3;
 
     /**

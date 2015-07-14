@@ -10,8 +10,9 @@
 class OrderAction
 {
     public static $ORDER_MEAL_FAIL = -1;
+    public static $CANCEL_ORDER_FAIL = -1;
     public static $CANCEL_ORDER_NOT_ORDER_BEFORE = -2;
-    public static $GET_ORDERS_FAIL = -3;
+    public static $GET_ORDERS_FAIL = -1;
 
     /**
      * @param $userId Integer
@@ -40,12 +41,15 @@ class OrderAction
     {
         $connection = Database::getInstance()->getConnection();
 
-        static $query = "delete from `order` where userid = ?";
+        static $query = "delete from `order` where userId = ? and date = ?";
         $result = $connection->prepare($query);
-        $result->bind_param("s", $userId);
+        $date = TimeUtils::getCurrentDate();
+        $result->bind_param("ss", $userId, $date);
         $execute = $result->execute();
         if (!$execute)
-            return self::$CANCEL_ORDER_NOT_ORDER_BEFOR;
+            return self::$CANCEL_ORDER_FAIL;
+        if ($result->affected_rows == 0)
+            return self::$CANCEL_ORDER_NOT_ORDER_BEFORE;
         $result->close();
         return true;
     }

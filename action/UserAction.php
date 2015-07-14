@@ -32,6 +32,7 @@ class UserAction
         $result->bind_result($userId, $email, $password, $username, $nickname, $department, $location, $description);
         while ($result->fetch())
             return new User($userId, $email, $username, $nickname, $department, $location, $description);
+        $result->close();
         return self::$LOGIN_FAIL;
     }
 
@@ -57,6 +58,7 @@ class UserAction
         $execute = $result->execute();
         if (!$execute)
             return self::$REGISTER_EMAIL_DUPLICATE;
+        $result->close();
 
         static $query_user = "select * from user where email = ?";
         $result = $connection->prepare($query_user);
@@ -67,6 +69,7 @@ class UserAction
         $result->bind_result($userId, $email, $password, $username, $nickname, $department, $location, $description);
         while ($result->fetch())
             return new User($userId, $email, $username, $nickname, $department, $location, $description);
+        $result->close();
         return self::$REGISTER_FAIL;
     }
 

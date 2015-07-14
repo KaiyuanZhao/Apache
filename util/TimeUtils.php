@@ -11,6 +11,9 @@ date_default_timezone_set('PRC');
 class TimeUtils
 {
 
+    /**
+     * @return String
+     */
     public static function getCurrentDate()
     {
         $dt = new DateTime();
@@ -27,6 +30,9 @@ class TimeUtils
         return $result;
     }
 
+    /**
+     * @return String
+     */
     public static function getCurrentTime()
     {
         $dt = new DateTime();
@@ -43,6 +49,10 @@ class TimeUtils
         return $result;
     }
 
+    /**
+     * whether the time is between 15:00 to 17:00
+     * @return bool
+     */
     public static function isTimeAvailable()
     {
         $dt = new DateTime('now');

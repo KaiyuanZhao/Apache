@@ -8,6 +8,9 @@ h4, h5, h6,
 h1, h2, h3 {
     margin-top: 0;
 }
+.part2{
+    background-image:url("/images/omega.jpg");
+}
 
 ul, ol {
     margin: 0;
@@ -239,7 +242,7 @@ ul.menu-top li a:hover {
 /*---- About us Part Ends Here ---*/
 /*--- Interduce Part Starts Here ---*/
 .interduce {
-    background: #f7f7f7;
+    background-image:url("/Apache/images/beta.jpg");
     padding: 10em 0 0 0;
 }
 

@@ -287,7 +287,7 @@ button::-moz-focus-inner {
     outline: none !important;
 }
 
-.login input[type="submit"], .signup input[type="submit"] {
+.login input[type="button"], .signup input[type="button"] {
     background: #706060;
     border: 0px;
     padding: 5px 10px;

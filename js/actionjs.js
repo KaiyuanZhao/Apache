@@ -31,6 +31,9 @@ function signup_submit() {
                 url: 'upload.php', //用于文件上传的服务器端请求地址
                 secureuri: false, //是否需要安全协议，一般设置为false
                 fileElementId: 'savator', //文件上传域的ID
+                data:{
+
+                }
                 dataType: 'text', //返回值类型 一般设置为json
                 success: function (data, status)  //服务器成功响应处理函数
                 {

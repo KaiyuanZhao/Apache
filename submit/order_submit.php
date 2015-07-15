@@ -6,17 +6,31 @@
  * Time: 上午10:08
  */
     header("Content-Type: text/html; charset=utf-8");
-    date_default_timezone_set('PRC');
     require_once '../entity/User.php';
     require_once '../action/OrderAction.php';
+    require_once "../config.php";
+    require_once "../provider/Database.php";
+    require_once "../provider/testFormat.php";
+    require_once "../entity/response/Response.php";
     session_start();
-    $date=date('Y-m-d', time());
-  //  echo  $userId;
-      $orderFlag=OrderAction::orderMeal($userId);
-      if ($orderFlag===-1){
-          echo "sorry,order failed";
-      }
-      elseif ($orderFlag===true){
-          echo "$userId, success ";
-      }
+    $result = testOrderSubmit();
+    $myjson = my_json_encode($result);
+    echo $myjson;
+
+    function testOrderSubmit()
+    {
+        $userId=$_SESSION['user']->userId;
+        $orderFlag = OrderAction::orderMeal($userId);
+        if ($orderFlag === -1) {
+            $result = new Response(false, "sorry,order failed");
+            return $result;
+        } elseif ($orderFlag === true) {
+            $result = new Response(true);
+            return $result;
+        }
+    }
+    function my_json_encode($phparr)
+    {
+        return json_encode($phparr);
+    }
 ?>

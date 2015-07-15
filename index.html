@@ -245,8 +245,8 @@
         lusername=$("#lusername").val();
         lpassword=$("#lpassword").val();
 
-
-        $.post("ltest.php",{username:lusername,password:lpassword},function(data,status){
+        alert("!");
+        $.post("submit/dologin.php",{username:lusername,password:lpassword},function(data,status){
             alert("Data: " + data + "\nStatus: " + status);
 
            // if (data["success"]==false) alert(data["erroemessage"]);

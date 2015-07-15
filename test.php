@@ -11,10 +11,12 @@ require_once "config.php";
 require_once "provider/Database.php";
 require_once "action/UserAction.php";
 
-//$result = UserAction::login("123@baixing.com", "456789");
-//var_dump($result);
-//$result = UserAction::register("1234@baixing.com", "456789", "test", "nickname", "depart", "1023", "", "");
-//var_dump($result);
+$result = UserAction::login("123@baixing.com", "456789");
+var_dump($result);
+$result = UserAction::register("1234@baixing.com", "456789", "test", "nickname", "depart", "1023", "", "");
+var_dump($result);
+$result = UserAction::login("123@baixing.com", "456789");
+var_dump($result);
 $result = UserAction::modify(1, "test2", "nickname", "depart2", "1830", "desc", "icon");
 var_dump($result);
 $result = UserAction::changePassword(1, "123456", "456789");

@@ -179,6 +179,8 @@ class MealAction
         $result->bind_param("ss", $orderId, $mealId);
         $execute = $result->execute();
         if (!$execute)
+            return self::$CANCEL_FAVOR_FAIL;
+        if ($result->affected_rows == 0)
             return self::$CANCEL_FAVOR_NOT_FAVOR_BEFORE;
         $result->close();
         return true;

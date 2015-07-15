@@ -6,6 +6,7 @@
  * Time: 10:17 AM
  */
 
+var_dump($_FILES);
 $file=$_FILES["fd"];
 if($file!=null){
     echo "done!";

@@ -232,9 +232,11 @@
         var username=document.getElementsByName("lusername")[0].value;
 
         var password=document.getElementsByName("lpassword")[0].value;
-
-        $.post("ltest.php",{username:username,password:password},function(data,status){
+        //alert("!");
+        $.post("submit/dologin.php",{username:username,password:password},function(data,status){
             alert("Data: " + data + "\nStatus: " + status);
+
+           // if (data["success"]==false) alert(data["erroemessage"]);
         });
     }
 
@@ -245,7 +247,8 @@
         var spassword=document.getElementsByName("spassword")[0].value;
 
         $.post("ltest.php",{email:semail,username:susername,taste:staste,password:spassword},function(data,status){
-            alert("Data: " + data + "\nStatus: " + status);
+            //alert("Data: " + data + "\nStatus: " + status);
+            if (data["success"]==false) alert("!");
         });
     }
 

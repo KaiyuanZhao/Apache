@@ -10,7 +10,7 @@
     require_once '../action/MealAction.php';
     require_once "../config.php";
     require_once "../provider/Database.php";
-    require_once "../TimeUtils/TimeUtils.php";
+    require_once "../util/TimeUtils.php";
     $userId=2;
     $mealId=24;
     $favorite=MealAction::cancelFavor($userId,$mealId);

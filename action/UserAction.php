@@ -51,7 +51,8 @@ class UserAction
      * @param $department String
      * @param $location String
      * @param $description String
-     * @return User|Integer register user or error code
+     * @param $icon String
+     * @return int|User register user or error code
      */
     public static function register($email, $password, $username, $nickname, $department, $location, $description, $icon)
     {
@@ -79,6 +80,16 @@ class UserAction
         return self::$REGISTER_FAIL;
     }
 
+    /**
+     * @param $userId Integer
+     * @param $username String
+     * @param $nickname String
+     * @param $department String
+     * @param $location String
+     * @param $description String
+     * @param $icon String
+     * @return int|User modified User or error code
+     */
     public static function modify($userId, $username, $nickname, $department, $location, $description, $icon)
     {
         $connection = Database::getInstance()->getConnection();
@@ -108,6 +119,12 @@ class UserAction
 
     }
 
+    /**
+     * @param $userId Integer
+     * @param $previousPassword String
+     * @param $newPassword String
+     * @return bool|int success or error code
+     */
     public static function changePassword($userId, $previousPassword, $newPassword)
     {
         $connection = Database::getInstance()->getConnection();

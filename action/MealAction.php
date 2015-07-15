@@ -22,7 +22,7 @@ class MealAction
     public static $FAVOR_DUPLICATE = -4;
     public static $CANCEL_FAVOR_FAIL = -1;
     public static $CANCEL_FAVOR_NOT_ORDER_MEAL = -2;
-    public static $CANCEL_FAVOR_NOT_FAVOR_BEFOR = -3;
+    public static $CANCEL_FAVOR_NOT_FAVOR_BEFORE = -3;
     public static $GET_TOP_MEALS_FAIL = -1;
 
     /**
@@ -98,7 +98,7 @@ class MealAction
     {
         $connection = Database::getInstance()->getConnection();
 
-        static $query = "select * from mealrecord where date = ?";
+        static $query = "select mealId, mealName from mealrecord natural join meal where date = ?";
         $result = $connection->prepare($query);
         $result->bind_param("s", $date);
         $execute = $result->execute();
@@ -179,7 +179,7 @@ class MealAction
         $result->bind_param("ss", $orderId, $mealId);
         $execute = $result->execute();
         if (!$execute)
-            return self::$CANCEL_FAVOR_NOT_FAVOR_BEFOR;
+            return self::$CANCEL_FAVOR_NOT_FAVOR_BEFORE;
         $result->close();
         return true;
     }

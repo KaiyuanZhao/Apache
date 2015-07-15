@@ -64,13 +64,13 @@
                     <form action=""  class="am-form" id="login_form">
                         <fieldset>
                             <div class="am-form-group">
-                                <label class="hint" for="doc-vld-name-1">用户名：</label>
-                                <input class="input" name="lusername" type="text" id="doc-vld-name-1" minlength="2" placeholder="请输入用户名" required/>
+                                <label class="hint" for="lusername">用户名：</label>
+                                <input class="input" name="lusername" type="text" id="lusername" minlength="2" placeholder="请输入用户名" required/>
                             </div>
 
                             <div class="am-form-group">
-                                <label class="hint" for="doc-vld-pwd">密码：</label>
-                                <input class="input" name="lpassword" type="text" id="doc-vld-pwd" minlength="2" placeholder="请输入密码" required/>
+                                <label class="hint" for="lpassword">密码：</label>
+                                <input class="input" name="lpassword" type="text" id="lpassword" minlength="2" placeholder="请输入密码" required/>
                             </div>
                         </fieldset>
                         <input type="button" onclick="login_submit()" value="Login"/>
@@ -85,19 +85,44 @@
                         <h4>Bonjour Chers Amis～</h4>
                         <form id="signup_form">
                        <div class="am-form-group">
-                            <label class="hint" for="doc-vld-email-2-1">请输入公司邮箱：</label>
-                            <input class="input" name="semail" type="email" pattern=[(baixing\.net)\b|(baixing\.com)\b] id="doc-vld-email-2-1" data-validation-message="这个邮箱貌似不属于百姓网或地球...请重新输入"placeholder="输入邮箱" required/>
+                            <label class="hint" for="semail">请输入公司邮箱:</label>
+                            <input class="input" name="semail" type="email" id="semail" data-validation-message="这个邮箱貌似不属于百姓网或地球...请重新输入"placeholder="输入邮箱" required/>
                         </div>
 
                         <div class="am-form-group">
-                            <label class="hint" for="doc-vld-name-2-1">请输入你的姓名：</label>
-                            <input class="input" name="susername" type="text" id="doc-vld-name-2-1" minlength="2"
+                            <label class="hint" for="susername">请输入你的姓名:</label>
+                            <input class="input" name="susername" type="text" id="susername" minlength="2"
                               pattern= [\u4e00-\u9fa5]  data-validation-message="请确保正确的中文字符及字符数"   placeholder="输入用户名（至少 2 个的中文字符）" required/>
                         </div>
 
+                            <div class="am-form-group">
+                                <label class="hint" for="slocation">请输入四位楼层房间编号（如:0206，1808):</label>
+                                <input class="input" name="slocation" type="text" id="slocation" minlength="2"
+                                       pattern= [\d{4}]  data-validation-message="请输入四位楼层房间编号（如:0206，1808)"   placeholder="输入用户名（至少 2 个的中文字符）" required/>
+                            </div>
+
+
+                            <div class="am-form-group">
+                                <label class="hint" name="spassword" for="spassword">请输入密码：</label>
+                                <input class="input" type="password" id="spassword" placeholder="以字母开头，长度在6~18之间，只能包含字符、数字和下划线"
+                                       pattern=^[a-zA-Z]\w{5,17}$ data-validation-message="这个密码不属于地球...请重新输入" required/>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="hint" for="spassword2">请确认密码：</label>
+                                <input class="input" type="password" id="spassword2" placeholder="请与上面输入的值一致"
+                                       data-equal-to="#spassword" data-validation-message="Ops...两次密码不一致，请重新输入" required/>
+                            </div>
+
+                            <div class="am-form-group">
+                                <label class="hint" for="savator" >选择头像(可选):</label>
+                                <input class="input" type="file" id="savator" data-validation-massage="Ops...文件大小不正确" />
+                            </div>
+
+
                         <div class="am-form-group">
-                            <label class="hint" for="doc-select-1">个人口味偏好</label>
-                            <select class="input" name="staste" id="doc-select-1" required>
+                            <label class="hint" for="staste">个人口味偏好</label>
+                            <select class="input" name="staste" id="staste" required>
                                 <option value=""></option>
                                 <option value="口味偏咸">口味偏咸</option>
                                 <option value="口味偏淡">口味偏淡</option>
@@ -106,17 +131,6 @@
                             <span class="am-form-caret"></span>
                         </div>
 
-                        <div class="am-form-group">
-                            <label class="hint" name="spassword" for="doc-vld-pwd-1">请输入密码：</label>
-                            <input class="input" type="password" id="doc-vld-pwd-1" placeholder="以字母开头，长度在6~18之间，只能包含字符、数字和下划线"
-                                   pattern=[^[a-zA-Z]\w{5,17}$] data-validation-message="这个密码不属于地球...请重新输入" required/>
-                        </div>
-
-                        <div class="am-form-group">
-                            <label class="hint" for="doc-vld-pwd-2">请确认密码：</label>
-                            <input class="input" type="password" id="doc-vld-pwd-2" placeholder="请与上面输入的值一致"
-                                   data-equal-to="#doc-vld-pwd-1" data-validation-message="Ops...两次密码不一致，请重新输入" required/>
-                        </div>
 
 
                         <input type="button" onclick="signup_submit()" value="SignUp"/>
@@ -228,12 +242,11 @@
 
 <script type="text/javascript">
     function login_submit(){
+        lusername=$("#lusername").val();
+        lpassword=$("#lpassword").val();
 
-        var username=document.getElementsByName("lusername")[0].value;
 
-        var password=document.getElementsByName("lpassword")[0].value;
-        //alert("!");
-        $.post("submit/dologin.php",{username:username,password:password},function(data,status){
+        $.post("ltest.php",{username:lusername,password:lpassword},function(data,status){
             alert("Data: " + data + "\nStatus: " + status);
 
            // if (data["success"]==false) alert(data["erroemessage"]);
@@ -241,15 +254,29 @@
     }
 
     function signup_submit(){
-        var semail=document.getElementsByName("semail")[0].value;
-        var susername=document.getElementsByName("susername")[0].value;
-        var staste=document.getElementsByName("staste")[0].value;
-        var spassword=document.getElementsByName("spassword")[0].value;
+        semail=$("#semail").val();
+        susername=$("#susername").val();
+        spassword=$("#spassword").val();
+        slocation=$("#slocation").val();
+        staste=$("#staste").val();
 
-        $.post("ltest.php",{email:semail,username:susername,taste:staste,password:spassword},function(data,status){
-            //alert("Data: " + data + "\nStatus: " + status);
-            if (data["success"]==false) alert("!");
-        });
+        /*$.post("stest.php",{email:semail,username:susername,taste:staste,password:spassword,location:slocation},function(data,status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });*/
+
+       /* var fd = new FormData($("#savator").val());
+        fd.append("CustomField", "This is some extra data");
+        $.ajax({
+            url: "ftest.php",
+            type: "POST",
+            data: fd,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false   // tell jQuery not to set contentType
+        });*/
+
+        $.ajaxFileUpload{
+            
+        }
     }
 
 
@@ -268,21 +295,7 @@
 
         <div class="clearfix"></div>
     </div>
-    <!--		<script type="text/javascript">
-                            $(document).ready(function() {
-                                /*
-                                var defaults = {
-                                      containerID: 'toTop', // fading element id
-                                    containerHoverID: 'toTopHover', // fading element hover id
-                                    scrollSpeed: 1200,
-                                    easingType: 'linear'
-                                 };
-                                */
 
-                                $().UItoTop({ easingType: 'easeOutQuart' });
-
-                            });
-                        </script>-->
 </div>
 <!-- Footer Ends Here ---->
 </body>

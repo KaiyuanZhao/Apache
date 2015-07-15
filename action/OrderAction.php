@@ -70,11 +70,11 @@ class OrderAction
         if (!$execute)
             return self::$GET_ORDERS_FAIL;
         $result->bind_result($userId, $orderId, $date, $createTime, $email, $password, $username, $nickname,
-            $department, $location, $description);
+            $department, $location, $description, $icon);
         $orders = [];
         while ($result->fetch())
             $orders[] = new Order($orderId, new User($userId, $email, $username, $nickname, $department,
-                $location, $description), $date, $createTime);
+                $location, $description, $icon), $date, $createTime);
         $result->close();
         return $orders;
     }

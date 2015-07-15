@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-07-14 04:49:04
+-- Generation Time: 2015-07-15 03:50:45
 -- 服务器版本： 5.6.17
 -- PHP Version: 5.5.12
 
@@ -11,14 +11,16 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT = @@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS = @@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION = @@COLLATION_CONNECTION */;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `apache`
 --
+CREATE DATABASE IF NOT EXISTS `apache` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `apache`;
 
 -- --------------------------------------------------------
 
@@ -26,15 +28,13 @@ SET time_zone = "+00:00";
 -- 表的结构 `meal`
 --
 
+DROP TABLE IF EXISTS `meal`;
 CREATE TABLE IF NOT EXISTS `meal` (
-  `mealId`   INT(11)     NOT NULL AUTO_INCREMENT,
-  `mealName` VARCHAR(40) NOT NULL,
+  `mealId` int(11) NOT NULL AUTO_INCREMENT,
+  `mealName` varchar(40) NOT NULL,
   PRIMARY KEY (`mealId`),
   UNIQUE KEY `mealName` (`mealName`)
-)
-  ENGINE = InnoDB
-  DEFAULT CHARSET = utf8
-  AUTO_INCREMENT = 1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 -- --------------------------------------------------------
 
@@ -42,14 +42,13 @@ CREATE TABLE IF NOT EXISTS `meal` (
 -- 表的结构 `mealfavor`
 --
 
+DROP TABLE IF EXISTS `mealfavor`;
 CREATE TABLE IF NOT EXISTS `mealfavor` (
-  `orderId` INT(11) NOT NULL,
-  `mealId`  INT(11) NOT NULL,
-  PRIMARY KEY (`orderId`, `mealId`),
+  `orderId` int(11) NOT NULL,
+  `mealId` int(11) NOT NULL,
+  PRIMARY KEY (`orderId`,`mealId`),
   KEY `foreign_favor_mealid` (`mealId`)
-)
-  ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -57,14 +56,13 @@ CREATE TABLE IF NOT EXISTS `mealfavor` (
 -- 表的结构 `mealrecord`
 --
 
+DROP TABLE IF EXISTS `mealrecord`;
 CREATE TABLE IF NOT EXISTS `mealrecord` (
-  `date`   DATE    NOT NULL,
-  `mealId` INT(11) NOT NULL,
-  PRIMARY KEY (`date`, `mealId`),
+  `date` date NOT NULL,
+  `mealId` int(11) NOT NULL,
+  PRIMARY KEY (`date`,`mealId`),
   KEY `foreignMealRecord` (`mealId`)
-)
-  ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -72,17 +70,15 @@ CREATE TABLE IF NOT EXISTS `mealrecord` (
 -- 表的结构 `order`
 --
 
+DROP TABLE IF EXISTS `order`;
 CREATE TABLE IF NOT EXISTS `order` (
-  `orderId`    INT(11)   NOT NULL AUTO_INCREMENT,
-  `userId`     INT(11)   NOT NULL,
-  `date`       DATE      NOT NULL,
-  `createTime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `orderId` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`orderId`),
   UNIQUE KEY `userId` (`userId`)
-)
-  ENGINE = InnoDB
-  DEFAULT CHARSET = utf8
-  AUTO_INCREMENT = 1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -90,21 +86,20 @@ CREATE TABLE IF NOT EXISTS `order` (
 -- 表的结构 `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `userId`      INT(11)     NOT NULL AUTO_INCREMENT,
-  `email`       VARCHAR(30) NOT NULL,
-  `password`    VARCHAR(20) NOT NULL,
-  `username`    VARCHAR(20) NOT NULL,
-  `nickname`    VARCHAR(20) NOT NULL,
-  `department`  VARCHAR(20) NOT NULL,
-  `location`    VARCHAR(10) NOT NULL,
-  `description` VARCHAR(140)         DEFAULT NULL,
+  `userId` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `nickname` varchar(20) NOT NULL,
+  `department` varchar(20) NOT NULL,
+  `location` varchar(10) NOT NULL,
+  `description` varchar(140) DEFAULT NULL,
+  `icon` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`userId`),
   UNIQUE KEY `email` (`email`)
-)
-  ENGINE = InnoDB
-  DEFAULT CHARSET = utf8
-  AUTO_INCREMENT = 11;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- 限制导出的表
@@ -114,29 +109,21 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- 限制表 `mealfavor`
 --
 ALTER TABLE `mealfavor`
-ADD CONSTRAINT `foreign_favor_mealid` FOREIGN KEY (`mealId`) REFERENCES `meal` (`mealId`)
-  ON DELETE CASCADE
-  ON UPDATE CASCADE,
-ADD CONSTRAINT `foreign_favor_orderid` FOREIGN KEY (`orderId`) REFERENCES `order` (`orderId`)
-  ON DELETE CASCADE
-  ON UPDATE CASCADE;
+  ADD CONSTRAINT `foreign_favor_mealid` FOREIGN KEY (`mealId`) REFERENCES `meal` (`mealId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `foreign_favor_orderid` FOREIGN KEY (`orderId`) REFERENCES `order` (`orderId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- 限制表 `mealrecord`
 --
 ALTER TABLE `mealrecord`
-ADD CONSTRAINT `foreignMealRecord` FOREIGN KEY (`mealId`) REFERENCES `meal` (`mealId`)
-  ON DELETE CASCADE
-  ON UPDATE CASCADE;
+  ADD CONSTRAINT `foreignMealRecord` FOREIGN KEY (`mealId`) REFERENCES `meal` (`mealId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- 限制表 `order`
 --
 ALTER TABLE `order`
-ADD CONSTRAINT `orderUser` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
-  ON DELETE CASCADE
-  ON UPDATE CASCADE;
+  ADD CONSTRAINT `orderUser` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-/*!40101 SET CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS = @OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION = @OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

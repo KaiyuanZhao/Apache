@@ -10,11 +10,27 @@
     require_once '../action/MealAction.php';
     require_once "../config.php";
     require_once "../provider/Database.php";
-    $getmealFlag=MealAction::getMeals();
-    if ($getmealFlag==-1){
-        echo "get meals failed";
+    require_once "../provider/testFormat.php";
+    require_once "../entity/response/Response.php";
+    session_start();
+    $result = testGetMeals();
+    $myjson = my_json_encode($result);
+    echo $myjson;
+
+    function testGetMeals()
+    {
+        $getmealFlag = MealAction::getMeals();
+        if ($getmealFlag == -1) {
+            $result = new Response(false,"get meals failed");
+            return $result;
+        } elseif (isset($getmealFlag)) {
+            $result = new Response(true);
+            return $result;
+        }
+
     }
-    elseif (isset($getmealFlag)){
-        echo "success";
-        var_dump($getmealFlag);
+
+    function my_json_encode($phparr)
+    {
+        return json_encode($phparr);
     }

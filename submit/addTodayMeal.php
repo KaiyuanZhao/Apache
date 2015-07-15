@@ -10,19 +10,35 @@
     require_once '../action/MealAction.php';
     require_once "../config.php";
     require_once "../provider/Database.php";
+    require_once "../provider/testFormat.php";
+    require_once "../entity/response/Response.php";
+    session_start();
+    $arr = $_POST;
+    $result = testAddMeal($arr);
+    $myjson = my_json_encode($result);
+    echo $myjson;
 
-    $addTodayMealFlag=MealAction::addTodayMeal($meadId=16);
-    var_dump($addTodayMealFlag);
-    if ($addTodayMealFlag===-1){
-        echo "add fail";
-    }
-    elseif ($addTodayMealFlag===-2){
-        echo "can't find the meal";
-    }
-    elseif ($addTodayMealFlag===-3){
-        echo "the food had been added";
-    }
-    elseif ($addTodayMealFlag===true){
-        echo "add success!";
+    function testAddTodayMeal($arr)
+    {
+        $mealId=$arr["meadId"];
+        $addTodayMealFlag = MealAction::addTodayMeal($mealId);
+        //var_dump($addTodayMealFlag);
+        if ($addTodayMealFlag === -1) {
+            $result = new Response(false,"add fail");
+            return $result;
+        } elseif ($addTodayMealFlag === -2) {
+            $result = new Response(false,"can't find the meat");
+            return $result;
+        } elseif ($addTodayMealFlag === -3) {
+            $result = new Response(false,"the food had been added");
+            return $result;
+        } elseif ($addTodayMealFlag === true) {
+            $result = new Response(true);
+            return $result;
+        }
     }
 
+    function my_json_encode($phparr)
+    {
+        return json_encode($phparr);
+    }

@@ -262,55 +262,6 @@
 
 <!--- Part 2 Ends Here --->
 
-<<<<<<< HEAD
-<!--- Submit Scripts Start Here--->
-
-<script type="text/javascript">
-    function login_submit(){
-        lusername=$("#lusername").val();
-        lpassword=$("#lpassword").val();
-
-        alert("!");
-        $.post("submit/dologin.php",{username:lusername,password:lpassword},function(data,status){
-            alert("Data: " + data + "\nStatus: " + status);
-
-           // if (data["success"]==false) alert(data["erroemessage"]);
-        });
-    }
-
-    function signup_submit(){
-        semail=$("#semail").val();
-        susername=$("#susername").val();
-        spassword=$("#spassword").val();
-        slocation=$("#slocation").val();
-        staste=$("#staste").val();
-
-        /*$.post("stest.php",{email:semail,username:susername,taste:staste,password:spassword,location:slocation},function(data,status){
-            alert("Data: " + data + "\nStatus: " + status);
-        });*/
-
-       /* var fd = new FormData($("#savator").val());
-        fd.append("CustomField", "This is some extra data");
-        $.ajax({
-            url: "ftest.php",
-            type: "POST",
-            data: fd,
-            processData: false,  // tell jQuery not to process the data
-            contentType: false   // tell jQuery not to set contentType
-        });*/
-
-        $.ajaxFileUpload{
-            
-        }
-    }
-
-
-</script>
-
-
-<!--- Submit Scripts End Here --->
-=======
->>>>>>> 909d6c4d2a7d362a0ab94f2b6dd8d46a6630ed3e
 
 <!-- Footer Starts Here ---->
 <div class="footer">

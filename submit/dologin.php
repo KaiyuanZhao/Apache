@@ -43,6 +43,7 @@ function testLogin($arr)
         return $result;
     }
 }
+
 function my_json_encode($phparr)
 {
     return json_encode($phparr);

@@ -14,23 +14,30 @@
     require_once "../entity/response/Response.php";
     session_start();
     $arr = $_POST;
-    $result = testAddMeal($arr);
+    $result = testCancelMeal($arr);
     $myjson = my_json_encode($result);
     echo $myjson;
 
     function testCancelMeal($arr)
     {
-        $meal = $arr["cancelMeal"];
-        $testformat = new testFormat();
-        var_dump($meal);
+        $userId = $_SESSION['user']->userId;
+        $mealId = $arr["mealId"];
+
+      //  var_dump($meal);
         if ($testformat->testMeal($meal)) {
             $flag = MealAction::addMeal($meal);
-            var_dump($flag);
+            //var_dump($flag);
             if ($flag === -2) {
-                echo "the meal had been in the list";
+                $result = new Response(false,"the meal had been in the lisg");
+                return $result;
             } elseif ($flag == true) {
-                echo "success";
+                $result = new Response(true);
+                return $result;
             }
+        }
+        else{
+            $result = new Response(false,"wrong format");
+            return $result;
         }
     }
 

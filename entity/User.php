@@ -37,18 +37,23 @@ class User
      * @var String
      */
     private $description;
+    /**
+     * @var String
+     */
+    private $icon;
 
     /**
      * User constructor.
-     * @param $userId
-     * @param $email
-     * @param $username
-     * @param $nickname
-     * @param $department
-     * @param $location
-     * @param $description
+     * @param int $userId
+     * @param String $email
+     * @param String $username
+     * @param String $nickname
+     * @param String $department
+     * @param String $location
+     * @param String $description
+     * @param $icon
      */
-    public function __construct($userId, $email, $username, $nickname, $department, $location, $description)
+    public function __construct($userId, $email, $username, $nickname, $department, $location, $description, $icon)
     {
         $this->userId = $userId;
         $this->email = $email;
@@ -57,7 +62,9 @@ class User
         $this->department = $department;
         $this->location = $location;
         $this->description = $description;
+        $this->icon = $icon;
     }
+
 
     /**
      * is utilized for reading data from inaccessible members.

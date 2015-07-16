@@ -1,6 +1,19 @@
 /**
  * Created by EdwardChor on 7/15/15.
  */
+function User(){
+    window.location.href("./index.php")
+}
+
+function Profile(){
+    window.location.href("./profile.php")
+}
+
+function Logout(){
+    $.post("submit/logout.php",{},function(data,status){});
+    location.reload(true);
+}
+
 function login_submit() {
     lemail = $("#lemail").val();
     lpassword = $("#lpassword").val();
@@ -13,10 +26,6 @@ function login_submit() {
     });
 }
 
-function Logout(){
-    $.post("./logout.php",{},function(data,status){});
-    location.reload(true);
-}
 function signup_submit() {
     semail = $("#semail").val();
     susername = $("#susername").val();

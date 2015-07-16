@@ -3,11 +3,11 @@
     if(isset($_SESSION["user"])){
         $id=$_SESSION["user"]->email;
         if($id=="1234@baixing.com") {
-            $url = "./superuser.html";
+            $url = "./superuser.php";
             header("location:{$url}");
         }
         else{
-            $url="./ordinaryuser.html";
+            $url="./ordinaryuser.php";
             header("location: {$url}");
         }
     }
@@ -165,8 +165,8 @@
                 <div class="box_content_center">
                     <div class="menu_box_list">
                         <ul>
-                            <li><a href="#" onclick="profile_jump()" class="scroll">订餐页面</a></li>
-                            <li><a href="#" class="scroll">修改资料</a></li>
+                            <li><a href="#" onclick="User()" class="scroll">订餐页面</a></li>
+                            <li><a href="#" onclick="Profile()" class="scroll">修改资料</a></li>
                         </ul>
                     </div>
                     <a class="boxclose" id="boxclose"><img src="images/close.png" alt=""/></a>

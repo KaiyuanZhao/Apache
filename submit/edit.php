@@ -30,8 +30,6 @@
         if (($arr["location"] != null) and ($arr["location"] != '')) {
             $location = $arr["location"];
         }
-        if (($arr["location"] != null) and ($arr["location"] != '')) {
-        }
 
         $fname = $_FILES['savator']["name"];
         $cache_path = "icon/";
@@ -81,7 +79,7 @@
                 $result = new Response(false, "没有任何改变！");
                 return $result;
             } elseif (isset($user)) {
-                //$_SESSION['user'] = $user;
+                $_SESSION['user'] = $user;
                 $result = new Response(true);
                 return $result;
             }

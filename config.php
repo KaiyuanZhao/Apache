@@ -24,4 +24,3 @@ define("PASSWORD", "baixing");
  */
 define("DATABASE", "apache");
 
-?>

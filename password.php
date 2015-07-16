@@ -1,12 +1,16 @@
-<?php
-   require_once "entity/User.php";
+<?php /**
+ * Created by PhpStorm.
+ * User: EdwardChor
+ * Date: 7/16/15
+ * Time: 3:46 PM
+ */
+header("Content-Type: text/html;charset=utf-8");
+require_once "entity/User.php";
 session_start();
-$user=$_SESSION["user"];
-if(!isset($_SESSION["user"])){
+if (!isset($_SESSION["user"])) {
     header("location: ./index.php");
-}
-else{
-    $username=$_SESSION["user"]->username;
+} else {
+    $user = $_SESSION["user"];
 }
 ?>
 
@@ -14,11 +18,11 @@ else{
 <html>
 <head>
     <title>Après-midi</title>
-    <meta charset=UTF-8 />
+    <meta charset=UTF-8/>
     <script src="js/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="amazeui/css/amazeui.flat.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet"/>
     <script src="amazeui/js/amazeui.js" rel="stylesheet" type="text/javascript"></script>
     <script src="js/jquery.ajaxfileupload.js" rel="stylesheet" type="text/javascript"></script>
     <script src="js/actionjs.js" rel="stylesheet" type="text/javascript"></script>
@@ -34,21 +38,21 @@ else{
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="application/x-javascript"> addEventListener("load", function () {
-        setTimeout(hideURLbar, 0);
-    }, false);
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    } </script>
+            setTimeout(hideURLbar, 0);
+        }, false);
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        } </script>
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
-<!--    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            $(".scroll").click(function (event) {
-                event.preventDefault();
-                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+    <!--    <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+                });
             });
-        });
-    </script>-->
+        </script>-->
     <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
     <script type="text/javascript" id="sourcecode">
         $(function () {
@@ -65,7 +69,9 @@ else{
         <div class="menu">
             <ul class="menu-top">
                 <li><img src="" id="bar_useravator"></li>
-                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->username;?></a></li>
+                <li><a class="play-icon popup-with-zoom-anim"
+                       id="bar_username"><?php $username = $_SESSION["user"]->username;
+                        echo $username; ?></a></li>
 
             </ul>
             <!---pop-up-box---->
@@ -84,17 +90,16 @@ else{
                             <li><a href="#" onclick="Logout()" class="scroll">退出登录</a></li>
                             <li><a href="./ordinaryuser.php" class="scroll">
                                     <?php
-                                    if($_SESSION["user"]->email=="1234@baixing.com"){
+                                    if ($_SESSION["user"]->email == "1234@baixing.com") {
                                         echo "管理页面";
-                                    }
-                                    else{
+                                    } else {
                                         echo "订餐页面";
                                     }
                                     ?>
 
                                 </a></li>
-                            <li><a href="#" onclick="Profile()" class="scroll">修改资料</a></li>
-                            <li><a href="./password.php" class="scroll">修改密码</a></li>
+                            <li><a href="./profile.php" onclick="Profile()" class="scroll">修改资料</a></li>
+                            <li><a href="#" class="scroll">修改密码</a></li>
 
                         </ul>
                     </div>
@@ -112,7 +117,7 @@ else{
 
                 <div class="menu">
                     <h3 class="greetings">
-                        修改资料:(不需修改则留空)
+                        修改密码:
                     </h3>
 
 
@@ -121,39 +126,25 @@ else{
                             <form id="signup_form">
 
                                 <div class="am-form-group">
-                                    <label class="hint" for="savator" >修改头像:</label>
-                                    <input class="input" name="savator" type="file"  id="savator" data-validation-massage="Ops...文件大小或格式不正确" />
-                                </div>
-
-                                <div class="am-form-group">
-                                    <label class="hint" for="slocation">修改楼层编号:</label>
-                                    <input class="input" name="slocation" type="text" id="slocation" minlength="2" value="<?php echo $user->location;?>"
-                                           pattern= ^[\d{4}]$  data-validation-message="请输入四位楼层房间编号（如:0206，1808)"   placeholder="四位楼层房间编号（如:0206，1808)" required/>
-                                </div>
-
-                                <div class="am-form-group">
-                                    <label class="hint" name="spassword" for="spassword">修改密码－输入新密码:</label>
-                                    <input class="input" type="password"  id="spassword" placeholder="长度在6~18之间，只能包含字符、数字和下划线"
+                                    <label class="hint" name="spassword" for="spassword0">请输入旧密码:</label>
+                                    <input class="input" type="password" id="spassword0"
+                                           placeholder="长度在6~18之间，只能包含字符、数字和下划线"
                                            pattern=^\w{6,18}$ data-validation-message="这个密码不属于地球...请重新输入" required/>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label class="hint" for="spassword2">修改密码－确认新密码:</label>
-                                    <input class="input" type="password" id="spassword2" placeholder="请与上面输入的值一致"
-                                           data-equal-to="#spassword" data-validation-message="Ops...两次密码不一致，请重新输入" required/>
+                                    <label class="hint" name="spassword" for="spassword">请输入新密码:</label>
+                                    <input class="input" type="password" id="spassword"
+                                           placeholder="长度在6~18之间，只能包含字符、数字和下划线"
+                                           pattern=^\w{6,18}$ data-validation-message="这个密码不属于地球...请重新输入" required/>
                                 </div>
 
-<!--
                                 <div class="am-form-group">
-                                    <label class="hint" for="staste">修改口味偏好</label>
-                                    <select class="input" name="staste" id="staste" required>
-                                        <option value=""></option>
-                                        <option value="口味偏咸">口味偏咸</option>
-                                        <option value="口味偏淡">口味偏淡</option>
-                                        <option value="口味偏甜">口味偏甜</option>
-                                    </select>
-                                    <span class="am-form-caret"></span>
-                                </div>-->
+                                    <label class="hint" for="spassword2">请确认新密码:</label>
+                                    <input class="input" type="password" id="spassword2" placeholder="请与上面输入的值一致"
+                                           data-equal-to="#spassword" data-validation-message="Ops...两次密码不一致，请重新输入"
+                                           required/>
+                                </div>
                             </form>
                         </fieldset>
                     </div>
@@ -167,16 +158,12 @@ else{
             </div>
 
 
-
-
             <div class="box3">
 
 
-
-                <input class="newprofile-button"  onclick="Subnewprofile()" type="button" value="提交资料">
+                <input class="newprofile-button" onclick="Subnewpassword()" type="button" value="提交修改">
 
             </div>
-
 
 
             <div class="box4">
@@ -217,13 +204,13 @@ else{
 <script src="assets/js/script.js"></script>
 <script type="text/javascript">
 
-    $(function() {
+    $(function () {
         $('#doc-vld-msg').validator({
-            onValid: function(validity) {
+            onValid: function (validity) {
                 $(validity.field).closest('.am-form-group').find('.am-alert').hide();
             },
 
-            onInValid: function(validity) {
+            onInValid: function (validity) {
                 var $field = $(validity.field);
                 var $group = $field.closest('.am-form-group');
                 var $alert = $group.find('.am-alert');
@@ -231,7 +218,7 @@ else{
 
                 if (!$alert.length) {
                     $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
-                            appendTo($group);
+                        appendTo($group);
                 }
 
                 $alert.html(msg).show();
@@ -255,7 +242,6 @@ else{
 
         $("")
     });
-
 
 
 </script>

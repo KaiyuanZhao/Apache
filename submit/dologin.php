@@ -33,11 +33,11 @@ function testLogin($arr)
             $result=new Response(true,"");
             return $result;
         } else {
-            $result=new Response(false,"wrong account/password");
+            $result=new Response(false,"错误的账号/密码");
             return $result;
         }
     } else {
-        $result=new Response(false,"wrong format");
+        $result=new Response(false,"错误的格式，请按照相应格式输入");
         return $result;
     }
 }

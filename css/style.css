@@ -4,6 +4,17 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
+.like-button {
+    margin-top:70px;
+    color: #ffffff;
+    background: #463c3c;
+    padding: 5px 15px 5px 15px;
+    text-decoration: none;
+    border:0px;
+    position: absolute;
+    width: 20%;
+    right: 10%;
+}
 .newprofile-button {
     margin-top: 9.6%;
     margin-left: 4.53%;
@@ -148,11 +159,9 @@ margin-top:12%;
 #confirm-order{
     position: absolute;
     width: 20%;
-    left: 40%;
-    right: 40%;
+    left: 30%;
 }
 
-}
 .menu-area,.rank-area,.order-area {
     background:rgba(0,0,0,0.2);
     height:340px;

@@ -143,8 +143,10 @@ else{
             <div class="box3">
 
 
-
                 <input class="control-button"  onclick="Confirm(this)" id="confirm-order" value="" type="button" >
+
+
+                <input class="like-button" onclick="Favourite()" id="favourite" type="button" value="赞一个">
 
             </div>
 
@@ -236,13 +238,23 @@ else{
 
     $(document).ready(function(){
         $.post("submit/isOrdered.php",{},function(data,status){
-            alert(data+status);
             if(data.success){
                 $("#confirm-order").val("确认订餐");
             }
             else{
                 $("#confirm-order").val("取消订餐");
             }
+
+        },"json");
+
+        $.post("submit/isLiked.php",{},function(data,status){
+            if(data.success){
+                $("#favourite").val("点个赞");
+            }
+            else{
+                $("#favourite").val("取消赞");
+            }
+
 
         },"json");
 

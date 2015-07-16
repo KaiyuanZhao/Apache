@@ -7,14 +7,14 @@
  */
     header("Content-Type: text/html; charset=utf-8");
     require_once '../entity/User.php';
-    require_once '../action/OrderAction.php';
+    require_once '../action/MealAction.php';
     require_once "../config.php";
     require_once "../provider/Database.php";
     require_once "../provider/testFormat.php";
     require_once "../entity/response/Response.php";
     require_once "../util/TimeUtils.php";
     session_start();
-    $result = testIsOrder();
+    $result = testIsLiked();
     $myjson = my_json_encode($result);
     echo $myjson;
 

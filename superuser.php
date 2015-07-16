@@ -113,10 +113,12 @@ if(!isset($_SESSION["user"])){
                                         var tr1=$("<p></p>").text(data.orders[0].user.username);
                                         var tr2=$("<p></p>").text(data.orders[0].user.location);
                                         var tr3=$("<p></p>").text(data.orders[0].createdTime);
+                                        var tr4=$("<p></p>").text(data.orders.length);
 
                                         $("#user-anchor").append(tr1);
                                         $("#user-anchor").append(tr2);
                                         $("#user-anchor").append(tr3);
+                                        $("#user-anchor").append(tr4);
                                     }
                                     else{
                                         alert("error!");

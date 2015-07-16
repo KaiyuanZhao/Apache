@@ -205,16 +205,12 @@ function Castanswer() {
     alert("castin!");
     var todaymeal = $("#answer").val();
     alert(todaymeal);
-    $.post("submit/addMeal.php", {todaymeal: todaymeal}, function (data, status) {
-        if (data.success) {
-            alert("发布成功！");
-        }
-        else {
-            alert("发布失败！");
-        }
-    }, "json");
-}
 
+    $.post("submit/addMeal.php",{mealName:todaymeal},function(data,status){
+        alert(status);
+       alert(data);
+    },"json");
+}
 
 $(document).ready(function () {
     $('.popup-with-zoom-anim').magnificPopup({

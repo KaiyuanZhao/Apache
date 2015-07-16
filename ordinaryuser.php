@@ -106,6 +106,27 @@ else{
                         Bonjour,Chers Amis~
                     </h1>
 
+                    <p id="todayMeal-anchor"></p>
+
+                        <script>
+                        $(document).ready(function(){
+                            $.post("submit/getTodayMeals.php",{},function(data,status){
+                                if(data.success){
+                                    var colNum=3;
+                                    var rows=0;
+                                    var tr1=$("<p></p>").text(data.meals[0].mealName);
+                                    $("#todayMeal-anchor").append(tr1);
+                                }
+                                else{
+                                    alert("error!");
+                                }
+                            },"json");
+
+                        });
+
+
+                    </script>
+
                 </div>
 
             </div>

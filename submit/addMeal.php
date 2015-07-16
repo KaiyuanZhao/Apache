@@ -26,7 +26,7 @@
         //var_dump($meal);
         if ($testformat->testMeal($meal)) {
             $flag = MealAction::addMeal($meal);
-            var_dump($flag);
+           // var_dump($flag);
             if ($flag === MealAction::$ADD_MEAL_MEAL_NAME_DUPLICATE) {
                 $result = new Response(false, "the meal had been in the list");
                 return $result;
@@ -34,8 +34,8 @@
                 $result = new Response(false,"add meal fail");
                 return $result;
             } elseif (isset($flag)){
-                $result = testAddTodayMeal($flag->mealId);
-                var_dump($result);
+                $result = new Response(true);
+             //   var_dump($result);
                 return $result;
             }
         }

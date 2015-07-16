@@ -33,7 +33,8 @@
             return $result;
         }
         elseif (isset($getOrderFlag)){
-            $result = new ordersRes("true","",$getOrderFlag);
+            $amount = sizeof($getOrderFlag);
+            $result = new ordersRes("true","",$getOrderFlag,$amount);
            // var_dump($result);
             return $result;
         }

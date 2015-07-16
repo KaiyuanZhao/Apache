@@ -5,33 +5,45 @@
  value "popup.html".
  -->
 <html>
-  <head>
-    <title>Getting Started Extension's Popup</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-    </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
-    <script src="popup.js"></script>
-  </head>
-  <body>
-    <div id="status"></div>
-    <img id="image-result" hidden>
-  </body>
+<head>
+    <title>欢迎光临订餐系统</title>
+    <link rel="stylesheet" href="css/popup.css"/>
+    <link rel="stylesheet" href="css/foundation.css"/>
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
+</head>
+<body>
+<div class="row">
+    <h1 id="status">百姓网订餐系统</h1>
+</div>
+<div class="row">
+    <div class="large-6 columns">
+        <label>用户名*：
+            <input type="text" name="username" id="username" required>
+        </label>
+        <small class="error" id="error"></small>
+    </div>
+</div>
+<div class="row">
+    <div class="large-6 columns">
+        <label>密码*：
+            <input type="password" name="password" id="password" required>
+        </label>
+    </div>
+</div>
+<div class="row">
+    <div class="small-6 columns middle">
+        <a href="#" class="button round" id="register">注册</a>
+    </div>
+    <div class="small-6 columns middle">
+        <a href="#" class="button round" id="login">登陆</a>
+    </div>
+</div>
+<script src="js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+</body>
 </html>
 

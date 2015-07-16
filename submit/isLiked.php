@@ -20,17 +20,20 @@
 
     function testIsLiked(){
         $userId=$_SESSION['user']->userId;
-        $flag = MealAction::isLiked($userId);
-        if ($flag === OrderAction::$IS_LIKED_FAIL){
+        $flag = MealAction::isFavored($userId);
+        if ($flag === MealAction::$IS_FAVORED_FAIL){
             $result = new Response(false,"点赞失败！");
             return $result;
         }
-        elseif ($flag===true){
-            $result = new Response(false, "不能重复点赞！");
+        elseif ($flag === MealAction::$IS_FAVORED_NOT_ORDER_MEAL){
+            $result = new Response(false, "你还没有吃！");
+        }
+        elseif ($flag === false){
+            $result = new Response(true,"");
             return $result;
         }
-        elseif ($flag===false){
-            $result = new Response(true,"");
+        elseif (isset($flag)){
+            $result = new Response(false,"你已经点过赞了!");
             return $result;
         }
     }

@@ -6,12 +6,11 @@
  * Time: 上午12:39
  */
     header("Content-Type: text/html; charset=utf-8");
-    date_default_timezone_set("PRC");
     require_once '../entity/Meal.php';
     require_once '../action/MealAction.php';
     require_once "../config.php";
     require_once "../provider/Database.php";
-    require_once "../Util/TimeUtils.php";
+    require_once "../util/TimeUtils.php";
     require_once "../entity/User.php";
     require_once "../provider/testFormat.php";
     require_once "../entity/response/Response.php";
@@ -24,7 +23,7 @@
 
     function testFavor($arr)
     {
-        $date=date('Y-m-d', time());
+        $date=TimeUtils::getCurrentDate();
         $userId = $_SESSION['user']->userId;
         $meal = MealAction::getTodayMeal($date);
         $favorite = MealAction::favor($userId, $meal->mealId);

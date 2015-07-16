@@ -20,13 +20,13 @@ function Logout() {
 
 function Favourite(){
     var obj = $("#favourite");
-    if (obj.val() == "确认订餐") {
+    if (obj.val() == "点个赞") {
         $.post("submit/favorite.php", {}, function (data, status) {
             if (!data.success) {
                 alert("出现错误，点赞失败！");
             }
             else {
-                alert("订餐成功！");
+                alert("点赞成功!");
                 obj.val("取消赞");
             }
 

@@ -5,7 +5,7 @@ function login_submit() {
     lemail = $("#lemail").val();
     lpassword = $("#lpassword").val();
     //alert("!");
-    $.post("submit/dologin.php", {username: lemail, password: lpassword}, function (data, status) {
+    $.post("submit/doLogin.php", {username: lemail, password: lpassword}, function (data, status) {
         alert("Data: " + data + "\nStatus: " + status);
     });
 }
@@ -78,7 +78,7 @@ function Confirm(field) {
     alert("confirm in!");
     with(field) {
         if (this.value == "订餐") {
-            $.post("submit/order_submit.php", {}, function (data, status) {
+            $.post("submit/orderSubmit.php", {}, function (data, status) {
                 if (!data.success) {
                     alert("出现错误，订餐失败！");
                 }
@@ -90,7 +90,7 @@ function Confirm(field) {
             });
         }
         else {
-            $.post("submit/order_cancel.php", {}, function (data, status) {
+            $.post("submit/orderCancel.php", {}, function (data, status) {
                 if (!data.success) {
                     alert("出现错误，取消失败！");
                 }

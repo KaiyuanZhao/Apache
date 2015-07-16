@@ -4,8 +4,8 @@
 function login_submit() {
     lemail = $("#lemail").val();
     lpassword = $("#lpassword").val();
-
-    $.post("submit/submit.php", {username: lemail, password: lpassword}, function (data, status) {
+    //alert("!");
+    $.post("submit/dologin.php", {username: lemail, password: lpassword}, function (data, status) {
         alert("Data: " + data + "\nStatus: " + status);
     });
 }
@@ -21,7 +21,7 @@ function signup_submit() {
     $.ajaxFileUpload
     (
         {
-            url: 'upload.php', //用于文件上传的服务器端请求地址
+            url: 'submit/submit.php', //用于文件上传的服务器端请求地址
             secureuri: false, //是否需要安全协议，一般设置为false
             fileElementId: 'savator', //文件上传域的ID
             dataType: 'text', //返回值类型 一般设置为json
@@ -109,7 +109,7 @@ function Castanswer(){
     alert("castin!");
     var todaymeal=$("#answer").val();
     alert(todaymeal);
-    $.post("submit/",{todaymeal:todaymeal},function(data,status){
+    $.post("submit/addMeal.php",{todaymeal:todaymeal},function(data,status){
         if(data.success){
             alert("发布成功！");
         }

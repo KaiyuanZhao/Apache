@@ -28,9 +28,9 @@ function testLogin($arr)
     $testformat = new testFormat();
     if ($testformat->testLogin($email, $password)) {
         $user = $useraction->login($email, $password);
-        if ($user != -1) {
+        if (!($user === -1)) {
             $_SESSION['user'] = $user;
-            $result=new Response(true);
+            $result=new Response(true,"");
             return $result;
             // header("Location: ../index/userc.php");
         } else {

@@ -115,7 +115,7 @@ margin-top:12%;
 .lab{
     position:relative;
     top:90px;
-    background-image:url('/Apache/images/tbg.png');
+    background-image:url('../images/tbg.png');
     margin:auto;
     width:90%;
     height:570px;
@@ -124,7 +124,7 @@ margin-top:12%;
 
 }
 .header {
-    background-image:url('/Apache/images/thegma.jpg');
+    background-image:url('../images/omega.jpg');
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;

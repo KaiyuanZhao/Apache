@@ -69,10 +69,8 @@
                 <div class="box_content_center">
                     <div class="menu_box_list">
                         <ul>
-                            <li><a href="#profile" class="scroll">Profile</a></li>
-                            <li><a href="#home" class="scroll">Bon Appétit</a></li>
-                            <li class="active"><a href="#about" class="scroll">Salut!</a></li>
-                            <li><a href="#contact" class="scroll">Bon Soir</a></li>
+                            <li><a href="/index.html" onclick="profile_jump()" class="scroll">订餐页面</a></li>
+                            <li><a href="#" class="scroll">修改资料</a></li>
 
                         </ul>
                     </div>
@@ -83,138 +81,85 @@
 
         </div>
 
-<div class="lab">
+        <div class="lab">
 
 
-    <div class="box1">
+            <div class="box1">
 
-        <div class="menu">
-            <h1 class="greetings">
-                Bonjour,Chers Amis~
-            </h1>
+                <div class="menu">
+                    <h3 class="greetings">
+                        修改资料:(不需修改则留空)
+                    </h3>
 
-        </div>
 
-    </div>
-        <div class="box2">
+                    <div class="newprofile am-form" id="doc-vld-msg">
+                        <fieldset>
+                            <form id="signup_form">
 
-            <div class="rank">
-                <h1 class="ranktitle" >Like Rank</h1>
-                <div class="ranktable">
-                    <div class="rankrow">
-                        <p class="col1">
-                            Rank.1
-                        </p>
-                        <p class="col2">
-                            aaaa
-                        </p>
+                                <div class="am-form-group">
+                                    <label class="hint" for="savator" >修改头像:</label>
+                                    <input class="input" name="savator" type="file" id="savator" data-validation-massage="Ops...文件大小不正确" />
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="hint" for="slocation">修改楼层编号:</label>
+                                    <input class="input" name="slocation" type="text" id="slocation" minlength="2"
+                                           pattern= ^[\d{4}]$  data-validation-message="请输入四位楼层房间编号（如:0206，1808)"   placeholder="输入用户名（至少 2 个的中文字符）" required/>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="hint" name="spassword" for="spassword">修改密码－输入新密码:</label>
+                                    <input class="input" type="password" id="spassword" placeholder="长度在6~18之间，只能包含字符、数字和下划线"
+                                           pattern=^\w{6,18}$ data-validation-message="这个密码不属于地球...请重新输入" required/>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="hint" for="spassword2">修改密码－确认新密码:</label>
+                                    <input class="input" type="password" id="spassword2" placeholder="请与上面输入的值一致"
+                                           data-equal-to="#spassword" data-validation-message="Ops...两次密码不一致，请重新输入" required/>
+                                </div>
+
+<!--
+                                <div class="am-form-group">
+                                    <label class="hint" for="staste">修改口味偏好</label>
+                                    <select class="input" name="staste" id="staste" required>
+                                        <option value=""></option>
+                                        <option value="口味偏咸">口味偏咸</option>
+                                        <option value="口味偏淡">口味偏淡</option>
+                                        <option value="口味偏甜">口味偏甜</option>
+                                    </select>
+                                    <span class="am-form-caret"></span>
+                                </div>-->
+                            </form>
+                        </fieldset>
                     </div>
 
-                    <div class="rankrow">
-                        <p class="col1">
-                            Rank.2
-                        </p>
-                        <p class="col2">
-                            bbbb
-                        </p>
-                    </div>
                 </div>
+
             </div>
-
-
-        </div>
-
-
-
-
-    <div class="box3">
-
-
-
-        <input class="control-button"  onclick="Confirm()" id="confirm-order" type="button" value="订餐">
-
-    </div>
-
-
-
-    <div class="box4">
-        <div class="clock-area">
-            <div id="clock" class="dark">
-                <div class="display">
-                    <div class="weekdays"></div>
-                    <div class="ampm"></div>
-                    <div class="digits"></div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-
-
-
-
-
-
-    <!--
-
-
-
-                        <div class="menu">
-
-
-                                <h class="col-md-3 col-md-offset-9">
-                                    Bonjour,Chers Amis~
-                                </h>
-
-                            </div>
-
-
-                        <div class="rank">
-                            <table>
-                                <thead>
-                                点赞榜
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        Rank.1
-                                    </td>
-                                    <td>
-                                        aaaa
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        Rank.2
-                                    </td>
-                                    <td>
-                                        aaaa
-                                    </td>
-                                </tr>
-                                </tbody>
-
-                            </table>
-                        </div>
-
-
-
-
-                    <input class="control-button"  onclick="Confirm()" id="confirm-order" type="button" value="订餐">
-
-
-
+            <div class="box2">
 
 
             </div>
 
+
+
+
+            <div class="box3">
+
+
+
+                <input class="newprofile-button"  onclick="Subnewfile()" type="button" value="提交资料">
+
+            </div>
+
+
+
+            <div class="box4">
+
+            </div>
+
         </div>
- -->
-
-
 
 
     </div>
@@ -286,6 +231,8 @@
 
         $("")
     });
+
+
 
 </script>
 </body>

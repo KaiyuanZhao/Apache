@@ -62,21 +62,6 @@
             <!---//pop-up-box---->
 
             <div id="small-dialog" class="mfp-hide">
-                    <!--<form action=""  class="am-form" id="login_form">
-                        <fieldset>
-                            <div class="am-form-group">
-                                <label class="hint" for="lusername">用户名：</label>
-                                <input class="input" name="lusername" type="text" id="lusername" minlength="2" placeholder="请输入用户名" required/>
-                            </div>
-
-                            <div class="am-form-group">
-                                <label class="hint" for="lpassword">密码：</label>
-                                <input class="input" name="lpassword" type="text" id="lpassword" minlength="2" placeholder="请输入密码" required/>
-                            </div>
-                        </fieldset>
-                        <input type="button" onclick="login_submit()" value="Login"/>
-                    </form>-->
-
                     <div class="login am-form" id>
                         <h3>登陆</h3>
                         <fieldset>
@@ -89,7 +74,7 @@
 
                                 <div class="am-form-group">
                                     <label class="hint" for="lpassword">请输入密码：</label>
-                                    <input class="input" type="password" id="lpassword" placeholder="以字母开头，长度在6~18之间，只能包含字符、数字和下划线"
+                                    <input class="input" type="password" id="lpassword" placeholder="长度在6~18之间，只能包含字符、数字和下划线"
                                            pattern=^[a-zA-Z]\w{5,17}$ data-validation-message="这个密码不属于地球...请重新输入" required/>
                                 </div>
 
@@ -126,7 +111,7 @@
                             <div class="am-form-group">
                                 <label class="hint" name="spassword" for="spassword">请输入密码：</label>
                                 <input class="input" type="password" id="spassword" placeholder="以字母开头，长度在6~18之间，只能包含字符、数字和下划线"
-                                       pattern=^[a-zA-Z]\w{5,17}$ data-validation-message="这个密码不属于地球...请重新输入" required/>
+                                       pattern=^\w{6,18}$ data-validation-message="这个密码不属于地球...请重新输入" required/>
                             </div>
 
                             <div class="am-form-group">
@@ -165,9 +150,8 @@
                 <div class="box_content_center">
                     <div class="menu_box_list">
                         <ul>
-                            <li><a href="#home" class="scroll">Bon Appétit</a></li>
-                            <li class="active"><a href="#about" class="scroll">Salut!</a></li>
-                            <li><a href="#contact" class="scroll">Bon Soir</a></li>
+                            <li><a href="#" onclick="profile_jump()" class="scroll">订餐页面</a></li>
+                            <li><a href="#" class="scroll">修改资料</a></li>
                         </ul>
                     </div>
                     <a class="boxclose" id="boxclose"><img src="images/close.png" alt=""/></a>

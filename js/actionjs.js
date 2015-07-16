@@ -10,9 +10,65 @@ function Profile(){
 }
 
 function Logout(){
-    $.post("submit/logout.php",{},function(data,status){});
-    location.reload(true);
+    $.post("submit/logout.php",{},function(data,status){
+        if(status=="success"){
+            location.reload(true);
+        }
+    });
+
 }
+
+
+function Subnewpassword(){
+    soldpassword = $("#spassword").val();
+    snewpassword=$("#spassword0").val();
+    $.ajaxFileUpload
+    (
+        {
+            url: 'http://192.168.100.53/submit/newpassword.php', //用于文件上传的服务器端请求地址
+            secureuri: false, //是否需要安全协议，一般设置为false
+            fileElementId: 'savator', //文件上传域的ID
+            dataType: 'text', //返回值类型 一般设置为json
+            data: {
+                oldpassword:soldpassword,
+                newpassword:snewpassword},
+            success: function (data, status)  //服务器成功响应处理函数
+            {
+                location.reload();
+            },
+            error: function (data, status, e)//服务器响应失败处理函数
+            {
+                alert(e);
+                location.reload(true);
+            }
+        });
+
+
+}
+
+function Subnewprofile(){
+    slocation = $("#slocation").val();
+    $.ajaxFileUpload
+    (
+        {
+            url: 'http://192.168.100.53/submit/newprofile.php', //用于文件上传的服务器端请求地址
+            secureuri: false, //是否需要安全协议，一般设置为false
+            fileElementId: 'savator', //文件上传域的ID
+            dataType: 'text', //返回值类型 一般设置为json
+            data: {
+                location: slocation},
+            success: function (data, status)  //服务器成功响应处理函数
+            {
+                location.reload();
+            },
+            error: function (data, status, e)//服务器响应失败处理函数
+            {
+                alert(e);
+                location.reload(true);
+            }
+        });
+}
+
 
 function login_submit() {
     lemail = $("#lemail").val();
@@ -93,15 +149,16 @@ $(function() {
 
 function Confirm(field) {
     alert("confirm in!");
-    with(field) {
-        if (this.value == "订餐") {
+    var obj=$("#confirm-order");
+        alert(obj.val());
+        if (obj.val() == "确认订餐") {
             $.post("submit/orderSubmit.php", {}, function (data, status) {
                 if (!data.success) {
                     alert("出现错误，订餐失败！");
                 }
                 else {
                     alert("订餐成功！");
-                    this.value = "取消";
+                    obj.val("取消");
                 }
 
             },"json");
@@ -113,11 +170,10 @@ function Confirm(field) {
                 }
                 else {
                     alert("取消成功！");
-                    this.value = "订餐";
+                    obj.val("订餐");
                 }
             },"json")
         }
-    }
 }
 
 

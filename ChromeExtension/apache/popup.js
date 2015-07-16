@@ -12,6 +12,7 @@ $(document).ready(function (e) {
                 password: password
             },
             function (data, status) {
+                alert(data);
                 if (status == "success") {
                     if (!data.success)
                     {
@@ -21,6 +22,7 @@ $(document).ready(function (e) {
                     }
                     else
                     {
+                        alert(data.userId);
                         location.href = "order.html";
                     }
                 }

@@ -27,8 +27,7 @@ function login($arr)
         $user = UserAction::login($email, $password);
         if ($user instanceof User) {
             $_SESSION['user'] = $user;
-            $result = new Response(true, "");
-            return $result;
+            return new Response(true, "");
         } else {
             $result = new Response(false, "用户名密码不匹配");
             return $result;

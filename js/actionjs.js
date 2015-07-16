@@ -21,7 +21,7 @@ function signup_submit() {
     $.ajaxFileUpload
     (
         {
-            url: 'submit/submit.php', //用于文件上传的服务器端请求地址
+            url: 'http://192.168.100.53/submit/submit.php', //用于文件上传的服务器端请求地址
             secureuri: false, //是否需要安全协议，一般设置为false
             fileElementId: 'savator', //文件上传域的ID
             dataType: 'text', //返回值类型 一般设置为json

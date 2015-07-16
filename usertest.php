@@ -1,7 +1,7 @@
 <?php
 require_once "entity/User.php";
-$_SESSION["user"];
+session_start();
 if(isset($_SESSION["user"])){
-    echo "done!";
+    echo $_SESSION["user"]->email;
 }
 ?>

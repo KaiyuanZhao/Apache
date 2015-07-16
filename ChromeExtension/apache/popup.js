@@ -14,10 +14,14 @@ $(document).ready(function (e) {
             function (data, status) {
                 if (status == "success") {
                     if (!data.success)
-                        alert(data.errormessage);
+                    {
+                        var error = $("#error");
+                        error.text(data.errormessage);
+                        error.show();
+                    }
                     else
                     {
-                        location.href = "new.html";
+                        location.href = "order.html";
                     }
                 }
             },

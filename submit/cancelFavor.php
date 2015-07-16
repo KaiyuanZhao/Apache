@@ -17,7 +17,7 @@
     require_once "../entity/response/Response.php";
     session_start();
     $arr = $_POST;
-    $result = testFavor($arr);
+    $result = testCancelFavor($arr);
     $myjson = my_json_encode($result);
     echo $myjson;
 

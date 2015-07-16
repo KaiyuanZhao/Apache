@@ -257,7 +257,7 @@ class MealAction
     {
         $connection = Database::getInstance()->getConnection();
 
-        static $query = "select mealId, mealName, count(mealId) as count from mealfavor natural join meal group by mealId";
+        static $query = "select mealId, mealName, count(mealId) as count from mealfavor natural join meal group by mealId order by count desc limit 10";
         $result = $connection->prepare($query);
         $execute = $result->execute();
         if (!$execute)

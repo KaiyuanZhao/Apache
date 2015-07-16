@@ -21,6 +21,9 @@ $(document).ready(function (e) {
                     }
                     else
                     {
+                        alert(data.userId);
+                        alert(data.user);
+                        alert(data.email);
                         location.href = "order.html";
                     }
                 }

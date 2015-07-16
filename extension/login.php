@@ -17,6 +17,8 @@ $arr = $_POST;
 $result = login($arr);
 $returnResult = json_encode($result);
 echo $returnResult;
+$result = UserAction::login("zhaokaiyuan@baixing.net", "A123456");
+var_dump($result);
 
 function login($arr)
 {
@@ -27,7 +29,7 @@ function login($arr)
         $user = UserAction::login($email, $password);
         if ($user instanceof User) {
             $_SESSION['user'] = $user;
-            return new Response(true, "");
+            return json_encode($user);
         } else {
             $result = new Response(false, "用户名密码不匹配");
             return $result;

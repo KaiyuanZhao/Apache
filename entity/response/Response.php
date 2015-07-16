@@ -10,7 +10,6 @@ class Response
 {
     public $success;
     public $errormessage;
-
     function __construct($success, $errormessage = "")
     {
         $this->success = $success;

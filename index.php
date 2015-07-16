@@ -1,4 +1,28 @@
+<?php
+    session_start();
+    if(isset($_SESSION["user"])){
+        $id=$_SESSION["user"]->email;
+        if($id=="1234@baixing.com") {
+            $url = "./superuser.html";
+            echo "<script type='text/javascript'>";
+            echo "window.location.href='$url'";
+            echo "</script>";
+        }
+        else{
+            $url="./ordinaryuser.html";
+            echo "<script type='text/javascript'>";
+            echo "window.location.href='$url'";
+            echo "</script>";
 
+        }
+    }
+else{
+    $url = "./index.php";
+    echo "<script type='text/javascript'>";
+    echo "window.location.href='$url'";
+    echo "</script>";
+}
+?>
 
 <!DOCTYPE HTML>
 <html>

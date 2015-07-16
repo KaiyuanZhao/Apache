@@ -40,47 +40,48 @@
         $uniqStr = uniqid(strtotime("now") . "_" . mt_rand(100000, 999999) . "_");
         $suffix = strtolower(stristr($fname, "."));
         $fname_new = $cache_path . $uniqStr . $suffix;
- //     $upFilePath = "icon/".$_FILES['savator']['name'];
-        if (($suffix != ".png") and ($suffix != ".jpg") and ($suffix != ".jpeg") and ($suffix != ".gif")) {
-            $result = new Response(false, "wrong file type");
-            return $result;
-        }
-        $ok = move_uploaded_file($_FILES['savator']['tmp_name'], $fname_new);
-        //echo json_encode($upFilePath);
-        if ($ok === FALSE) {
-            //$flag="fail";
-            //echo json_encode($suffix);
-            $result = new Response(false, "upload fail");
-            return $result;
-        } else {
-            $icon = $fname_new;
-            //echo  $user->getEmail();
-            $testformat = new testFormat();
-            if (!$testformat->testReg($email, $psw, $username, $nickname, $department, $location, $description)) {
-                $checkFormat = false;
-                // echo "wrong format";
-                $result = new Response(false, "wrong format");
+        //     $upFilePath = "icon/".$_FILES['savator']['name'];
+        if (($suffix != '') and ($suffix != null)) {
+            if (($suffix != ".png") and ($suffix != ".jpg") and ($suffix != ".jpeg") and ($suffix != ".gif")) {
+                $result = new Response(false, "wrong file type");
                 return $result;
             }
+            $ok = move_uploaded_file($_FILES['savator']['tmp_name'], $fname_new);
+            //echo json_encode($upFilePath);
+            if ($ok === FALSE) {
+                //$flag="fail";
+                //echo json_encode($suffix);
+                $result = new Response(false, "upload fail");
+                return $result;
+            } else {
+                $icon = $fname_new;
+                //echo  $user->getEmail();
+                $testformat = new testFormat();
+                if (!$testformat->testReg($email, $psw, $username, $nickname, $department, $location, $description)) {
+                    $checkFormat = false;
+                    // echo "wrong format";
+                    $result = new Response(false, "格式错误，请按照一定的格式输入！");
+                    return $result;
+                }
 
 // echo  $username=$_POST["username"
 
-            if ($checkFormat) {
-                $user = UserAction::register($email, $psw, $username, $nickname, $department, $location, $description, $icon);
-                if ($user === UserAction::$REGISTER_FAIL) {
-                    $result = new Response(false, "register fail");
-                } elseif ($user === UserAction::$REGISTER_EMAIL_DUPLICATE) {
-                    $result = new Response(false, "email has been registerd");
-                    return $result;
-                } elseif (isset($user)) {
-                    $_SESSION['user'] = $user;
-                    $result = new Response(true);
-                    return $result;
+                if ($checkFormat) {
+                    $user = UserAction::register($email, $psw, $username, $nickname, $department, $location, $description, $icon);
+                    if ($user === UserAction::$REGISTER_FAIL) {
+                        $result = new Response(false, "注册失败！");
+                    } elseif ($user === UserAction::$REGISTER_EMAIL_DUPLICATE) {
+                        $result = new Response(false, "该邮箱已被注册！");
+                        return $result;
+                    } elseif (isset($user)) {
+                        $_SESSION['user'] = $user;
+                        $result = new Response(true);
+                        return $result;
+                    }
                 }
             }
         }
     }
-
     function my_json_encode($phparr)
     {
         return json_encode($phparr);

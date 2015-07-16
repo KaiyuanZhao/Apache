@@ -10,8 +10,6 @@ else{
 }
 ?>
 
-
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -43,14 +41,6 @@ else{
     } </script>
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
-<!--    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            $(".scroll").click(function (event) {
-                event.preventDefault();
-                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
-            });
-        });
-    </script>-->
     <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
     <script type="text/javascript" id="sourcecode">
         $(function () {
@@ -67,7 +57,7 @@ else{
         <div class="menu">
             <ul class="menu-top">
                 <li><img src="" id="bar_useravator"></li>
-                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->username;?></a></li>
+                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php /*echo $username=$_SESSION["user"]->username;*/?></a></li>
 
             </ul>
             <!---pop-up-box---->
@@ -101,20 +91,34 @@ else{
 
             <div class="box1">
 
-                <div class="menu">
-                    <h1 class="greetings">
+                <div class="today-menu">
+                    <div class="greetings">
                         Bonjour,Chers Amis~
-                    </h1>
+                    </div>
+                    <div id="today-slogan">
+                    <p class="slogan-area">
 
-                    <p id="todayMeal-anchor"></p>
+                        Of all the gin joints in all the towns in all the world，she walks into mine.  From Casablanca
+                    </p>
 
+
+                    </div>
+
+                    <div class="todaymeal-area">
+                    <p id="todayMeal-anchor">
+                    </p>
+                        <div id="today-meal">
+                             今天我们吃的是:咖喱牛肉烩饭~
+                        </div>
+                    </div>
                         <script>
                         $(document).ready(function(){
                             $.post("submit/getTodayMeals.php",{},function(data,status){
                                 if(data.success){
                                     var colNum=3;
                                     var rows=0;
-                                    var tr1=$("<p></p>").text(data.meals[0].mealName);
+                                    var tr1=$("<div></div>").text(data.meals[0].mealName);
+                                    tr1.id("today-meal");
                                     $("#todayMeal-anchor").append(tr1);
                                 }
                                 else{
@@ -135,10 +139,73 @@ else{
                 <div class="rank">
                     <h1 class="ranktitle" >Like Rank</h1>
                     <div class="ranktable">
+                        <div class="r0 r">
+                            <div class="col00 col0"></div>
+                            <div class="col01 col1"></div>
+                        </div>
+                        <div class="r1 r">
+                            <div class="col10 col0"></div>
+                            <div class="col11 col1"></div>
+                        </div>
+                        <div class="r2 r">
+                            <div class="col20 col0"></div>
+                            <div class="col21 col1"></div>
+                        </div>
+                        <div class="r3 r">
+                            <div class="col30 col0"></div>
+                            <div class="col31 col1"></div>
+                        </div>
+                        <div class="r4 r">
+                            <div class="col40 col0"></div>
+                            <div class="col41 col1"></div>
+                        </div>
+                        <div class="r5 r">
+                            <div class="col50 col0"></div>
+                            <div class="col51 col1"></div>
+                        </div>
+                        <div class="r6 r">
+                            <div class="col60 col0"></div>
+                            <div class="col61 col1"></div>
+                        </div>
+                        <div class="r7 r">
+                            <div class="col70 col0"></div>
+                            <div class="col71 col1"></div>
+                        </div>
+                        <div class="r8 r">
+                            <div class="col80 col0"></div>
+                            <div class="col81 col1"></div>
+                        </div>
+                        <div class="r9 r">
+                            <div class="col90 col0"></div>
+                            <div class="col91 col1"></div>
+                        </div>
 
-                        <p id="anchor"></p>
                         <script>
                             $(document).ready(function(){
+                                var r1=["a","b"];
+                                var r2=["a","b"];
+                                var r3=["a","b"];
+                                var r4=["a","b"];
+                                var r5=["a","b"];
+                                var r6=["a","b"];
+                                var r7=["a","b"];
+                                var r8=["a","b"];
+                                var r9=["a","b"];
+                                var r10=["a","b"];
+                                var arr=[r1,r2,r3,r4,r5,r6,r7,r8,r9,r10];
+                                var length=arr.length;
+                                var obj;
+                                var count=0;
+                                arr.forEach(function(val){
+                                    var col0=$("<p></p>").innerHTML=val[0];
+                                    var col1=$("<p></p>").innerHTML=val[1];
+
+                                    $(".col"+count.toString()+"0").append(col0);
+                                    $(".col"+count.toString()+"1").append(col1);
+                                    count++;
+                                })
+                                });
+                               /*
                                 $.post("submit/getTopTen.php",{},function(data,status){
                                     if(data.success){
                                         var colNum=3;
@@ -149,42 +216,17 @@ else{
 
                                         $("#anchor").append(tr1);
                                         $("#anchor").append(tr2);
+
                                     }
                                     else{
                                         alert("error!");
                                     }
                                  },"json");
 
-                            });
+                            });*/
 
 
                         </script>
-                        <!--
-                        <div class="rankrow">
-
-
-                            <p class="col1">
-                                Rank.1
-                            </p>
-                            <p class="col2">
-
-                            </p>
-                            <p class="col3">
-
-                            </p>
-                        </div>
-
-                        <div class="rankrow">
-                            <p class="col1">
-                                Rank.2
-                            </p>
-                            <p class="col2">
-                            </p>
-
-                            <p class="col3">
-
-                            </p>
-                        </div>-->
                     </div>
 
                 </div>

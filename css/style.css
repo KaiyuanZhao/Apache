@@ -4,6 +4,191 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
+.ranktitle{
+    top:5.2%;
+    display: block;
+    position: absolute;
+    width: 90%;
+    left: 10%;
+    height: 20%;
+    font-family: fantasy;
+    text-align: left;
+    padding: 5%;
+    font-size: -webkit-xxx-large;
+}
+.rank{
+    width:100%;
+    height:100%;
+}
+.orders{
+    width:100%;
+    height:100%;
+}
+.or{
+    height: 10%;
+    width: 100%;
+}
+.oc1{
+    width: 33.3333333%;
+    height: 10%;
+    position: absolute;
+    text-align: center;
+    padding:1%;
+}
+.oc2{
+    width: 33.3333333%;
+    position: absolute;
+    height: 10%;
+    left: 30%;
+    text-align: center;
+    padding:1%;
+}
+.oc3{
+    width: 33.3333333%;
+    position: absolute;
+    height: 10%;
+    left: 60%;
+    text-align: center;
+    padding:1%;
+}
+.order-area{
+    overflow: scroll;
+    height: 76%;
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    top: 24%;
+}
+.col0 {
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    text-align: center;
+    padding:5px;
+}
+
+.col1{
+    position:absolute;
+    width:50%;
+    height:10%;
+    left:50%;
+    text-align: center;
+    padding:5px;
+}
+.r{
+    height:10%;
+    width:100%;
+}
+/*
+
+.col00{
+    background-color:red;
+}
+.col01{
+    background-color:green;
+}
+.col10{
+    background-color:green;
+}
+.col11 {
+    background-color: red;
+}
+.col20{
+    background-color:red;
+}
+.col21{
+    background-color:green;
+}
+.col30{
+    background-color:green;
+}
+.col31{
+    background-color:red;
+}
+.col40{
+    background-color:red;
+}
+.col41{
+    background-color:green;
+}
+.col50{
+    background-color:green;
+}
+.col51{
+    background-color:red;
+}
+.col60{
+    background-color:red;
+}
+.col61{
+    background-color:green;
+}
+.col70{
+    background-color:green;
+}
+.col71{
+    background-color:red;
+}
+.col80{
+    background-color:red;
+}
+.col81{
+    background-color:green;
+}
+.col90{
+    background-color:green;
+}
+.col91{
+    background-color:red;
+}
+*/
+
+
+
+#today-meal{
+
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    font-family: cursive;
+    font-size: large;
+    top: 20%;
+    padding-left: 10%;
+}
+.slogan-area{
+    padding: 12%;
+    font-family: fantasy;
+    line-height: 300%;
+}
+.greetings{
+    display: block;
+    position: absolute;
+    width: 90%;
+    left: 10%;
+    height: 20%;
+    font-family: fantasy;
+    text-align: left;
+    padding: 5%;
+    font-size: -webkit-xxx-large;
+}
+#today-slogan{
+    position: absolute;
+    height: 50%;
+    width: 90%;
+    top: 25%;
+    left: 10%;
+}
+.today-menu{
+    width:100%;
+    height:100%;
+}
+.todaymeal-area{
+    position: absolute;
+    width: 90%;
+    height: 20%;
+    top: 80%;
+    left: 10%;
+}
 .like-button {
     margin-top:70px;
     color: #ffffff;
@@ -48,24 +233,10 @@ margin-top:12%;
 }
 
 .ranktable {
-    table-layout:fixed;
-    wdith:100%;
-}
-.ranktitle{
-    width:auto;
-    text-align: center;
-
-}
-
-.col1{
-    position:absolute;
-    width:50%;
-}
-
-.col2 {
-    position:absolute;
-    left:50%;
-    width:50%;
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    top: 24%;
 }
 .rankrow {
     display:block;
@@ -73,12 +244,6 @@ margin-top:12%;
     text-align: center;
 }
 
-.greetings{
-    position:absolute;
-    width:60%;
-    left:10%;
-    right:30%;
-}
 #clock{
     right:20px;
     bottom:10px;
@@ -162,22 +327,6 @@ margin-top:12%;
     left: 30%;
 }
 
-.menu-area,.rank-area,.order-area {
-    background:rgba(0,0,0,0.2);
-    height:340px;
-    border:1px ;
-    border-radius:5px;
-}
-.clock-area{
-
-}
-.rank-area{
-
-}
-
-.menu-area{
-
-}
 
 h4, h5, h6,
 h1, h2, h3 {

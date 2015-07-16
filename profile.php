@@ -131,18 +131,6 @@ else{
                                            pattern= ^[\d{4}]$  data-validation-message="请输入四位楼层房间编号（如:0206，1808)"   placeholder="四位楼层房间编号（如:0206，1808)" required/>
                                 </div>
 
-
-<!--
-                                <div class="am-form-group">
-                                    <label class="hint" for="staste">修改口味偏好</label>
-                                    <select class="input" name="staste" id="staste" required>
-                                        <option value=""></option>
-                                        <option value="口味偏咸">口味偏咸</option>
-                                        <option value="口味偏淡">口味偏淡</option>
-                                        <option value="口味偏甜">口味偏甜</option>
-                                    </select>
-                                    <span class="am-form-caret"></span>
-                                </div>-->
                             </form>
                         </fieldset>
                     </div>

@@ -61,7 +61,7 @@ if(!isset($_SESSION["user"])){
         <div class="menu">
             <ul class="menu-top">
                 <li><img src="" id="bar_useravator"></li>
-                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->username;?></a></li>
+                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php /*echo $username=$_SESSION["user"]->username;*/?></a></li>
 
             </ul>
             <!---pop-up-box---->
@@ -96,14 +96,82 @@ if(!isset($_SESSION["user"])){
             <div class="box1">
 
                 <div class="orders">
-                    <h3 class="greetings">
-                        以下是所有已提交的订餐信息：
-                    </h3>
+                    <div class="greetings">
+                        All Oders
+                    </div>
 
-                    <table class="order-table">
-
-
-                        <p id="user-anchor"></p>
+                    <div class="order-area">
+                        <div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div>
+                        <div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div>
+                        <div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div><div class="or">
+                            <div class="oc1">a</div>
+                            <div class="oc2">b</div>
+                            <div class="oc3">c</div>
+                        </div>
                         <script>
                             $(document).ready(function(){
                                 $.post("submit/getOrders.php",{},function(data,status){
@@ -133,64 +201,105 @@ if(!isset($_SESSION["user"])){
 
 
 
-
-                    </table>
-
-
                 </div>
 
             </div>
+                </div>
             <div class="box2">
 
                 <div class="rank">
-                    <h1 class="ranktitle" >Like Rank</h1>
-
-
-                    <p id="anchor"></p>
-                    <script>
-                        $(document).ready(function(){
-                            $.post("submit/getTopTen.php",{},function(data,status){
-                                if(data.success){
-                                    var colNum=3;
-                                    var rows=0;
-                                    var tr1=$("<p></p>").text(data.meals[0].meal.mealName);
-                                    var tr2=$("<p></p>").text(data.meals[0].favorCount);
-
-
-                                    $("#anchor").append(tr1);
-                                    $("#anchor").append(tr2);
-                                }
-                                else{
-                                    alert("error!");
-                                }
-                            },"json");
-
-                        });
-
-
-                    </script>
-
-
-
-                    <!-- <div class="ranktable">
-                        <div class="rankrow">
-                            <p class="col1">
-                                Rank.1
-                            </p>
-                            <p class="col2">
-                                aaaa
-                            </p>
+                    <div class="ranktitle" >Like Rank</div>
+                    <div class="ranktable">
+                        <div class="r0 r">
+                            <div class="col00 col0"></div>
+                            <div class="col01 col1"></div>
+                        </div>
+                        <div class="r1 r">
+                            <div class="col10 col0"></div>
+                            <div class="col11 col1"></div>
+                        </div>
+                        <div class="r2 r">
+                            <div class="col20 col0"></div>
+                            <div class="col21 col1"></div>
+                        </div>
+                        <div class="r3 r">
+                            <div class="col30 col0"></div>
+                            <div class="col31 col1"></div>
+                        </div>
+                        <div class="r4 r">
+                            <div class="col40 col0"></div>
+                            <div class="col41 col1"></div>
+                        </div>
+                        <div class="r5 r">
+                            <div class="col50 col0"></div>
+                            <div class="col51 col1"></div>
+                        </div>
+                        <div class="r6 r">
+                            <div class="col60 col0"></div>
+                            <div class="col61 col1"></div>
+                        </div>
+                        <div class="r7 r">
+                            <div class="col70 col0"></div>
+                            <div class="col71 col1"></div>
+                        </div>
+                        <div class="r8 r">
+                            <div class="col80 col0"></div>
+                            <div class="col81 col1"></div>
+                        </div>
+                        <div class="r9 r">
+                            <div class="col90 col0"></div>
+                            <div class="col91 col1"></div>
                         </div>
 
-                        <div class="rankrow">
-                            <p class="col1">
-                                Rank.2
-                            </p>
-                            <p class="col2">
-                                bbbb
-                            </p>
-                        </div>
-                    </div>-->
+                        <script>
+                            $(document).ready(function(){
+                                var r1=["a","b"];
+                                var r2=["a","b"];
+                                var r3=["a","b"];
+                                var r4=["a","b"];
+                                var r5=["a","b"];
+                                var r6=["a","b"];
+                                var r7=["a","b"];
+                                var r8=["a","b"];
+                                var r9=["a","b"];
+                                var r10=["a","b"];
+                                var arr=[r1,r2,r3,r4,r5,r6,r7,r8,r9,r10];
+                                var length=arr.length;
+                                var obj;
+                                var count=0;
+                                arr.forEach(function(val){
+                                    var col0=$("<p></p>").innerHTML=val[0];
+                                    var col1=$("<p></p>").innerHTML=val[1];
+
+                                    $(".col"+count.toString()+"0").append(col0);
+                                    $(".col"+count.toString()+"1").append(col1);
+                                    count++;
+                                })
+                            });
+                            /*
+                             $.post("submit/getTopTen.php",{},function(data,status){
+                             if(data.success){
+                             var colNum=3;
+                             var rows=0;
+                             var tr1=$("<p></p>").text(data.meals[0].meal.mealName);
+                             var tr2=$("<p></p>").text(data.meals[0].favorCount);
+
+
+                             $("#anchor").append(tr1);
+                             $("#anchor").append(tr2);
+
+                             }
+                             else{
+                             alert("error!");
+                             }
+                             },"json");
+
+                             });*/
+
+
+                        </script>
+                    </div>
+
                 </div>
 
 

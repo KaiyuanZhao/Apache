@@ -5,8 +5,9 @@
     "Overtime meal allowance",
   "icons": {"16": "16.png", "48": "48.png", "128": "128.png"},
   "permissions": [
+    "tabs",
     "notifications",
-    "https://192.168.100.53/"
+    "http://192.168.100.53/"
   ],
   "browser_action": {
     "default_icon": "48.png",

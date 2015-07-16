@@ -4,13 +4,89 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
+
+.green{
+    background-color:green;
+    height:200px;
+}
+
+.red{
+    position:absolute;
+    background-color:red;
+    height:200px;
+}
+
+.yellow{
+    position:absolute;
+    background-color:yellow;
+    height:200px;
+}
+
+
+.lab{
+    position:relative;
+    top:90px;
+    background-image:url('/Apache/images/tbg.png');
+    margin:auto;
+    width:90%;
+    height:570px;
+    border:0px;
+    border-radius: 7px;
+
+}
+.header {
+    background-image:url('/Apache/images/beta.jpg');
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    -moz-background-size: cover;
+    padding: 1em 0;
+    min-height: 800px;
+}
+.part2{
+
+}
+.control-button{
+        margin-top:70px;
+        color: #ffffff;
+        background: #463c3c;
+        padding: 5px 15px 5px 15px;
+        text-decoration: none;
+        border:0px;
+}
+
+#confirm-order{
+
+}
+.menu-area,.rank-area,.order-area {
+    background:rgba(0,0,0,0.2);
+    height:340px;
+    border:1px ;
+    border-radius:5px;
+}
+.clock-area{
+
+}
+.rank-area{
+
+}
+
+.menu-area{
+
+}
+
 h4, h5, h6,
 h1, h2, h3 {
     margin-top: 0;
 }
-.part2{
-    background-image:url("/images/omega.jpg");
+
+#rank-table{
+    position:relative;
+    left:60px;
+
 }
+
 
 ul, ol {
     margin: 0;
@@ -29,16 +105,7 @@ html, body input[type="text"], body input[type="password"] {
 }
 
 /*--- Header Part Starts Here ---*/
-.header {
-    background: url(../images/thegma.jpg) no-repeat;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    -ms-background-size: cover;
-    -moz-background-size: cover;
-    padding: 1em 0;
-    min-height: 800px;
-}
+
 
 .hint {
     position: relative;
@@ -241,10 +308,6 @@ ul.menu-top li a:hover {
 
 /*---- About us Part Ends Here ---*/
 /*--- Interduce Part Starts Here ---*/
-.interduce {
-    background-image:url("/Apache/images/beta.jpg");
-    padding: 10em 0 0 0;
-}
 
 .inter-row-column {
     padding: 6em 0 0 0;

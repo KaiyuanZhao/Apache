@@ -4,6 +4,7 @@
     <title>Après-midi</title>
     <meta charset=UTF-8 />
     <script src="js/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="amazeui/css/amazeui.flat.css" rel="stylesheet" type="text/css">
     <script src="amazeui/js/amazeui.js" rel="stylesheet" type="text/javascript"></script>
     <script src="js/jquery.ajaxfileupload.js" rel="stylesheet" type="text/javascript"></script>
@@ -158,52 +159,6 @@
                     </fieldset>
                 </div>
             </div>
-
-
-            <script type="text/javascript">
-
-                $(function() {
-                    $('#doc-vld-msg').validator({
-                        onValid: function(validity) {
-                            $(validity.field).closest('.am-form-group').find('.am-alert').hide();
-                        },
-
-                        onInValid: function(validity) {
-                            var $field = $(validity.field);
-                            var $group = $field.closest('.am-form-group');
-                            var $alert = $group.find('.am-alert');
-                            var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
-
-                            if (!$alert.length) {
-                                $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
-                                        appendTo($group);
-                            }
-
-                            $alert.html(msg).show();
-                        }
-                    });
-                });
-
-                $(document).ready(function () {
-                    $('.popup-with-zoom-anim').magnificPopup({
-                        type: 'inline',
-                        fixedContentPos: false,
-                        fixedBgPos: true,
-                        overflowY: 'auto',
-                        closeBtnInside: true,
-                        preloader: false,
-                        midClick: true,
-                        removalDelay: 300,
-                        mainClass: 'my-mfp-zoom-in'
-                    });
-
-
-                    $("")
-                });
-
-            </script>
-
-
             <a href="#" class="right_bt" id="activator"><img src="images/nav.png" alt=""/></a>
 
             <div class="box" id="box">
@@ -219,29 +174,7 @@
                 </div>
             </div>
             <script type="text/javascript" src="js/easing.js"></script>
-            <script type="text/javascript">
-                var $ = jQuery.noConflict();
-                $(function () {
-                    $('#activator').click(function () {
-                        $('#box').animate({'top': '0px'}, 500);
-                    });
-                    $('#boxclose').click(function () {
-                        $('#box').animate({'top': '-700px'}, 500);
-                    });
-                });
-                $(document).ready(function () {
 
-                    //Hide (Collapse) the toggle containers on load
-                    $(".toggle_container").hide();
-
-                    //Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
-                    $(".trigger").click(function () {
-                        $(this).toggleClass("active").next().slideToggle("slow");
-                        return false; //Prevent the browser jump to the link anchor
-                    });
-
-                });
-            </script>
 
         </div>
         <div class="clearfix"></div>

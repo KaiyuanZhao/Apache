@@ -23,7 +23,7 @@
 
     function testFavor($arr)
     {
-        $date=;
+        $date=TimeUtils::getCurrentDate();
         $userId = $_SESSION['user']->userId;
         $meal = MealAction::getTodayMeal($date);
         $favorite = MealAction::favor($userId, $meal->mealId);

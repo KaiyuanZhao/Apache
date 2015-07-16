@@ -22,7 +22,7 @@
 
     function testGetTodayMeals()
     {
-        $date = date('Y-m-d', time());
+        $date =TimeUtils::getCurrentDate();
         $getTodayMealsFlag = MealAction::getTodayMeals($date);
         if ($getTodayMealsFlag === MealAction::$GET_MEALS_FAIL) {
             $result = new Response(false,"get today meals failed");

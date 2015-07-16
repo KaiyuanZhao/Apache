@@ -26,7 +26,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 .lab{
     position:relative;
     top:90px;
-    background-image:url('/Apache/images/tbg.png');
+    background-image:url('../images/tbg.png');
     margin:auto;
     width:90%;
     height:570px;
@@ -35,7 +35,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 }
 .header {
-    background-image:url('/Apache/images/beta.jpg');
+    background-image:url('../images/omega.jpg');
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;

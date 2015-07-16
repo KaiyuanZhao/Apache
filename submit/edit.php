@@ -61,13 +61,13 @@
                     $result = new Response(false, "没有任何改变！");
                     return $result;
                 } elseif (isset($user)) {
-                    //$_SESSION['user'] = $user;
+                    $_SESSION['user'] = $user;
                     $result = new Response(true);
                     return $result;
                 }
             }
         } else {
-            $icon = "";
+            $icon = $_SESSION['user']->icon;
             $user = UserAction::modify($userId, $username, $nickname, $department, $location, $description, $icon);
             if ($user === UserAction::$MODIFY_FAIL) {
                 $result = new Response(false, "更新数据失败！");

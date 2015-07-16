@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Bon Appétit</title>
+    <title>Après-midi</title>
     <meta charset=UTF-8 />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="amazeui/css/amazeui.flat.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet" />
     <script src="amazeui/js/amazeui.js" rel="stylesheet" type="text/javascript"></script>
     <script src="js/jquery.ajaxfileupload.js" rel="stylesheet" type="text/javascript"></script>
     <script src="js/actionjs.js" rel="stylesheet" type="text/javascript"></script>
     <script src="js/ajaxfileupload.js" rel="stylesheet" type="text/javascript"></script>
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
-    <link href="assets/css/style.css" rel="stylesheet" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
     <!-- Custom Theme files -->
@@ -29,14 +29,14 @@
     } </script>
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
-    <script type="text/javascript">
+<!--    <script type="text/javascript">
         jQuery(document).ready(function ($) {
             $(".scroll").click(function (event) {
                 event.preventDefault();
                 $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
             });
         });
-    </script>
+    </script>-->
     <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
     <script type="text/javascript" id="sourcecode">
         $(function () {
@@ -45,7 +45,6 @@
     </script>
 </head>
 <body>
-<!--- Header Starts Here --->
 <div class="header" style="background-image:url('images/alpha.jpg')">
     <div class="container">
         <div class="logo invisible">
@@ -70,11 +69,8 @@
                 <div class="box_content_center">
                     <div class="menu_box_list">
                         <ul>
-                            <li><a href="#profile" class="scroll">Profile</a></li>
-                            <li><a href="#home" class="scroll">Bon Appétit</a></li>
-                            <li class="active"><a href="#about" class="scroll">Salut!</a></li>
-                            <li><a href="#contact" class="scroll">Bon Soir</a></li>
-
+                            <li><a href="#" onclick="profile_jump()" class="scroll">订餐页面</a></li>
+                            <li><a href="#" class="scroll">修改资料</a></li>
                         </ul>
                     </div>
                     <a class="boxclose" id="boxclose"><img src="images/close.png" alt=""/></a>
@@ -83,116 +79,67 @@
             <script type="text/javascript" src="js/easing.js"></script>
 
         </div>
-        <div class="clearfix"></div>
-        <!--
-                <div class="header-bottom invisible">
-                    <p>Ready for your</p>
 
-                    <h1>Après Midi</h1>
+        <div class="lab">
+
+
+            <div class="box1">
+
+                <div class="orders">
+                    <h3 class="greetings">
+                        以下是所有已提交的订餐信息：
+                    </h3>
+
+                    <table class="order-table">
+
+
+                    </table>
+
+
                 </div>
-        -->
-
-        <div class="control-center container">
-            <div calss="row">
 
             </div>
+            <div class="box2">
 
-            <div class="row">
-
-            </div>
-
-
-            <div class="row">
-                <label class="control-hint col-xs-1" id="time-hint" type="text">0</label>
-                <label class="control-hint col-xs-1"  type="text">1</label>
-                <label class="control-hint col-xs-1"  type="text">2</label>
-                <label class="control-hint col-xs-1"  type="text">3</label>
-                <label class="control-hint col-xs-1"  type="text">4</label>
-                <label class="control-hint col-xs-1"  type="text">5</label>
-                <label class="control-hint col-xs-1"  type="text">6</label>
-                <label class="control-hint col-xs-1"  type="text">7</label>
-                <label class="control-hint col-xs-1"  type="text">8</label>
-                <label class="control-hint col-xs-1"  type="text">9</label>
-                <label class="control-hint col-xs-1"  type="text">10</label>
-                <label class="control-hint col-xs-1"  type="text">11</label>
-
-            </div>
-
-            <div class="row">
-
-                <div class="menu-area col-xs-3 col-xs-offset-2">
-                    <div class="menu container">
-                        <div class="row">
-                            <label class="control-hint col-xs-1"  >1</label>
-                            <label class="control-hint col-xs-1"  >2</label>
-                            <label class="control-hint col-xs-1"  >3</label>
-                            <label class="control-hint col-xs-1"  >4</label>
-                            <label class="control-hint col-xs-1"  >5</label>
-                            <label class="control-hint col-xs-1"  >6</label>
-                            <label class="control-hint col-xs-1"  >7</label>
-                            <label class="control-hint col-xs-1"  >8</label>
-                            <label class="control-hint col-xs-1"  >9</label>
-                            <label class="control-hint col-xs-1"  >10</label>
-                            <label class="control-hint col-xs-1"  >11</label>
-                            <label class="control-hint col-xs-1"  >12</label>
-
-                            <h class="col-md-3 col-md-offset-9">
-                                以下是目前的所有订单:
-                            </h>
-                            <table></table>
-
+                <div class="rank">
+                    <h1 class="ranktitle" >Like Rank</h1>
+                    <div class="ranktable">
+                        <div class="rankrow">
+                            <p class="col1">
+                                Rank.1
+                            </p>
+                            <p class="col2">
+                                aaaa
+                            </p>
                         </div>
 
-                        <div class="row">
-
-                        </div>
-
-                        <div class="row">
-
-
+                        <div class="rankrow">
+                            <p class="col1">
+                                Rank.2
+                            </p>
+                            <p class="col2">
+                                bbbb
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="rank-area col-md-2 col-md-offset-2" id="like-rank">
-                    <div calss="rank" id="rank-table">
-                        <table>
-                            <thead>
-                            点赞榜
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    Rank.1
-                                </td>
-                                <td>
-                                    宫保鸡丁
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <td>
-                                    Rank.2
-                                </td>
-                                <td>
-                                    左宗棠鸡
-                                </td>
-                            </tr>
-                            </tbody>
-
-                        </table>
-                    </div>
-
-                </div>
             </div>
-            <div class="row">
-
-                <input class="control-button col-xs-1 col-xs-offset-2"   id="confirm-order" type="button" value="订餐">
-                <input class="control-button col-xs-1 col-xs-offset-1"   id="cancle-order" type="button" value="取消">
 
 
 
-                <div id="clock-area" class="col-md-3 col-md-offset-2">
+
+            <div class="box3">
+                <input class="today-answer" id="answer" placeholder="今天吃的啥？" type="text" >
+                <input class="cast-button"  onclick="Castanswer()" type="button" value="发布">
+
+            </div>
+
+
+
+            <div class="box4">
+                <div class="clock-area">
                     <div id="clock" class="dark">
                         <div class="display">
                             <div class="weekdays"></div>
@@ -201,13 +148,12 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
-
     </div>
 </div>
-<!--- Header Ends Here --->
 
 <!--- Part 2 Starts Here --->
 
@@ -231,7 +177,7 @@
 
 </div>
 <!-- Footer Ends Here ---->
-</body>
+
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
 <script src="assets/js/script.js"></script>
@@ -276,5 +222,7 @@
         $("")
     });
 
+
 </script>
+</body>
 </html>

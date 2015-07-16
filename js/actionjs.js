@@ -47,6 +47,8 @@ function signup_submit() {
 
 
 
+
+
 $(function() {
     $('#doc-vld-msg').validator({
         onValid: function(validity) {
@@ -68,6 +70,59 @@ $(function() {
         }
     });
 });
+
+
+
+
+function Confirm(field) {
+    alert("confirm in!");
+    with(field) {
+        if (this.value == "订餐") {
+            $.post("submit/order_submit.php", {}, function (data, status) {
+                if (!data.success) {
+                    alert("出现错误，订餐失败！");
+                }
+                else {
+                    alert("订餐成功！");
+                    this.value = "取消";
+                }
+
+            });
+        }
+        else {
+            $.post("submit/order_cancel.php", {}, function (data, status) {
+                if (!data.success) {
+                    alert("出现错误，取消失败！");
+                }
+                else {
+                    alert("取消成功！");
+                    this.value = "订餐";
+                }
+            })
+        }
+    }
+}
+
+
+
+function Castanswer(){
+    alert("castin!");
+    var todaymeal=$("#answer").val();
+    alert(todaymeal);
+    $.post("submit/",{todaymeal:todaymeal},function(data,status){
+        if(data.success){
+            alert("发布成功！");
+        }
+        else{
+            alert("发布失败！");
+        }
+    })
+}
+
+
+function Subnewprofile(){
+    alert("in!");
+}
 
 $(document).ready(function () {
     $('.popup-with-zoom-anim').magnificPopup({

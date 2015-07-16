@@ -195,6 +195,28 @@ function Castanswer(){
 
 function Subnewprofile(){
     alert("in!");
+    slocation=$("#slocation").val();
+
+    $.ajaxFileUpload
+    (
+        {
+            url: 'submit/edit.php', //用于文件上传的服务器端请求地址
+            secureuri: false, //是否需要安全协议，一般设置为false
+            fileElementId: 'savator', //文件上传域的ID
+            dataType: 'text', //返回值类型 一般设置为json
+            data: {
+                location: slocation},
+            success: function (data, status)  //服务器成功响应处理函数
+            {
+                window.locatoin.href("./ordinaryuser.php");
+            },
+            error: function (data, status, e)//服务器响应失败处理函数
+            {
+                alert(data.errormessage);
+                location.reload();
+            }
+        }
+    );
 }
 
 $(document).ready(function () {

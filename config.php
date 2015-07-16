@@ -22,5 +22,5 @@ define("PASSWORD", "baixing");
 /**
  * mysql database name
  */
-define("DATABASE", "Apache");
+define("DATABASE", "apache");
 ?>

@@ -1,4 +1,5 @@
 <?php
+require "entity/User.php";
 session_start();
 if(!isset($_SESSION["user"])){
     header("location: ./index.php");
@@ -66,7 +67,7 @@ else{
         <div class="menu">
             <ul class="menu-top">
                 <li><img src="" id="bar_useravator"></li>
-                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $_SESSION["user"]->username;?></a></li>
+                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->username;?></a></li>
 
             </ul>
             <!---pop-up-box---->
@@ -85,6 +86,7 @@ else{
                             <li><a href="#" onclick="Logout()" class="scroll">退出登录</a></li>
                             <li><a href="#" class="scroll">订餐页面</a></li>
                             <li><a href="./profile.php" onclick="Profile()" class="scroll">修改资料</a></li>
+                            <li><a href="./password.php" class="scroll">修改密码</a></li>
                         </ul>
                     </div>
                     <a class="boxclose" id="boxclose"><img src="images/close.png" alt=""/></a>
@@ -142,7 +144,7 @@ else{
 
 
 
-                <input class="control-button"  onclick="Confirm(this)" id="confirm-order" type="button" value="订餐">
+                <input class="control-button"  onclick="Confirm(this)" id="confirm-order" value="" type="button" >
 
             </div>
 
@@ -232,6 +234,20 @@ else{
         $("")
     });
 
+    $(document).ready(function(){
+        $.post("submit/isOrdered.php",{},function(data,status){
+            alert(data+status);
+            if(data.success){
+                $("#confirm-order").val("确认订餐");
+            }
+            else{
+                $("#confirm-order").val("取消订餐");
+            }
+
+        },"json");
+
+
+    });
 
 
 </script>

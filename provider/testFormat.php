@@ -12,6 +12,7 @@ class testFormat {
 
     public  function testReg( $email, $password,$username, $nickname, $department, $location, $description)
     {
+       $this->flag=true;
        $this->testEmail($email);
        $this->testPassword($password);
        $this->testUsername($username);
@@ -48,29 +49,29 @@ class testFormat {
     }
 
     public function testUsername($username){
-        if(!(preg_match_all("/^([\x81-\xfe][\x40-\xfe])+$/",$username)))
-            $this->flag=false;
-        if ((strlen($username)<4) or (strlen($username)>12))
+        //if(!(preg_match_all("/^([\x81-\xfe][\x40-\xfe])+$/",$username)))
+        //    $this->flag=false;
+        if ((strlen($username)<2) or (strlen($username)>20))
             $this->flag=false;
     }
 
     public function testNickname($nickname){
         if (empty($nickname))
-            $this->flag=false;
+     ;//       $this->flag=false;
     }
 
     public function testDepartment($depart){
         if(!(preg_match_all("/^([\x81-\xfe][\x40-\xfe])+$/",$depart)))
-            $this->flag=false;
+            ;//$this->flag=false;
         if ((strlen($depart)<4) or (strlen($depart)>20))
-            $this->flag=false;
+           ;// $this->flag=false;
     }
 
     public function testLocation($location){
         if (!(is_numeric($location)))
-            $this->flag=false;
+           ;// $this->flag=false;
         if (strlen($location)!=4)
-            $this->flag=false;
+          ;//  $this->flag=false;
     }
 
     public function testMeal($email){

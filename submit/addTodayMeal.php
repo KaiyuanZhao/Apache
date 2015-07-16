@@ -24,13 +24,13 @@
         $mealId=$arr["meadId"];
         $addTodayMealFlag = MealAction::addTodayMeal($mealId);
         //var_dump($addTodayMealFlag);
-        if ($addTodayMealFlag === -1) {
+        if ($addTodayMealFlag === MealAction::$ADD_TODAY_MEAL_FAIL) {
             $result = new Response(false,"add fail");
             return $result;
-        } elseif ($addTodayMealFlag === -2) {
+        } elseif ($addTodayMealFlag === MealAction::$ADD_TODAY_MEAL_NOT_FOUND_MEAL_ID) {
             $result = new Response(false,"can't find the meat");
             return $result;
-        } elseif ($addTodayMealFlag === -3) {
+        } elseif ($addTodayMealFlag === MealAction::$ADD_TODAY_MEAL_MEAL_ID_DUPLICATE) {
             $result = new Response(false,"the food had been added");
             return $result;
         } elseif ($addTodayMealFlag === true) {

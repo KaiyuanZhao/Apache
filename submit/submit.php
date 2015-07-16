@@ -67,9 +67,9 @@
 
             if ($checkFormat) {
                 $user = UserAction::register($email, $psw, $username, $nickname, $department, $location, $description, $icon);
-                if ($user === -1) {
+                if ($user === UserAction::$REGISTER_FAIL) {
                     $result = new Response(false, "register fail");
-                } elseif ($user === -2) {
+                } elseif ($user === UserAction::$REGISTER_EMAIL_DUPLICATE) {
                     $result = new Response(false, "email has been registerd");
                     return $result;
                 } elseif (isset($user)) {

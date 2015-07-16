@@ -20,25 +20,7 @@
 
     function testCancelMeal($arr)
     {
-        $userId = $_SESSION['user']->userId;
-        $mealId = $arr["mealId"];
 
-      //  var_dump($meal);
-        if ($testformat->testMeal($meal)) {
-            $flag = MealAction::addMeal($meal);
-            //var_dump($flag);
-            if ($flag === -2) {
-                $result = new Response(false,"the meal had been in the lisg");
-                return $result;
-            } elseif ($flag == true) {
-                $result = new Response(true);
-                return $result;
-            }
-        }
-        else{
-            $result = new Response(false,"wrong format");
-            return $result;
-        }
     }
 
     function my_json_encode($phparr)

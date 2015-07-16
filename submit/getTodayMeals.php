@@ -24,7 +24,7 @@
     {
         $date = date('Y-m-d', time());
         $getTodayMealsFlag = MealAction::getTodayMeals($date);
-        if ($getTodayMealsFlag === -1) {
+        if ($getTodayMealsFlag === MealAction::$GET_MEALS_FAIL) {
             $result = new Response(false,"get today meals failed");
             return $result;
         } elseif (isset($getTodayMealsFlag)) {

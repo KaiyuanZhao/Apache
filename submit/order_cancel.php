@@ -21,10 +21,10 @@
     {
         $userId = $_SESSION['user']->userId;
         $orderFlag = OrderAction::cancelOrder($userId);
-        if ($orderFlag === -1) {
+        if ($orderFlag === OrderAction::$CANCEL_ORDER_FAIL) {
             $result=new Response(false,"cancel fail");
             return $result;
-        } elseif ($orderFlag === -2) {
+        } elseif ($orderFlag === OrderAction::$CANCEL_ORDER_NOT_ORDER_BEFORE) {
             $result=new Response(false,"you have not ordered yet");
             return $result;
         } elseif ($orderFlag === true) {

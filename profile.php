@@ -131,17 +131,6 @@ else{
                                            pattern= ^[\d{4}]$  data-validation-message="请输入四位楼层房间编号（如:0206，1808)"   placeholder="四位楼层房间编号（如:0206，1808)" required/>
                                 </div>
 
-                                <div class="am-form-group">
-                                    <label class="hint" name="spassword" for="spassword">修改密码－输入新密码:</label>
-                                    <input class="input" type="password"  id="spassword" placeholder="长度在6~18之间，只能包含字符、数字和下划线"
-                                           pattern=^\w{6,18}$ data-validation-message="这个密码不属于地球...请重新输入" required/>
-                                </div>
-
-                                <div class="am-form-group">
-                                    <label class="hint" for="spassword2">修改密码－确认新密码:</label>
-                                    <input class="input" type="password" id="spassword2" placeholder="请与上面输入的值一致"
-                                           data-equal-to="#spassword" data-validation-message="Ops...两次密码不一致，请重新输入" required/>
-                                </div>
 
 <!--
                                 <div class="am-form-group">

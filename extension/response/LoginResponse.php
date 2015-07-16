@@ -22,7 +22,7 @@ class LoginResponse
      * @param $username
      * @param $nickname
      */
-    public function __construct($success, $errorMessage, $userId = NULL, $username = NULL, $nickname = NULL)
+    public function __construct($success, $errorMessage = "", $userId = "", $username = "", $nickname = "")
     {
         $this->success = $success;
         $this->errorMessage = $errorMessage;

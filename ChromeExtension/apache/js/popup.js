@@ -1,4 +1,20 @@
+if (localStorage.apache_user != undefined)
+{
+    location.href = "order.html";
+}
 $(document).ready(function (e) {
+    $.post("http://192.168.100.53/extension/islogin.php",
+        {},
+        function (data, status) {
+            if (status == "success") {
+                if (data.success)
+                {
+                    localStorage.apache_user = JSON.stringify(data);
+                    location.href = "order.html";
+                }
+            }
+        },
+        "json");
     $("#register").click(function () {
         chrome.tabs.create({url: "http://192.168.100.53/"});
     });
@@ -13,17 +29,13 @@ $(document).ready(function (e) {
             },
             function (data, status) {
                 if (status == "success") {
-                    if (!data.success)
-                    {
+                    if (!data.success) {
                         var error = $("#error");
-                        error.text(data.errormessage);
+                        error.text(data.errorMessage);
                         error.show();
                     }
-                    else
-                    {
-                        alert(data.userId);
-                        alert(data.user);
-                        alert(data.email);
+                    else {
+                        localStorage.apache_user = JSON.stringify(data);
                         location.href = "order.html";
                     }
                 }

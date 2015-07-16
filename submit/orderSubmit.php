@@ -23,13 +23,14 @@
         $userId=$_SESSION['user']->userId;
         $orderFlag = OrderAction::orderMeal($userId);
         if ($orderFlag === OrderAction::$ORDER_MEAL_FAIL) {
-            $result = new Response(false, "sorry,order failed");
+            $result = new Response(false, "抱歉，订餐失败。");
             return $result;
         } elseif ($orderFlag === true) {
             $result = new Response(true);
             return $result;
         }
     }
+
     function my_json_encode($phparr)
     {
         return json_encode($phparr);

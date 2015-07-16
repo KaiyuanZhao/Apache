@@ -6,6 +6,7 @@
  * Time: 上午12:54
  */
     header("Content-Type: text/html; charset=utf-8");
+    date_default_timezone_set("PRC");
     require_once '../entity/Meal.php';
     require_once '../action/MealAction.php';
     require_once "../config.php";
@@ -22,10 +23,10 @@
 
     function testCancelFavor($arr)
     {
+        $date=date('Y-m-d', time());
         $userId = $_SESSION['user']->userId;
-        $mealId = $arr["mealId"];
-        $favorite = MealAction::cancelFavor($userId, $mealId);
-      //  var_dump("$favorite");
+        $meal = MealAction::getTodayMeal($date);
+        $favorite = MealAction::cancelFavor($userId, $meal->mealId);
         if ($favorite === MealAction::$CANCEL_FAVOR_FAIL) {
             $result = new Response(false,"cancel favor failed");
             return $result;

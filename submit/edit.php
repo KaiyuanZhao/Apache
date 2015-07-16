@@ -23,7 +23,6 @@
     {
         $userId = $_SESSION['user']->userId;
         $username = $_SESSION['user']->username;
-        $email = $_SESSION['user']->email;
         $nickname = $_SESSION['user']->nickname;
         $department = $_SESSION['user']->department;
         $location = $_SESSION['user']->location;

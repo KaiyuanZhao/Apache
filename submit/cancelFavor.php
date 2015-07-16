@@ -26,13 +26,13 @@
         $mealId = $arr["mealId"];
         $favorite = MealAction::cancelFavor($userId, $mealId);
       //  var_dump("$favorite");
-        if ($favorite === -1) {
+        if ($favorite === MealAction::$CANCEL_FAVOR_FAIL) {
             $result = new Response(false,"cancel favor failed");
             return $result;
-        } elseif ($favorite === -2) {
+        } elseif ($favorite === MealAction::$CANCEL_FAVOR_NOT_ORDER_MEAL) {
             $result = new Response(false,"you haven't ordered yet");
             return $result;
-        } elseif ($favorite === -3) {
+        } elseif ($favorite === MealAction::$CANCEL_FAVOR_NOT_FAVOR_BEFORE) {
             $result = new Response(false,"you haven't liked it ");
             return $result;
         } elseif ($favorite === true) {

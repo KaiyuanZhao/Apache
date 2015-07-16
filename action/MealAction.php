@@ -122,6 +122,24 @@ class MealAction
         return $meals;
     }
 
+
+    public static function getTodayMeal($date)
+    {
+        $connection = Database::getInstance()->getConnection();
+
+        static $query = "select mealId, mealName from mealrecord natural join meal where date = ?";
+        $result = $connection->prepare($query);
+        $result->bind_param("s", $date);
+        $execute = $result->execute();
+        if (!$execute)
+            return self::$GET_MEALS_FAIL;
+        $result->bind_result($mealId, $mealName);
+        while ($result->fetch())
+            $meal = new Meal($mealId, $mealName);
+        $result->close();
+        return $meal;
+    }
+
     /**
      * @param $userId String
      * @param $mealId String

@@ -22,7 +22,7 @@
     {
         $userId=$_SESSION['user']->userId;
         $orderFlag = OrderAction::orderMeal($userId);
-        if ($orderFlag === -1) {
+        if ($orderFlag === OrderAction::$ORDER_MEAL_FAIL) {
             $result = new Response(false, "sorry,order failed");
             return $result;
         } elseif ($orderFlag === true) {

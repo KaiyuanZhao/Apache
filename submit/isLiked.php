@@ -27,6 +27,7 @@
         }
         elseif ($flag === MealAction::$IS_FAVORED_NOT_ORDER_MEAL){
             $result = new Response(false, "你还没有吃！");
+            return $result;
         }
         elseif ($flag === false){
             $result = new Response(true,"");

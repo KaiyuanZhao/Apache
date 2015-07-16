@@ -40,11 +40,11 @@
         $uniqStr = uniqid(strtotime("now") . "_" . mt_rand(100000, 999999) . "_");
         $suffix = strtolower(stristr($fname, "."));
         $fname_new = $cache_path . $uniqStr . $suffix;
-        $upFilePath = "icon/".$_FILES['savator']['name'];
-       // if (($suffix != ".png") and ($suffix != ".jpg") and ($suffix != ".jpeg") and ($suffix != ".gif")) {
-        //    $result = new Response(false, "wrong file type");
-        //    return $result;
-       // }
+ //       $upFilePath = "icon/".$_FILES['savator']['name'];
+        if (($suffix != ".png") and ($suffix != ".jpg") and ($suffix != ".jpeg") and ($suffix != ".gif")) {
+            $result = new Response(false, "wrong file type");
+            return $result;
+        }
         $ok = move_uploaded_file($_FILES['savator']['tmp_name'], $fname_new);
         //echo json_encode($upFilePath);
         if ($ok === FALSE) {

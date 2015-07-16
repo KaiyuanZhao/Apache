@@ -12,7 +12,6 @@ $(document).ready(function (e) {
                 password: password
             },
             function (data, status) {
-                alert(data);
                 if (status == "success") {
                     if (!data.success)
                     {
@@ -23,10 +22,12 @@ $(document).ready(function (e) {
                     else
                     {
                         alert(data.userId);
+                        alert(data.user);
+                        alert(data.email);
                         location.href = "order.html";
                     }
                 }
             },
-            "text");
+            "json");
     });
 });

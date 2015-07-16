@@ -11,31 +11,21 @@ require_once "../config.php";
 require_once "../provider/Database.php";
 require_once "../action/UserAction.php";
 require_once "../provider/testFormat.php";
-require_once "../entity/response/Response.php";
+require_once "response/LoginResponse.php";
 session_start();
 $arr = $_POST;
-$result = login($arr);
-$returnResult = json_encode($result);
-echo $returnResult;
-$result = UserAction::login("zhaokaiyuan@baixing.net", "A123456");
-var_dump($result);
+$email = $arr["username"];
+$password = $arr["password"];
+$format = new testFormat();
+$result = NULL;
+if ($format->testLogin($email, $password)) {
+    $user = UserAction::login($email, $password);
+    if ($user instanceof User) {
+        $_SESSION['user'] = $user;
+        $result = new LoginResponse(true, "", $user->userId, $user->username, $user->nickname);
+    } else
+        $result = new LoginResponse(false, "用户名密码不匹配");
+} else
+    $result = new LoginResponse(false, "输入格式有误");
 
-function login($arr)
-{
-    $email = $arr["username"];
-    $password = $arr["password"];
-    $testformat = new testFormat();
-    if ($testformat->testLogin($email, $password)) {
-        $user = UserAction::login($email, $password);
-        if ($user instanceof User) {
-            $_SESSION['user'] = $user;
-            return json_encode($user);
-        } else {
-            $result = new Response(false, "用户名密码不匹配");
-            return $result;
-        }
-    } else {
-        $result = new Response(false, "输入格式有误");
-        return $result;
-    }
-}
+echo json_encode($result);

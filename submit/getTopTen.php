@@ -14,6 +14,7 @@
     require_once "../entity/response/Response.php";
     require_once "../entity/response/mealsRes.php";
     require_once "../util/TimeUtils.php";
+    require_once "../entity/MealFavor.php";
     session_start();
     $arr = $_POST;
     $result = testGetTopTen();
@@ -22,12 +23,14 @@
     function testGetTopTen()
     {
         $getTopTenFlag = MealAction::getTopTenMeals();
-        var_dump($getTopTenFlag);
+        //var_dump($getTopTenFlag);
         if ($getTopTenFlag === MealAction::$GET_TOP_MEALS_FAIL) {
             $result = new Response(false,"get top ten fail");
+            var_dump($result);
             return $result;
         } elseif (isset($getTopTenFlag)) {
             $result = new mealsRes(true,"",$getTopTenFlag);
+            //var_dump($result);
             return $result;
         }
     }

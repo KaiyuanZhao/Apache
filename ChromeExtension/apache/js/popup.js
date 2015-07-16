@@ -1,7 +1,5 @@
 if (localStorage.apache_user != undefined)
-{
     location.href = "order.html";
-}
 $(document).ready(function (e) {
     $.post("http://192.168.100.53/extension/islogin.php",
         {},

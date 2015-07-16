@@ -18,11 +18,13 @@ function login_submit() {
     lemail = $("#lemail").val();
     lpassword = $("#lpassword").val();
     $.post("submit/dologin.php", {username: lemail, password: lpassword}, function (data, status) {
-        alert("Data: " + data + "\nStatus: " + status);
-        if(data.success==true){
-            location.reload(true);
+        if(data.success){
+            location.reload();
         }
-    });
+        else{
+            alert(data.errormessage);
+        }
+    },"json");
 }
 
 function signup_submit() {
@@ -47,8 +49,7 @@ function signup_submit() {
                 location: slocation},
             success: function (data, status)  //服务器成功响应处理函数
             {
-                alert(data);
-                location.reload(true);
+                location.reload();
             },
             error: function (data, status, e)//服务器响应失败处理函数
             {
@@ -103,7 +104,7 @@ function Confirm(field) {
                     this.value = "取消";
                 }
 
-            });
+            },"json");
         }
         else {
             $.post("submit/orderCancel.php", {}, function (data, status) {
@@ -114,7 +115,7 @@ function Confirm(field) {
                     alert("取消成功！");
                     this.value = "订餐";
                 }
-            })
+            },"json")
         }
     }
 }
@@ -132,7 +133,7 @@ function Castanswer(){
         else{
             alert("发布失败！");
         }
-    })
+    },"json");
 }
 
 

@@ -1,7 +1,11 @@
 <?php
+   require "entity/User.php";
 session_start();
 if(!isset($_SESSION["user"])){
     header("location: ./index.php");
+}
+else{
+    $username=$_SESSION["user"]->username;
 }
 ?>
 
@@ -36,14 +40,14 @@ if(!isset($_SESSION["user"])){
     } </script>
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
-    <script type="text/javascript">
+<!--    <script type="text/javascript">
         jQuery(document).ready(function ($) {
             $(".scroll").click(function (event) {
                 event.preventDefault();
                 $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
             });
         });
-    </script>
+    </script>-->
     <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
     <script type="text/javascript" id="sourcecode">
         $(function () {
@@ -60,7 +64,7 @@ if(!isset($_SESSION["user"])){
         <div class="menu">
             <ul class="menu-top">
                 <li><img src="" id="bar_useravator"></li>
-                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->neckname;?></a></li>
+                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->username;?></a></li>
 
             </ul>
             <!---pop-up-box---->
@@ -77,7 +81,17 @@ if(!isset($_SESSION["user"])){
                     <div class="menu_box_list">
                         <ul>
                             <li><a href="#" onclick="Logout()" class="scroll">退出登录</a></li>
-                            <li><a href="#" onclick="User()" class="scroll">订餐页面</a></li>
+                            <li><a href="./ordinaryuser.php" class="scroll">
+                                    <?php
+                                    if($_SESSION["user"]->email=="1234@baixing.com"){
+                                        echo "管理页面";
+                                    }
+                                    else{
+                                        echo "订餐页面";
+                                    }
+                                    ?>
+
+                                </a></li>
                             <li><a href="#" onclick="Profile()" class="scroll">修改资料</a></li>
 
                         </ul>

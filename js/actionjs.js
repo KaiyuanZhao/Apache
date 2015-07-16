@@ -17,8 +17,7 @@ function Logout(){
 function login_submit() {
     lemail = $("#lemail").val();
     lpassword = $("#lpassword").val();
-    //alert("!");
-    $.post("submit/doLogin.php", {username: lemail, password: lpassword}, function (data, status) {
+    $.post("submit/dologin.php", {username: lemail, password: lpassword}, function (data, status) {
         alert("Data: " + data + "\nStatus: " + status);
         if(data.success==true){
             location.reload(true);

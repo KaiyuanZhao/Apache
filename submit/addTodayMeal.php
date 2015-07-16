@@ -12,9 +12,10 @@
     require_once "../provider/Database.php";
     require_once "../provider/testFormat.php";
     require_once "../entity/response/Response.php";
+    require_once "../util/TimeUtils.php";
     session_start();
     $arr = $_POST;
-    $result = testAddMeal($arr);
+    $result = testAddTodayMeal($arr);
     $myjson = my_json_encode($result);
     echo $myjson;
 

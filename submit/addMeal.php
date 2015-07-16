@@ -17,23 +17,51 @@
     $result = testAddMeal($arr);
     $myjson = my_json_encode($result);
     echo $myjson;
-
+    //testAddMeal();
 
     function testAddMeal($arr)
     {
-        $meal = $arr["addMeal"];
+        $meal = $arr["mealName"];
+       // $meal = "lyn4";
         $testformat = new testFormat();
         //var_dump($meal);
         if ($testformat->testMeal($meal)) {
             $flag = MealAction::addMeal($meal);
-            //var_dump($flag);
+            var_dump($flag);
             if ($flag === -2) {
                 $result = new Response(false, "the meal had been in the list");
                 return $result;
-            } elseif ($flag == true) {
-                $result = new Response(true);
+            } elseif ($flag === -1) {
+                $result = new Response(false,"add meal fail");
+                return $result;
+            } elseif (isset($flag)){
+                $result = testAddTodayMeal($flag->mealId);
+               // var_dump($result);
                 return $result;
             }
+        }
+        else{
+                $result = new Response(false,"wrong format");
+                return $result;
+        }
+    }
+
+    function testAddTodayMeal($mealId)
+    {
+        $addTodayMealFlag = MealAction::addTodayMeal($mealId);
+        //var_dump($addTodayMealFlag);
+        if ($addTodayMealFlag === -1) {
+            $result = new Response(false,"add fail");
+            return $result;
+        } elseif ($addTodayMealFlag === -2) {
+            $result = new Response(false,"can't find the meat");
+            return $result;
+        } elseif ($addTodayMealFlag === -3) {
+            $result = new Response(false,"the food had been added");
+            return $result;
+        } elseif ($addTodayMealFlag === true) {
+            $result = new Response(true);
+            return $result;
         }
     }
 

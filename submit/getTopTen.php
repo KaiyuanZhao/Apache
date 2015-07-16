@@ -10,12 +10,29 @@
     require_once '../action/MealAction.php';
     require_once "../config.php";
     require_once "../provider/Database.php";
-    require_once "../entity/MealFavor.php";
-    $getTopTenFlag=MealAction::getTopTenMeals();
-    var_dump($getTopTenFlag);
-    if ($getTopTenFlag===-1){
-        echo "get meal fail";
+    require_once "../provider/testFormat.php";
+    require_once "../entity/response/Response.php";
+    require_once "../entity/response/mealsRes.php";
+    require_once "../util/TimeUtils.php";
+    session_start();
+    $arr = $_POST;
+    $result = testGetTopTen();
+    $myjson = my_json_encode($result);
+    echo $myjson;
+    function testGetTopTen()
+    {
+        $getTopTenFlag = MealAction::getTopTenMeals();
+        var_dump($getTopTenFlag);
+        if ($getTopTenFlag === -1) {
+            $result = new Response(false,"get top ten fail");
+            return $result;
+        } elseif (isset($getTopTenFlag)) {
+            $result = new mealsRes(true,"",$getTopTenFlag);
+            return $result;
+        }
     }
-    elseif (isset($getTopTenFlag)){
-        echo "success!";
+
+    function my_json_encode($phparr)
+    {
+        return json_encode($phparr);
     }

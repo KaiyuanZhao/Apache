@@ -17,7 +17,6 @@
     $result = testAddMeal($arr);
     $myjson = my_json_encode($result);
     echo $myjson;
-    //testAddMeal();
 
     function testAddMeal($arr)
     {

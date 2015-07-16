@@ -7,10 +7,16 @@ function login_submit() {
     //alert("!");
     $.post("submit/doLogin.php", {username: lemail, password: lpassword}, function (data, status) {
         alert("Data: " + data + "\nStatus: " + status);
+        if(data.success==true){
+            location.reload(true);
+        }
     });
 }
 
-
+function Logout(){
+    $.post("./logout.php",{},function(data,status){});
+    location.reload(true);
+}
 function signup_submit() {
     semail = $("#semail").val();
     susername = $("#susername").val();
@@ -34,10 +40,12 @@ function signup_submit() {
             success: function (data, status)  //服务器成功响应处理函数
             {
                 alert(data);
+                location.reload(true);
             },
             error: function (data, status, e)//服务器响应失败处理函数
             {
                 alert(e);
+                location.reload(true);
             }
         }
     );

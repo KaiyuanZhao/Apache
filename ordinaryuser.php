@@ -3,7 +3,13 @@ session_start();
 if(!isset($_SESSION["user"])){
     header("location: ./index.php");
 }
+else{
+    if($_SESSION["user"]->email=="1234@baixing.com")
+    { header("location: ./superuser.php");}
+}
 ?>
+
+
 
 <!DOCTYPE HTML>
 <html>
@@ -60,7 +66,7 @@ if(!isset($_SESSION["user"])){
         <div class="menu">
             <ul class="menu-top">
                 <li><img src="" id="bar_useravator"></li>
-                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->username;?></a></li>
+                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $_SESSION["user"]->username;?></a></li>
 
             </ul>
             <!---pop-up-box---->
@@ -77,8 +83,8 @@ if(!isset($_SESSION["user"])){
                     <div class="menu_box_list">
                         <ul>
                             <li><a href="#" onclick="Logout()" class="scroll">退出登录</a></li>
-                            <li><a href="#" onclick="User()" class="scroll">订餐页面</a></li>
-                            <li><a href="#" onclick="Profile()" class="scroll">修改资料</a></li>
+                            <li><a href="#" class="scroll">订餐页面</a></li>
+                            <li><a href="./profile.php" onclick="Profile()" class="scroll">修改资料</a></li>
                         </ul>
                     </div>
                     <a class="boxclose" id="boxclose"><img src="images/close.png" alt=""/></a>

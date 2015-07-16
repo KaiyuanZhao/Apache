@@ -6,15 +6,15 @@
  * Time: 9:45
  */
 header('content-type:text/html;charset=utf-8');
-//require_once "entity/User.php";
-//require_once "config.php";
-//require_once "provider/Database.php";
-//require_once "action/UserAction.php";
-//
-//$result = UserAction::login("123@baixing.com", "456789");
-//var_dump($result);
-//$result = UserAction::register("1234@baixing.com", "456789", "test", "nickname", "depart", "1023", "", "");
-//var_dump($result);
+require_once "entity/User.php";
+require_once "config.php";
+require_once "provider/Database.php";
+require_once "action/UserAction.php";
+echo "test";
+$result = UserAction::login("123@baixing.com", "456789");
+var_dump($result);
+$result = UserAction::register("1234@baixing.com", "456789", "test", "nickname", "depart", "1023", "", "");
+var_dump($result);
 //$result = UserAction::login("123@baixing.com", "456789");
 //var_dump($result);
 //$result = UserAction::modify(1, "test2", "nickname", "depart2", "1830", "desc", "icon");
@@ -72,24 +72,24 @@ header('content-type:text/html;charset=utf-8');
 //var_dump($result);
 //$result = MealAction::getTopTenMeals();
 //var_dump($result);
-
-require_once "config.php";
-require_once "entity/User.php";
-require_once "entity/Order.php";
-require_once "action/OrderAction.php";
-require_once "provider/Database.php";
-require_once "util/TimeUtils.php";
-
-$result = OrderAction::orderMeal(1);
-var_dump($result);
-$result = OrderAction::isOrdered(1);
-var_dump($result);
-$result = OrderAction::isOrdered(5);
-var_dump($result);
+//
+//require_once "config.php";
+//require_once "entity/User.php";
+//require_once "entity/Order.php";
+//require_once "action/OrderAction.php";
+//require_once "provider/Database.php";
+//require_once "util/TimeUtils.php";
+//
 //$result = OrderAction::orderMeal(1);
 //var_dump($result);
-$result = OrderAction::getOrders();
-var_dump($result);
+//$result = OrderAction::isOrdered(1);
+//var_dump($result);
+//$result = OrderAction::isOrdered(5);
+//var_dump($result);
+//$result = OrderAction::orderMeal(1);
+//var_dump($result);
+//$result = OrderAction::getOrders();
+//var_dump($result);
 //$result = OrderAction::cancelOrder(1);
 //var_dump($result);
 //$result = OrderAction::cancelOrder(1);

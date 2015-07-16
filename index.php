@@ -1,18 +1,19 @@
 <?php
+    require 'entity/User.php';
     session_start();
     if(isset($_SESSION["user"])){
-        $id=$_SESSION["user"]->email;
+        $user = $_SESSION["user"];
+        $id=$user->email;
         if($id=="1234@baixing.com") {
             $url = "./superuser.php";
             header("location:{$url}");
         }
         else{
             $url="./ordinaryuser.php";
-            header("location: {$url}");
+           header("location: {$url}");
         }
     }
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>

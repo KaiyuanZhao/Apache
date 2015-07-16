@@ -23,4 +23,4 @@ define("PASSWORD", "baixing");
  * mysql database name
  */
 define("DATABASE", "apache");
-?>
+

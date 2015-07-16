@@ -24,6 +24,8 @@ class MealAction
     public static $CANCEL_FAVOR_NOT_ORDER_MEAL = -2;
     public static $CANCEL_FAVOR_NOT_FAVOR_BEFORE = -3;
     public static $GET_TOP_MEALS_FAIL = -1;
+    public static $IS_FAVORED_FAIL = -1;
+    public static $IS_FAVORED_NOT_ORDER_MEAL = -2;
 
     /**
      * @param $mealName String
@@ -135,9 +137,8 @@ class MealAction
             return self::$GET_MEALS_FAIL;
         $result->bind_result($mealId, $mealName);
         while ($result->fetch())
-            $meal = new Meal($mealId, $mealName);
+            return new Meal($mealId, $mealName);
         $result->close();
-        return $meal;
     }
 
     /**
@@ -212,6 +213,41 @@ class MealAction
             return self::$CANCEL_FAVOR_NOT_FAVOR_BEFORE;
         $result->close();
         return true;
+    }
+
+    /**
+     * @param string $userId
+     * @param string $date
+     * @return bool|int ,mealId fail or error code
+     */
+    public static function isFavored($userId, $date = "")
+    {
+        $connection = Database::getInstance()->getConnection();
+        if ($date == "")
+            $date = TimeUtils::getCurrentDate();
+
+        static $queryTodayOrder = "select orderId from `order` where userId = ? and `date` = ?";
+        $result = $connection->prepare($queryTodayOrder);
+        $result->bind_param("ss", $userId, $date);
+        $execute = $result->execute();
+        if (!$execute)
+            return self::$IS_FAVORED_FAIL;
+        $result->bind_result($orderId);
+        if (!$result->fetch())
+            return self::$IS_FAVORED_NOT_ORDER_MEAL;
+        $result->close();
+
+        static $query = "select mealId from mealfavor where orderId = ?";
+        $result = $connection->prepare($query);
+        $result->bind_param("s", $orderId);
+        $execute = $result->execute();
+        if (!$execute)
+            return self::$IS_FAVORED_FAIL;
+        $result->bind_result($mealId);
+        if (!$result->fetch())
+            return false;
+        $result->close();
+        return $mealId;
     }
 
     /**

@@ -20,7 +20,7 @@ class User
     /**
      * @var String
      */
-    private $username;
+    public $username;
     /**
      * @var String
      */
@@ -32,7 +32,7 @@ class User
     /**
      * @var String
      */
-    private $location;
+    public $location;
     /**
      * @var String
      */

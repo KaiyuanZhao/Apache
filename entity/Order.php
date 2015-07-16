@@ -11,19 +11,19 @@ class Order
     /**
      * @var Integer
      */
-    private $orderId;
+    public $orderId;
     /**
      * @var User
      */
-    private $user;
+    public $user;
     /**
      * @var String
      */
-    private $createdTime;
+    public $createdTime;
     /**
      * @var String
      */
-    private $date;
+    public $date;
 
     /**
      * Order constructor.

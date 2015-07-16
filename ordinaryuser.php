@@ -114,12 +114,42 @@ else{
                 <div class="rank">
                     <h1 class="ranktitle" >Like Rank</h1>
                     <div class="ranktable">
+
+                        <p id="anchor"></p>
+                        <script>
+                            $(document).ready(function(){
+                                $.post("submit/getTopTen.php",{},function(data,status){
+                                    if(data.success){
+                                        var colNum=3;
+                                        var rows=0;
+                                    var tr1=$("<p></p>").text(data.meals[0].meal.mealName);
+                                    var tr2=$("<p></p>").text(data.meals[0].favorCount);
+
+
+                                        $("#anchor").append(tr1);
+                                        $("#anchor").append(tr2);
+                                    }
+                                    else{
+                                        alert("error!");
+                                    }
+                                 },"json");
+
+                            });
+
+
+                        </script>
+                        <!--
                         <div class="rankrow">
+
+
                             <p class="col1">
                                 Rank.1
                             </p>
                             <p class="col2">
-                                aaaa
+
+                            </p>
+                            <p class="col3">
+
                             </p>
                         </div>
 
@@ -128,10 +158,14 @@ else{
                                 Rank.2
                             </p>
                             <p class="col2">
-                                bbbb
                             </p>
-                        </div>
+
+                            <p class="col3">
+
+                            </p>
+                        </div>-->
                     </div>
+
                 </div>
 
 

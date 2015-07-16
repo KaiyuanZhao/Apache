@@ -12,11 +12,11 @@ class MealFavor
     /**
      * @var Meal
      */
-    private $meal;
+    public $meal;
     /**
      * @var Integer
      */
-    private $favorCount;
+    public $favorCount;
 
     /**
      * MealFavor constructor.

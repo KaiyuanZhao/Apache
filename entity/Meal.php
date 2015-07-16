@@ -12,11 +12,11 @@ class Meal
     /**
      * @var String
      */
-    private $mealId;
+    public $mealId;
     /**
      * @var String
      */
-    private $mealName;
+    public $mealName;
 
     /**
      * Meal constructor.

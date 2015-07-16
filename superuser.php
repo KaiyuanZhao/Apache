@@ -103,6 +103,35 @@ if(!isset($_SESSION["user"])){
                     <table class="order-table">
 
 
+                        <p id="user-anchor"></p>
+                        <script>
+                            $(document).ready(function(){
+                                $.post("submit/getOrders.php",{},function(data,status){
+                                    if(data.success){
+                                        var colNum=3;
+                                        var rows=0;
+                                        var tr1=$("<p></p>").text(data.orders[0].user.username);
+                                        var tr2=$("<p></p>").text(data.orders[0].user.location);
+                                        var tr3=$("<p></p>").text(data.orders[0].createdTime);
+
+                                        $("#user-anchor").append(tr1);
+                                        $("#user-anchor").append(tr2);
+                                        $("#user-anchor").append(tr3);
+                                    }
+                                    else{
+                                        alert("error!");
+                                    }
+                                },"json");
+
+                            });
+
+
+                        </script>
+
+
+
+
+
                     </table>
 
 
@@ -113,7 +142,35 @@ if(!isset($_SESSION["user"])){
 
                 <div class="rank">
                     <h1 class="ranktitle" >Like Rank</h1>
-                    <div class="ranktable">
+
+
+                    <p id="anchor"></p>
+                    <script>
+                        $(document).ready(function(){
+                            $.post("submit/getTopTen.php",{},function(data,status){
+                                if(data.success){
+                                    var colNum=3;
+                                    var rows=0;
+                                    var tr1=$("<p></p>").text(data.meals[0].meal.mealName);
+                                    var tr2=$("<p></p>").text(data.meals[0].favorCount);
+
+
+                                    $("#anchor").append(tr1);
+                                    $("#anchor").append(tr2);
+                                }
+                                else{
+                                    alert("error!");
+                                }
+                            },"json");
+
+                        });
+
+
+                    </script>
+
+
+
+                    <!-- <div class="ranktable">
                         <div class="rankrow">
                             <p class="col1">
                                 Rank.1
@@ -131,7 +188,7 @@ if(!isset($_SESSION["user"])){
                                 bbbb
                             </p>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
 
 

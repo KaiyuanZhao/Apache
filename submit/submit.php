@@ -35,6 +35,13 @@
         $department = "百姓网";
         $location = ($arr["location"]);
         $description = ($arr["taste"]);
+
+        $testformat = new testFormat();
+        if (!$testformat->testReg($email, $psw, $username, $nickname, $department, $location, $description)) {
+            $result = new Response(false, "格式错误，请按照一定的格式输入！");
+            return $result;
+        }
+
         $fname = $_FILES['savator']["name"];
         $cache_path = "icon/";
         $uniqStr = uniqid(strtotime("now") . "_" . mt_rand(100000, 999999) . "_");
@@ -56,13 +63,7 @@
             } else {
                 $icon = $fname_new;
                 //echo  $user->getEmail();
-                $testformat = new testFormat();
-                if (!$testformat->testReg($email, $psw, $username, $nickname, $department, $location, $description)) {
-                    $checkFormat = false;
-                    // echo "wrong format";
-                    $result = new Response(false, "格式错误，请按照一定的格式输入！");
-                    return $result;
-                }
+
 
 // echo  $username=$_POST["username"
 
@@ -81,6 +82,23 @@
                 }
             }
         }
+
+        elseif ($checkFormat) {
+            $icon = "";
+            $user = UserAction::register($email, $psw, $username, $nickname, $department, $location, $description, $icon);
+            if ($user === UserAction::$REGISTER_FAIL) {
+                $result = new Response(false, "注册失败！");
+                return $result;
+            } elseif ($user === UserAction::$REGISTER_EMAIL_DUPLICATE) {
+                $result = new Response(false, "该邮箱已被注册！");
+                return $result;
+            } elseif (isset($user)) {
+                $_SESSION['user'] = $user;
+                $result = new Response(true);
+                return $result;
+            }
+        }
+
     }
     function my_json_encode($phparr)
     {

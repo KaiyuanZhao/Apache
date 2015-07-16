@@ -11,10 +11,12 @@
     require_once "../config.php";
     require_once "../provider/Database.php";
     require_once "../provider/testFormat.php";
+    require_once "../entity/response/mealsRes.php";
     require_once "../entity/response/Response.php";
+    require_once "../util/TimeUtils.php";
     session_start();
     $arr = $_POST;
-    $result = testAddMeal($arr);
+    $result = testGetTodayMeals();
     $myjson = my_json_encode($result);
     echo $myjson;
 
@@ -22,12 +24,12 @@
     {
         $date = date('Y-m-d', time());
         $getTodayMealsFlag = MealAction::getTodayMeals($date);
-        if ($getTodayMealsFlag == -1) {
+        if ($getTodayMealsFlag === -1) {
             $result = new Response(false,"get today meals failed");
             return $result;
         } elseif (isset($getTodayMealsFlag)) {
-            $result = new Response(true);
-            return true;
+            $result = new mealsRes(true,"",$getTodayMealsFlag);
+            return $result;
         }
     }
 

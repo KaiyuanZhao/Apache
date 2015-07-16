@@ -27,7 +27,7 @@ class MealAction
 
     /**
      * @param $mealName String
-     * @return bool|Integer success or error code
+     * @return Meal|Integer success or error code
      */
     public static function addMeal($mealName)
     {
@@ -40,7 +40,18 @@ class MealAction
         if (!$execute)
             return self::$ADD_MEAL_MEAL_NAME_DUPLICATE;
         $result->close();
-        return true;
+
+        static $query_result = "select * from meal where mealName=?";
+        $result = $connection->prepare($query_result);
+        $result->bind_param("s", $mealName);
+        $execute = $result->execute();
+        if (!$execute)
+            return self::$ADD_MEAL_FAIL;
+        $result->bind_result($mealId, $mealName);
+        while ($result->fetch())
+            return new Meal($mealId, $mealName);
+        $result->close();
+        return self::$ADD_MEAL_FAIL;
     }
 
     /**
@@ -79,7 +90,6 @@ class MealAction
         if (!$result->fetch())
             return self::$ADD_TODAY_MEAL_NOT_FOUND_MEAL_ID;
         $result->close();
-
         static $query = "insert into mealrecord (date, mealId) VALUES (current_date, ?)";
         $result = $connection->prepare($query);
         $result->bind_param("s", $mealId);

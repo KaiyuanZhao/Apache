@@ -1,6 +1,6 @@
 if (localStorage.apache_user == undefined)
     location.href = "popup.html";
-$(document).ready(function(){
+$(document).ready(function () {
     var user = JSON.parse(localStorage.apache_user);
     $("#username").text(user.username);
     var userId = user.userId;
@@ -9,19 +9,60 @@ $(document).ready(function(){
             userId: userId
         },
         function (data, status) {
-            alert(data);
             if (status == "success") {
                 var order_button = $("#order-button");
-                if (data.success)
-                {
-                    order_button.text("ÂèñÊ∂àËÆ¢È§ê");
+                if (data.success) {
+                    order_button.text("»°œ˚∂©≤Õ");
                     order_button.addClass("success");
                 }
-                else{
-                    order_button.text("ËÆ¢È§ê");
+                else {
+                    order_button.text("∂©≤Õ");
                     order_button.removeClass("success");
                 }
             }
         },
         "json");
+
+    var order_button = $("#order-button");
+    order_button.click(function () {
+        if (order_button.hasClass("success")) {
+            $.post("http://192.168.100.53/extension/order.php",
+                {
+                    type: 1,
+                    userId: userId
+                },
+                function (data, status) {
+                    if (status == "success") {
+                        var order_button = $("#order-button");
+                        if (data.success) {
+                            order_button.text("∂©≤Õ");
+                            order_button.removeClass("success");
+                        }
+                        else {
+                            alert(data.errorMessage);
+                        }
+                    }
+                },
+                "json");
+        } else {
+            $.post("http://192.168.100.53/extension/order.php",
+                {
+                    type: 0,
+                    userId: userId
+                },
+                function (data, status) {
+                    if (status == "success") {
+                        var order_button = $("#order-button");
+                        if (data.success) {
+                            order_button.text("»°œ˚∂©≤Õ");
+                            order_button.addClass("success");
+                        }
+                        else {
+                            alert(data.errorMessage);
+                        }
+                    }
+                },
+                "json");
+        }
+    });
 });

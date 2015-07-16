@@ -14,21 +14,19 @@
     require_once "../entity/response/Response.php";
     require_once "../util/TimeUtils.php";
     session_start();
-    $result = testOrderCancel();
+    $result = testOrderSubmit();
     $myjson = my_json_encode($result);
     echo $myjson;
-    function testOrderCancel()
+
+    function testOrderSubmit()
     {
-        $userId = $_SESSION['user']->userId;
-        $orderFlag = OrderAction::cancelOrder($userId);
-        if ($orderFlag === -1) {
-            $result=new Response(false,"cancel fail");
-            return $result;
-        } elseif ($orderFlag === -2) {
-            $result=new Response(false,"you have not ordered yet");
+        $userId=$_SESSION['user']->userId;
+        $orderFlag = OrderAction::orderMeal($userId);
+        if ($orderFlag === OrderAction::$ORDER_MEAL_FAIL) {
+            $result = new Response(false, "sorry,order failed");
             return $result;
         } elseif ($orderFlag === true) {
-            $result=new Response(true);
+            $result = new Response(true);
             return $result;
         }
     }

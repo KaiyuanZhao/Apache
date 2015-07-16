@@ -28,15 +28,15 @@
         if ($testformat->testMeal($meal)) {
             $flag = MealAction::addMeal($meal);
             var_dump($flag);
-            if ($flag === -2) {
+            if ($flag === MealAction::$ADD_MEAL_MEAL_NAME_DUPLICATE) {
                 $result = new Response(false, "the meal had been in the list");
                 return $result;
-            } elseif ($flag === -1) {
+            } elseif ($flag === MealAction::$ADD_MEAL_FAIL) {
                 $result = new Response(false,"add meal fail");
                 return $result;
             } elseif (isset($flag)){
                 $result = testAddTodayMeal($flag->mealId);
-               // var_dump($result);
+                var_dump($result);
                 return $result;
             }
         }
@@ -50,13 +50,13 @@
     {
         $addTodayMealFlag = MealAction::addTodayMeal($mealId);
         //var_dump($addTodayMealFlag);
-        if ($addTodayMealFlag === -1) {
+        if ($addTodayMealFlag === MealAction::$ADD_TODAY_MEAL_FAIL) {
             $result = new Response(false,"add fail");
             return $result;
-        } elseif ($addTodayMealFlag === -2) {
+        } elseif ($addTodayMealFlag === MealAction::$ADD_TODAY_MEAL_NOT_FOUND_MEAL_ID) {
             $result = new Response(false,"can't find the meat");
             return $result;
-        } elseif ($addTodayMealFlag === -3) {
+        } elseif ($addTodayMealFlag === MealAction::$ADD_TODAY_MEAL_MEAL_ID_DUPLICATE) {
             $result = new Response(false,"the food had been added");
             return $result;
         } elseif ($addTodayMealFlag === true) {

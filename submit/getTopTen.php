@@ -23,7 +23,7 @@
     {
         $getTopTenFlag = MealAction::getTopTenMeals();
         var_dump($getTopTenFlag);
-        if ($getTopTenFlag === -1) {
+        if ($getTopTenFlag === MealAction::$GET_TOP_MEALS_FAIL) {
             $result = new Response(false,"get top ten fail");
             return $result;
         } elseif (isset($getTopTenFlag)) {

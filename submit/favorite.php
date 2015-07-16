@@ -6,6 +6,7 @@
  * Time: 上午12:39
  */
     header("Content-Type: text/html; charset=utf-8");
+    date_default_timezone_set("PRC");
     require_once '../entity/Meal.php';
     require_once '../action/MealAction.php';
     require_once "../config.php";
@@ -14,6 +15,7 @@
     require_once "../entity/User.php";
     require_once "../provider/testFormat.php";
     require_once "../entity/response/Response.php";
+
     session_start();
     $arr = $_POST;
     $result = testFavor($arr);
@@ -22,20 +24,21 @@
 
     function testFavor($arr)
     {
+        $date=date('Y-m-d', time());
         $userId = $_SESSION['user']->userId;
-        $mealId = $arr["mealId"];
-        $favorite = MealAction::favor($userId, $mealId);
+        $meal = MealAction::getTodayMeal($date);
+        $favorite = MealAction::favor($userId, $meal->mealId);
         //var_dump("$favorite");
-        if ($favorite === -1) {
+        if ($favorite === MealAction::$FAVOR_FAIL) {
             $result = new Response(false,"favor failed");
             return $result;
-        } elseif ($favorite === -2) {
+        } elseif ($favorite === MealAction::$FAVOR_NOT_FOUND_MEAL_ID) {
             $result = new Response(false,"can't find this meal");
             return $result;
-        } elseif ($favorite === -3) {
+        } elseif ($favorite === MealAction::$FAVOR_NOT_ORDER_MEAL) {
             $result = new Response(false,"can't find this order");
             return $result;
-        } elseif ($favorite === -4) {
+        } elseif ($favorite === MealAction::$FAVOR_DUPLICATE) {
             $result = new Response(false,"you have favorited this meal");
             return $result;
         } elseif ($favorite === true) {

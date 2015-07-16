@@ -5,12 +5,18 @@ function login_submit() {
     lemail = $("#lemail").val();
     lpassword = $("#lpassword").val();
     //alert("!");
-    $.post("submit/dologin.php", {username: lemail, password: lpassword}, function (data, status) {
+    $.post("submit/doLogin.php", {username: lemail, password: lpassword}, function (data, status) {
         alert("Data: " + data + "\nStatus: " + status);
+        if(data.success==true){
+            location.reload(true);
+        }
     });
 }
 
-
+function Logout(){
+    $.post("./logout.php",{},function(data,status){});
+    location.reload(true);
+}
 function signup_submit() {
     semail = $("#semail").val();
     susername = $("#susername").val();
@@ -34,10 +40,12 @@ function signup_submit() {
             success: function (data, status)  //服务器成功响应处理函数
             {
                 alert(data);
+                location.reload(true);
             },
             error: function (data, status, e)//服务器响应失败处理函数
             {
                 alert(e);
+                location.reload(true);
             }
         }
     );
@@ -78,7 +86,7 @@ function Confirm(field) {
     alert("confirm in!");
     with(field) {
         if (this.value == "订餐") {
-            $.post("submit/order_submit.php", {}, function (data, status) {
+            $.post("submit/orderSubmit.php", {}, function (data, status) {
                 if (!data.success) {
                     alert("出现错误，订餐失败！");
                 }
@@ -90,7 +98,7 @@ function Confirm(field) {
             });
         }
         else {
-            $.post("submit/order_cancel.php", {}, function (data, status) {
+            $.post("submit/orderCancel.php", {}, function (data, status) {
                 if (!data.success) {
                     alert("出现错误，取消失败！");
                 }

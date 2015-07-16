@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: lyn
- * Date: 15/7/14
- * Time: 上午10:08
+ * Date: 15/7/16
+ * Time: 下午1:27
  */
     header("Content-Type: text/html; charset=utf-8");
     require_once '../entity/User.php';
@@ -14,24 +14,28 @@
     require_once "../entity/response/Response.php";
     require_once "../util/TimeUtils.php";
     session_start();
-    $result = testOrderSubmit();
+    $result = testIsOrder();
     $myjson = my_json_encode($result);
     echo $myjson;
 
-    function testOrderSubmit()
-    {
+    function testIsOrder(){
         $userId=$_SESSION['user']->userId;
-        $orderFlag = OrderAction::orderMeal($userId);
-        if ($orderFlag === -1) {
-            $result = new Response(false, "sorry,order failed");
+        $flag = OrderAction::isOrdered($userId);
+        if ($flag === OrderAction::$IS_ORDERED_FAIL){
+            $result = new Response(false,"is_order fail");
             return $result;
-        } elseif ($orderFlag === true) {
-            $result = new Response(true);
+        }
+        elseif ($flag===true){
+            $result = new Response(false, "the user had ordered");
+            return $result;
+        }
+        elseif ($flag===false){
+            $result = new Response(true,"can order");
             return $result;
         }
     }
+
     function my_json_encode($phparr)
     {
         return json_encode($phparr);
     }
-?>

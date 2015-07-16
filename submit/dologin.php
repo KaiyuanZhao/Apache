@@ -27,14 +27,12 @@ function testLogin($arr)
     $password = $arr["password"];
     $testformat = new testFormat();
     if ($testformat->testLogin($email, $password)) {
-        $user = $useraction->login($email, $password);
-        if (!($user === -1)) {
+        $user = UserAction::login($email, $password);
+        if (!($user === UserAction::$LOGIN_FAIL)) {
             $_SESSION['user'] = $user;
             $result=new Response(true,"");
             return $result;
-            // header("Location: ../index/userc.php");
         } else {
-            //   echo "wrong account/password";
             $result=new Response(false,"wrong account/password");
             return $result;
         }

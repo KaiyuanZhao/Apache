@@ -20,7 +20,7 @@
     function testGetMeals()
     {
         $getmealFlag = MealAction::getMeals();
-        if ($getmealFlag === -1) {
+        if ($getmealFlag === MealAction::$GET_MEALS_FAIL) {
             $result = new Response(false,"get meals failed");
             return $result;
         } elseif (isset($getmealFlag)) {

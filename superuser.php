@@ -61,7 +61,7 @@ if(!isset($_SESSION["user"])){
         <div class="menu">
             <ul class="menu-top">
                 <li><img src="" id="bar_useravator"></li>
-                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php /*echo $username=$_SESSION["user"]->username;*/?></a></li>
+                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->username;?></a></li>
 
             </ul>
             <!---pop-up-box---->
@@ -96,97 +96,42 @@ if(!isset($_SESSION["user"])){
             <div class="box1">
 
                 <div class="orders">
-                    <div class="greetings">
+                    <div class="ordertitle" >
                         All Oders
                     </div>
 
                     <div class="order-area">
-                        <div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div>
-                        <div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div>
-                        <div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div><div class="or">
-                            <div class="oc1">a</div>
-                            <div class="oc2">b</div>
-                            <div class="oc3">c</div>
-                        </div>
                         <script>
                             $(document).ready(function(){
                                 $.post("submit/getOrders.php",{},function(data,status){
                                     if(data.success){
-                                        var colNum=3;
-                                        var rows=0;
-                                        var tr1=$("<p></p>").text(data.orders[0].user.username);
-                                        var tr2=$("<p></p>").text(data.orders[0].user.location);
-                                        var tr3=$("<p></p>").text(data.orders[0].createdTime);
-                                        var tr4=$("<p></p>").text(data.orders.length);
 
-                                        $("#user-anchor").append(tr1);
-                                        $("#user-anchor").append(tr2);
-                                        $("#user-anchor").append(tr3);
-                                        $("#user-anchor").append(tr4);
+                                        var orders=data.orders;
+                                        var totalnum=data.total;
+
+
+                                        var newline=$("<div class='or'></div>").innerHTML="<div class='or'>"+"<div class='oc1'> 当日总计:</div>"+"<div class='oc2'>"+ totalnum+"份订单</div>"+"<div class='oc3'></div>"+"</div>";
+                                        newline.class="or";
+                                        $(".order-area").append(newline);
+
+
+                                        orders.forEach(function(val)
+                                        {
+                                            var users=val.users;
+
+
+                                            var newline=$("<div class='or'></div>").innerHTML="<div class='or'>"+"<div class='oc1'>"+ val.location+"一共有:</div>"+"<div class='oc2'>"+ val.count+"份订单</div>"+"<div class='oc3'></div>"+"</div>";
+                                            $(".order-area").append(newline);
+
+                                            users.forEach(function(e)
+                                            {
+                                                var newline=$("<div class='or'></div>").innerHTML="<div class='or'>"+"<div class='oc1'></div>"+"<div class='oc2'>"+ e.username+"</div>"+"<div class='oc3'>"+ e.createtime+"</div>"+"</div>";
+                                                $(".order-area").append(newline);
+                                            });
+
+                                        });
+
+
                                     }
                                     else{
                                         alert("error!");
@@ -200,7 +145,6 @@ if(!isset($_SESSION["user"])){
 
 
 
-
                 </div>
 
             </div>
@@ -208,7 +152,7 @@ if(!isset($_SESSION["user"])){
             <div class="box2">
 
                 <div class="rank">
-                    <div class="ranktitle" >Like Rank</div>
+                    <h1 class="ranktitle" >Like Rank</h1>
                     <div class="ranktable">
                         <div class="r0 r">
                             <div class="col00 col0"></div>
@@ -253,48 +197,24 @@ if(!isset($_SESSION["user"])){
 
                         <script>
                             $(document).ready(function(){
-                                var r1=["a","b"];
-                                var r2=["a","b"];
-                                var r3=["a","b"];
-                                var r4=["a","b"];
-                                var r5=["a","b"];
-                                var r6=["a","b"];
-                                var r7=["a","b"];
-                                var r8=["a","b"];
-                                var r9=["a","b"];
-                                var r10=["a","b"];
-                                var arr=[r1,r2,r3,r4,r5,r6,r7,r8,r9,r10];
-                                var length=arr.length;
-                                var obj;
-                                var count=0;
-                                arr.forEach(function(val){
-                                    var col0=$("<p></p>").innerHTML=val[0];
-                                    var col1=$("<p></p>").innerHTML=val[1];
+                                $.post("submit/getTopTen.php",{},function(data,status){
+                                    if(data.success){
+                                        var count=0;
+                                        var Arr=data.meals;
+                                        Arr.forEach(function(e){
+                                            var col0=$("<p></p>").innerHTML= e.meal.mealName;
+                                            var col1=$("<p></p>").innerHTML= e.favorCount.toString()+"个赞";
+                                            $(".col"+count.toString()+"0").append(col0);
+                                            $(".col"+count.toString()+"1").append(col1);
+                                            count++;
+                                        })
+                                    }
+                                    else{
+                                        alert("error!");
+                                    }
+                                },"json");
 
-                                    $(".col"+count.toString()+"0").append(col0);
-                                    $(".col"+count.toString()+"1").append(col1);
-                                    count++;
-                                })
                             });
-                            /*
-                             $.post("submit/getTopTen.php",{},function(data,status){
-                             if(data.success){
-                             var colNum=3;
-                             var rows=0;
-                             var tr1=$("<p></p>").text(data.meals[0].meal.mealName);
-                             var tr2=$("<p></p>").text(data.meals[0].favorCount);
-
-
-                             $("#anchor").append(tr1);
-                             $("#anchor").append(tr2);
-
-                             }
-                             else{
-                             alert("error!");
-                             }
-                             },"json");
-
-                             });*/
 
 
                         </script>
@@ -303,12 +223,42 @@ if(!isset($_SESSION["user"])){
                 </div>
 
 
+
             </div>
 
 
 
 
             <div class="box3">
+
+
+
+                <div class="su-todaymeal-area">
+                </div>
+                <script>
+                    $(document).ready(function(){
+                        $.post("submit/getTodayMeals.php",{},function(data,status){
+                            if(data.success){
+                                if(data.meals==null){
+                                    var obj=$("<div></div>").innerHTML="<div id='today-meal'>今天的加班餐:"+"还没有发布噢~</div>";
+                                }
+                                else{
+                                    var obj=$("<div></div>").innerHTML="<div id='today-meal'>今天的加班餐:"+data.meals[0].mealName+"</div>";
+                                }
+
+                                $(".su-todaymeal-area").append(obj);
+                            }
+                            else{
+                                alert("error!");
+                            }
+                        },"json");
+
+                    });
+
+
+                </script>
+
+
                 <input class="today-answer" id="answer" placeholder="今天吃的啥？" type="text" >
                 <input class="cast-button"  onclick="Castanswer()" type="button" value="发布">
 

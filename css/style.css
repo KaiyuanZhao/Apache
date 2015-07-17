@@ -4,6 +4,26 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
+
+.su-todaymeal-area{
+    position: absolute;
+    width: 90%;
+    height: 20%;
+    top: 10%;
+    margin-left: 8%;
+}
+
+.ordertitle{
+    display: block;
+    position: absolute;
+    width: 90%;
+    left: 10%;
+    height: 20%;
+    font-family: fantasy;
+    padding: 5% 5% 5% 24%;
+    font-size: -webkit-xxx-large;
+}
+
 .ranktitle{
     top:5.2%;
     display: block;
@@ -12,7 +32,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     left: 10%;
     height: 20%;
     font-family: fantasy;
-    text-align: left;
     padding: 5%;
     font-size: -webkit-xxx-large;
 }

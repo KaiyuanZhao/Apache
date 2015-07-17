@@ -57,7 +57,7 @@ else{
         <div class="menu">
             <ul class="menu-top">
                 <li><img src="" id="bar_useravator"></li>
-                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php /*echo $username=$_SESSION["user"]->username;*/?></a></li>
+                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->username;?></a></li>
 
             </ul>
             <!---pop-up-box---->
@@ -92,7 +92,7 @@ else{
             <div class="box1">
 
                 <div class="today-menu">
-                    <div class="greetings">
+                    <div class="greetings" >
                         Bonjour,Chers Amis~
                     </div>
                     <div id="today-slogan">
@@ -105,21 +105,18 @@ else{
                     </div>
 
                     <div class="todaymeal-area">
-                    <p id="todayMeal-anchor">
-                    </p>
-                        <div id="today-meal">
-                             今天我们吃的是:咖喱牛肉烩饭~
-                        </div>
                     </div>
                         <script>
                         $(document).ready(function(){
                             $.post("submit/getTodayMeals.php",{},function(data,status){
                                 if(data.success){
-                                    var colNum=3;
-                                    var rows=0;
-                                    var tr1=$("<div></div>").text(data.meals[0].mealName);
-                                    tr1.id("today-meal");
-                                    $("#todayMeal-anchor").append(tr1);
+                                    if(data.meals==null){
+                                        var obj=$("<div></div>").innerHTML="<div id='today-meal'>今天的加班餐:<br>"+"还没有发布噢~</div>";
+                                    }
+                                    else{
+                                        var obj=$("<div></div>").innerHTML="<div id='today-meal'>今天的加班餐:<br>"+data.meals[0].mealName+"</div>";
+                                    }
+                                    $(".todaymeal-area").append(obj);
                                 }
                                 else{
                                     alert("error!");
@@ -182,7 +179,7 @@ else{
 
                         <script>
                             $(document).ready(function(){
-                                var r1=["a","b"];
+                               /* var r1=["a","b"];
                                 var r2=["a","b"];
                                 var r3=["a","b"];
                                 var r4=["a","b"];
@@ -203,27 +200,29 @@ else{
                                     $(".col"+count.toString()+"0").append(col0);
                                     $(".col"+count.toString()+"1").append(col1);
                                     count++;
-                                })
-                                });
-                               /*
+                                });*/
                                 $.post("submit/getTopTen.php",{},function(data,status){
-                                    if(data.success){
-                                        var colNum=3;
-                                        var rows=0;
-                                    var tr1=$("<p></p>").text(data.meals[0].meal.mealName);
-                                    var tr2=$("<p></p>").text(data.meals[0].favorCount);
-
-
+                                    if(data.success){/*
+                                        var tr1=$("<p></p>").text(data.meals[0].meal.mealName);
+                                        var tr2=$("<p></p>").text(data.meals[0].favorCount);
                                         $("#anchor").append(tr1);
                                         $("#anchor").append(tr2);
-
+*/                                      var count=0;
+                                        var Arr=data.meals;
+                                        Arr.forEach(function(e){
+                                            var col0=$("<p></p>").innerHTML= e.meal.mealName;
+                                            var col1=$("<p></p>").innerHTML= e.favorCount.toString()+"个赞";
+                                            $(".col"+count.toString()+"0").append(col0);
+                                            $(".col"+count.toString()+"1").append(col1);
+                                            count++;
+                                        })
                                     }
                                     else{
                                         alert("error!");
                                     }
                                  },"json");
 
-                            });*/
+                            });
 
 
                         </script>
@@ -343,12 +342,15 @@ else{
             }
 
         },"json");
+/*
+        alert(myDate.getHours());*/
 
         $.post("submit/isLiked.php",{},function(data,status){
-            if(data.success){
+            if(data.success || $("#confirm-order").val()=="确认订餐"){
                 $("#favourite").val("点个赞");
             }
             else{
+                alert(data.message);
                 $("#favourite").val("取消赞");
             }
 

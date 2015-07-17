@@ -19,11 +19,21 @@ function Logout() {
 }
 
 function Favourite(){
+
     var obj = $("#favourite");
+    var myDate=new Date();
+/*    if(myDate.getHours()<15 || myDate.getHours()>17){
+        alert("非订餐时间,订餐时间为:当天15:00~17:00");
+        return;
+    }*/
     if (obj.val() == "点个赞") {
         $.post("submit/favorite.php", {}, function (data, status) {
             if (!data.success) {
-                alert("出现错误，点赞失败！");
+                if(data.errormessage=="can't find this order"){
+                    alert("还没有开放订单呐~");
+                }else {
+                    alert("出现错误，点赞失败！");
+                }
             }
             else {
                 alert("点赞成功!");
@@ -35,6 +45,7 @@ function Favourite(){
     else {
         $.post("submit/cancelFavor.php", {}, function (data, status) {
             if (!data.success) {
+                alert(data.errormessage);
                 alert("出现错误，取消失败！");
             }
             else {
@@ -175,10 +186,15 @@ $(function () {
 
 function Confirm() {
     var obj = $("#confirm-order");
+    var myDate=new Date();
+/*    if(myDate.getHours()<15 || myDate.getHours()>17){
+        alert("非订餐时间,订餐时间为:当天15:00~17:00");
+        return;
+    }*/
     if (obj.val() == "确认订餐") {
         $.post("submit/orderSubmit.php", {}, function (data, status) {
             if (!data.success) {
-                alert("出现错误，订餐失败！");
+                alert(data.errormessage);
             }
             else {
                 alert("订餐成功！");
@@ -194,7 +210,7 @@ function Confirm() {
             }
             else {
                 alert("取消成功！");
-                obj.val("订餐");
+                obj.val("确认订餐");
             }
         }, "json")
     }

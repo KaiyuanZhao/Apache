@@ -23,8 +23,8 @@ echo $myjson;
 function testChangePwd($arr)
 {
     $userId = $_SESSION['user']->userId;
-    $previousPassword = $arr['prepassword'];
-    $newPassword = $arr['newPassword'];
+    $previousPassword = $arr['oldpassword'];
+    $newPassword = $arr['newpassword'];
     $changeFlag = UserAction::changePassword($userId, $previousPassword, $newPassword);
     if ($changeFlag === UserAction::$CHANGE_PASSWORD_FAIL) {
         $result = new Response(false, "更改密码失败！");

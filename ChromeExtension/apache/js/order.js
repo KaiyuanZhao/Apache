@@ -12,11 +12,11 @@ $(document).ready(function () {
             if (status == "success") {
                 var order_button = $("#order-button");
                 if (data.success) {
-                    order_button.text("»°œ˚∂©≤Õ");
+                    order_button.text("ÂèñÊ∂àËÆ¢È§ê");
                     order_button.addClass("success");
                 }
                 else {
-                    order_button.text("∂©≤Õ");
+                    order_button.text("ËÆ¢È§ê");
                     order_button.removeClass("success");
                 }
             }
@@ -50,7 +50,7 @@ $(document).ready(function () {
                     if (status == "success") {
                         var order_button = $("#order-button");
                         if (data.success) {
-                            order_button.text("∂©≤Õ");
+                            order_button.text("ËÆ¢È§ê");
                             order_button.removeClass("success");
                         }
                         else {
@@ -69,7 +69,7 @@ $(document).ready(function () {
                     if (status == "success") {
                         var order_button = $("#order-button");
                         if (data.success) {
-                            order_button.text("»°œ˚∂©≤Õ");
+                            order_button.text("ÂèñÊ∂àËÆ¢È§ê");
                             order_button.addClass("success");
                         }
                         else {

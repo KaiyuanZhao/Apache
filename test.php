@@ -6,10 +6,12 @@
  * Time: 9:45
  */
 header('content-type:text/html;charset=utf-8');
-//require_once "entity/User.php";
-//require_once "config.php";
-//require_once "provider/Database.php";
-//require_once "action/UserAction.php";
+require_once "entity/User.php";
+require_once "config.php";
+require_once "provider/Database.php";
+require_once "action/UserAction.php";
+$result = UserAction::changePassword(10, "123456", "654321");
+var_dump($result);
 //echo "test";
 //$result = UserAction::login("123@baixing.com", "456789");
 //var_dump($result);
@@ -31,11 +33,11 @@ header('content-type:text/html;charset=utf-8');
 //$test[] = 2;
 //var_dump($test);
 //
-require_once "config.php";
-require_once "provider/Database.php";
-require_once "util/TimeUtils.php";
-require_once "entity/Meal.php";
-require_once "action/MealAction.php";
+//require_once "config.php";
+//require_once "provider/Database.php";
+//require_once "util/TimeUtils.php";
+//require_once "entity/Meal.php";
+//require_once "action/MealAction.php";
 
 //$result = MealAction::addMeal("糖醋里脊");
 //var_dump($result);
@@ -74,8 +76,8 @@ require_once "entity/MealFavor.php";
 //var_dump($result);
 //$result = MealAction::cancelFavor(1, 8);
 //var_dump($result);
-$result = MealAction::getTopTenMeals();
-var_dump($result);
+//$result = MealAction::getTopTenMeals();
+//var_dump($result);
 //
 //require_once "config.php";
 //require_once "entity/User.php";

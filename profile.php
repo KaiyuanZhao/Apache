@@ -128,7 +128,7 @@ else{
                                 <div class="am-form-group">
                                     <label class="hint" for="slocation">修改楼层编号:</label>
                                     <input class="input" name="slocation" type="text" id="slocation" minlength="2" value="<?php echo $user->location;?>"
-                                           pattern= ^[\d{4}]$  data-validation-message="请输入四位楼层房间编号（如:0206，1808)"   placeholder="四位楼层房间编号（如:0206，1808)" required/>
+                                           pattern= ^\d{4}$  data-validation-message="请输入四位楼层房间编号（如:0206，1808)"   placeholder="四位楼层房间编号（如:0206，1808)" required/>
                                 </div>
 
                             </form>

@@ -18,6 +18,9 @@
 <html>
 <head>
     <title>Après-midi</title>
+
+    <link rel="icon" href="icon/16.png" mce_href="icon/16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="icon/16.png" mce_href="icon/16.png" type="image/x-icon">
     <meta charset=UTF-8 />
     <script src="js/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

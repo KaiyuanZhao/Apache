@@ -18,20 +18,20 @@ function Logout() {
 
 }
 
-function Favourite(){
+function Favourite() {
 
     var obj = $("#favourite");
-    var myDate=new Date();
-    if(myDate.getHours()<15 || myDate.getHours()>17){
+    var myDate = new Date();
+    if (myDate.getHours() < 15 || myDate.getHours() > 17) {
         alert("非订餐时间,订餐时间为:当天15:00~17:00");
         return;
     }
     if (obj.val() == "点个赞") {
         $.post("submit/favorite.php", {}, function (data, status) {
             if (!data.success) {
-                if(data.errormessage=="can't find this order"){
+                if (data.errormessage == "can't find this order") {
                     alert("还没有开放订单呐~");
-                }else {
+                } else {
                     alert("出现错误，点赞失败！");
                 }
             }
@@ -74,10 +74,10 @@ function Subnewpassword() {
             },
             success: function (data, status)  //服务器成功响应处理函数
             {
-                if(data.success){
-                    location.href="./ordinaryuser.php";
+                if (data.success) {
+                    location.href = "./ordinaryuser.php";
                 }
-                else{
+                else {
                     alert(data.errormessage);
                 }
             },
@@ -192,8 +192,8 @@ $(function () {
 
 function Confirm() {
     var obj = $("#confirm-order");
-    var myDate=new Date();
-    if(myDate.getHours()<15 || myDate.getHours()>17){
+    var myDate = new Date();
+    if (myDate.getHours() < 15 || myDate.getHours() > 17) {
         alert("非订餐时间,订餐时间为:当天15:00~17:00");
         return;
     }
@@ -228,10 +228,10 @@ function Castanswer() {
     var todaymeal = $("#answer").val();
     alert(todaymeal);
 
-    $.post("submit/addMeal.php",{mealName:todaymeal},function(data,status){
+    $.post("submit/addMeal.php", {mealName: todaymeal}, function (data, status) {
         alert(status);
-       alert(data);
-    },"json");
+        alert(data);
+    }, "json");
 }
 
 $(document).ready(function () {

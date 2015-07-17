@@ -5,7 +5,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
 
-.profile-title{
+.profile-title {
     display: block;
     position: absolute;
     width: 90%;
@@ -16,13 +16,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     padding: 5%;
     font-size: -webkit-xxx-large;
 }
-.avator{
+
+.avator {
     width: 25px;
-    height:25px;
+    height: 25px;
     margin-bottom: 3px;
 }
 
-.su-todaymeal-area{
+.su-todaymeal-area {
     position: absolute;
     width: 90%;
     height: 20%;
@@ -30,7 +31,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     margin-left: 8%;
 }
 
-.ordertitle{
+.ordertitle {
     display: block;
     position: absolute;
     width: 90%;
@@ -41,8 +42,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     font-size: -webkit-xxx-large;
 }
 
-.ranktitle{
-    top:5.2%;
+.ranktitle {
+    top: 5.2%;
     display: block;
     position: absolute;
     width: 90%;
@@ -52,42 +53,49 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     padding: 5%;
     font-size: -webkit-xxx-large;
 }
-.rank{
-    width:100%;
-    height:100%;
+
+.rank {
+    width: 100%;
+    height: 100%;
 }
-.orders{
-    width:100%;
-    height:100%;
+
+.orders {
+    width: 100%;
+    height: 100%;
 }
-.or{
+
+.or {
     height: 10%;
     width: 100%;
 }
-.oc1{
+
+.oc1 {
     width: 33.3333333%;
     height: 10%;
     position: absolute;
     text-align: center;
-    padding:1%;
+    padding: 1%;
 }
-.oc2{
+
+.oc2 {
     width: 33.3333333%;
     position: absolute;
     height: 10%;
     left: 30%;
     text-align: center;
-    padding:1%;
+    padding: 1%;
 }
-.oc3{
+
+.oc3 {
     width: 33.3333333%;
     position: absolute;
     height: 10%;
     left: 60%;
     text-align: center;
-    padding:1%;
+    padding: 1%;
 }
-.order-area{
+
+.order-area {
     overflow: scroll;
     height: 76%;
     width: 80%;
@@ -95,26 +103,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     position: absolute;
     top: 24%;
 }
+
 .col0 {
     position: absolute;
     width: 50%;
     height: 10%;
     text-align: center;
-    padding:5px;
+    padding: 5px;
 }
 
-.col1{
-    position:absolute;
-    width:50%;
-    height:10%;
-    left:50%;
+.col1 {
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    left: 50%;
     text-align: center;
-    padding:5px;
+    padding: 5px;
 }
-.r{
-    height:10%;
-    width:100%;
+
+.r {
+    height: 10%;
+    width: 100%;
 }
+
 /*
 
 .col00{
@@ -179,9 +190,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 }
 */
 
-
-
-#today-meal{
+#today-meal {
 
     position: absolute;
     width: 100%;
@@ -191,12 +200,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     top: 20%;
     padding-left: 10%;
 }
-.slogan-area{
+
+.slogan-area {
     padding: 12%;
     font-family: fantasy;
     line-height: 300%;
 }
-.greetings{
+
+.greetings {
     display: block;
     position: absolute;
     width: 90%;
@@ -207,35 +218,40 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     padding: 5%;
     font-size: -webkit-xxx-large;
 }
-#today-slogan{
+
+#today-slogan {
     position: absolute;
     height: 50%;
     width: 90%;
     top: 25%;
     left: 10%;
 }
-.today-menu{
-    width:100%;
-    height:100%;
+
+.today-menu {
+    width: 100%;
+    height: 100%;
 }
-.todaymeal-area{
+
+.todaymeal-area {
     position: absolute;
     width: 90%;
     height: 20%;
     top: 80%;
     left: 10%;
 }
+
 .like-button {
-    margin-top:70px;
+    margin-top: 70px;
     color: #ffffff;
     background: #463c3c;
     padding: 5px 15px 5px 15px;
     text-decoration: none;
-    border:0px;
+    border: 0px;
     position: absolute;
     width: 20%;
     right: 10%;
 }
+
 .newprofile-button {
     margin-top: 9.6%;
     margin-left: 4.53%;
@@ -249,14 +265,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     left: 40%;
     right: 40%;
 }
-.newprofile {  margin-top: 40%;
+
+.newprofile {
+    margin-top: 40%;
 }
+
 .today-answer {
     margin-top: 10%;
     margin-left: 18%;
     width: 40%;
     height: 20%;
 }
+
 .cast-button {
     margin-top: 9.6%;
     margin-left: 5%;
@@ -273,69 +293,72 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     position: absolute;
     top: 24%;
 }
+
 .rankrow {
-    display:block;
-    width:100%;
+    display: block;
+    width: 100%;
     text-align: center;
 }
 
-#clock{
-    right:20px;
-    bottom:10px;
-}
-.box1{
-    height:70%;
-    width:65%;
-    position:absolute;
-    padding:5px;
-    border:2px black;
-    border-radius:7px;
+#clock {
+    right: 20px;
+    bottom: 10px;
 }
 
-.box2{
-    position:absolute;
-    height:70%;
-    width:35%;
-    left:65%;
-    padding:5px;
-    border:2px black;
-    border-radius:5px;
+.box1 {
+    height: 70%;
+    width: 65%;
+    position: absolute;
+    padding: 5px;
+    border: 2px black;
+    border-radius: 7px;
 }
 
-.box3{
-    position:absolute;
-    height:30%;
-    width:65%;
-    top:70%;
-    padding:5px;
-    border:2px black;
-    border-radius:5px;
+.box2 {
+    position: absolute;
+    height: 70%;
+    width: 35%;
+    left: 65%;
+    padding: 5px;
+    border: 2px black;
+    border-radius: 5px;
 }
 
-.box4{
-    position:absolute;
-    height:30%;
-    width:35%;
-    top:70%;
-    left:65%;
-    padding:5px;
-    border:2px black;
-    border-radius:5px;
+.box3 {
+    position: absolute;
+    height: 30%;
+    width: 65%;
+    top: 70%;
+    padding: 5px;
+    border: 2px black;
+    border-radius: 5px;
 }
 
-.lab{
-    position:relative;
-    top:90px;
-    background-image:url('../images/tbg.png');
-    margin:auto;
-    width:90%;
-    height:570px;
-    border:0px;
+.box4 {
+    position: absolute;
+    height: 30%;
+    width: 35%;
+    top: 70%;
+    left: 65%;
+    padding: 5px;
+    border: 2px black;
+    border-radius: 5px;
+}
+
+.lab {
+    position: relative;
+    top: 90px;
+    background-image: url('../images/tbg.png');
+    margin: auto;
+    width: 90%;
+    height: 570px;
+    border: 0px;
     border-radius: 7px;
 
 }
+
 .header {
-    background-image:url('../images/omega.jpg');
+    background-image: url('../images/omega.jpg');
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -344,36 +367,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     padding: 1em 0;
     min-height: 800px;
 }
-.part2{
+
+.part2 {
 
 }
-.control-button{
-        margin-top:70px;
-        color: #ffffff;
-        background: #463c3c;
-        padding: 5px 15px 5px 15px;
-        text-decoration: none;
-        border:0px;
+
+.control-button {
+    margin-top: 70px;
+    color: #ffffff;
+    background: #463c3c;
+    padding: 5px 15px 5px 15px;
+    text-decoration: none;
+    border: 0px;
 }
 
-#confirm-order{
+#confirm-order {
     position: absolute;
     width: 20%;
     left: 30%;
 }
-
 
 h4, h5, h6,
 h1, h2, h3 {
     margin-top: 0;
 }
 
-#rank-table{
-    position:relative;
-    left:60px;
+#rank-table {
+    position: relative;
+    left: 60px;
 
 }
-
 
 ul, ol {
     margin: 0;
@@ -392,7 +415,6 @@ html, body input[type="text"], body input[type="password"] {
 }
 
 /*--- Header Part Starts Here ---*/
-
 
 .hint {
     position: relative;

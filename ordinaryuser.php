@@ -1,12 +1,12 @@
 <?php
 require "entity/User.php";
 session_start();
-if(!isset($_SESSION["user"])){
+if (!isset($_SESSION["user"])) {
     header("location: ./index.php");
-}
-else{
-    if($_SESSION["user"]->email=="1234@baixing.com")
-    { header("location: ./superuser.php");}
+} else {
+    if ($_SESSION["user"]->email == "1234@baixing.com") {
+        header("location: ./superuser.php");
+    }
 }
 ?>
 
@@ -14,11 +14,11 @@ else{
 <html>
 <head>
     <title>Après-midi</title>
-    <meta charset=UTF-8 />
+    <meta charset=UTF-8/>
     <script src="js/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="amazeui/css/amazeui.flat.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet"/>
     <script src="amazeui/js/amazeui.js" rel="stylesheet" type="text/javascript"></script>
     <script src="js/jquery.ajaxfileupload.js" rel="stylesheet" type="text/javascript"></script>
     <script src="js/actionjs.js" rel="stylesheet" type="text/javascript"></script>
@@ -34,11 +34,11 @@ else{
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="application/x-javascript"> addEventListener("load", function () {
-        setTimeout(hideURLbar, 0);
-    }, false);
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    } </script>
+            setTimeout(hideURLbar, 0);
+        }, false);
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        } </script>
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
     <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
@@ -56,8 +56,9 @@ else{
         </div>
         <div class="menu">
             <ul class="menu-top">
-                <li><img src="http://192.168.100.53/submit/<?php echo $_SESSION['user']->icon;?>" class="avator"></li>
-                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->username;?></a></li>
+                <li><img src="http://192.168.100.53/submit/<?php echo $_SESSION['user']->icon; ?>" class="avator"></li>
+                <li><a class="play-icon popup-with-zoom-anim"
+                       id="bar_username"><?php echo $username = $_SESSION["user"]->username; ?></a></li>
 
             </ul>
             <!---pop-up-box---->
@@ -92,36 +93,37 @@ else{
             <div class="box1">
 
                 <div class="today-menu">
-                    <div class="greetings" >
+                    <div class="greetings">
                         Bonjour,Chers Amis~
                     </div>
                     <div id="today-slogan">
-                    <p class="slogan-area">
+                        <p class="slogan-area">
 
-                        Of all the gin joints in all the towns in all the world，she walks into mine.  From Casablanca
-                    </p>
+                            Of all the gin joints in all the towns in all the world，she walks into mine.  From
+                            Casablanca
+                        </p>
 
 
                     </div>
 
                     <div class="todaymeal-area">
                     </div>
-                        <script>
-                        $(document).ready(function(){
-                            $.post("submit/getTodayMeals.php",{},function(data,status){
-                                if(data.success){
-                                    if(data.meals==null){
-                                        var obj=$("<div></div>").innerHTML="<div id='today-meal'>今天的加班餐:<br>"+"还没有发布噢~</div>";
+                    <script>
+                        $(document).ready(function () {
+                            $.post("submit/getTodayMeals.php", {}, function (data, status) {
+                                if (data.success) {
+                                    if (data.meals == null) {
+                                        var obj = $("<div></div>").innerHTML = "<div id='today-meal'>今天的加班餐:<br>" + "还没有发布噢~</div>";
                                     }
-                                    else{
-                                        var obj=$("<div></div>").innerHTML="<div id='today-meal'>今天的加班餐:<br>"+data.meals[0].mealName+"</div>";
+                                    else {
+                                        var obj = $("<div></div>").innerHTML = "<div id='today-meal'>今天的加班餐:<br>" + data.meals[0].mealName + "</div>";
                                     }
                                     $(".todaymeal-area").append(obj);
                                 }
-                                else{
+                                else {
                                     alert("error!");
                                 }
-                            },"json");
+                            }, "json");
 
                         });
 
@@ -134,7 +136,8 @@ else{
             <div class="box2">
 
                 <div class="rank">
-                    <h1 class="ranktitle" >Like Rank</h1>
+                    <h1 class="ranktitle">Like Rank</h1>
+
                     <div class="ranktable">
                         <div class="r0 r">
                             <div class="col00 col0"></div>
@@ -178,49 +181,50 @@ else{
                         </div>
 
                         <script>
-                            $(document).ready(function(){
-                               /* var r1=["a","b"];
-                                var r2=["a","b"];
-                                var r3=["a","b"];
-                                var r4=["a","b"];
-                                var r5=["a","b"];
-                                var r6=["a","b"];
-                                var r7=["a","b"];
-                                var r8=["a","b"];
-                                var r9=["a","b"];
-                                var r10=["a","b"];
-                                var arr=[r1,r2,r3,r4,r5,r6,r7,r8,r9,r10];
-                                var length=arr.length;
-                                var obj;
-                                var count=0;
-                                arr.forEach(function(val){
-                                    var col0=$("<p></p>").innerHTML=val[0];
-                                    var col1=$("<p></p>").innerHTML=val[1];
+                            $(document).ready(function () {
+                                /* var r1=["a","b"];
+                                 var r2=["a","b"];
+                                 var r3=["a","b"];
+                                 var r4=["a","b"];
+                                 var r5=["a","b"];
+                                 var r6=["a","b"];
+                                 var r7=["a","b"];
+                                 var r8=["a","b"];
+                                 var r9=["a","b"];
+                                 var r10=["a","b"];
+                                 var arr=[r1,r2,r3,r4,r5,r6,r7,r8,r9,r10];
+                                 var length=arr.length;
+                                 var obj;
+                                 var count=0;
+                                 arr.forEach(function(val){
+                                 var col0=$("<p></p>").innerHTML=val[0];
+                                 var col1=$("<p></p>").innerHTML=val[1];
 
-                                    $(".col"+count.toString()+"0").append(col0);
-                                    $(".col"+count.toString()+"1").append(col1);
-                                    count++;
-                                });*/
-                                $.post("submit/getTopTen.php",{},function(data,status){
-                                    if(data.success){/*
-                                        var tr1=$("<p></p>").text(data.meals[0].meal.mealName);
-                                        var tr2=$("<p></p>").text(data.meals[0].favorCount);
-                                        $("#anchor").append(tr1);
-                                        $("#anchor").append(tr2);
-*/                                      var count=0;
-                                        var Arr=data.meals;
-                                        Arr.forEach(function(e){
-                                            var col0=$("<p></p>").innerHTML= e.meal.mealName;
-                                            var col1=$("<p></p>").innerHTML= e.favorCount.toString()+"个赞";
-                                            $(".col"+count.toString()+"0").append(col0);
-                                            $(".col"+count.toString()+"1").append(col1);
+                                 $(".col"+count.toString()+"0").append(col0);
+                                 $(".col"+count.toString()+"1").append(col1);
+                                 count++;
+                                 });*/
+                                $.post("submit/getTopTen.php", {}, function (data, status) {
+                                    if (data.success) {/*
+                                     var tr1=$("<p></p>").text(data.meals[0].meal.mealName);
+                                     var tr2=$("<p></p>").text(data.meals[0].favorCount);
+                                     $("#anchor").append(tr1);
+                                     $("#anchor").append(tr2);
+                                     */
+                                        var count = 0;
+                                        var Arr = data.meals;
+                                        Arr.forEach(function (e) {
+                                            var col0 = $("<p></p>").innerHTML = e.meal.mealName;
+                                            var col1 = $("<p></p>").innerHTML = e.favorCount.toString() + "个赞";
+                                            $(".col" + count.toString() + "0").append(col0);
+                                            $(".col" + count.toString() + "1").append(col1);
                                             count++;
                                         })
                                     }
-                                    else{
+                                    else {
                                         alert("error!");
                                     }
-                                 },"json");
+                                }, "json");
 
                             });
 
@@ -234,18 +238,15 @@ else{
             </div>
 
 
-
-
             <div class="box3">
 
 
-                <input class="control-button"  onclick="Confirm(this)" id="confirm-order" value="" type="button" >
+                <input class="control-button" onclick="Confirm(this)" id="confirm-order" value="" type="button">
 
 
                 <input class="like-button" onclick="Favourite()" id="favourite" type="button" value="赞一个">
 
             </div>
-
 
 
             <div class="box4">
@@ -293,13 +294,13 @@ else{
 <script src="assets/js/script.js"></script>
 <script type="text/javascript">
 
-    $(function() {
+    $(function () {
         $('#doc-vld-msg').validator({
-            onValid: function(validity) {
+            onValid: function (validity) {
                 $(validity.field).closest('.am-form-group').find('.am-alert').hide();
             },
 
-            onInValid: function(validity) {
+            onInValid: function (validity) {
                 var $field = $(validity.field);
                 var $group = $field.closest('.am-form-group');
                 var $alert = $group.find('.am-alert');
@@ -307,7 +308,7 @@ else{
 
                 if (!$alert.length) {
                     $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
-                            appendTo($group);
+                        appendTo($group);
                 }
 
                 $alert.html(msg).show();
@@ -332,29 +333,29 @@ else{
         $("")
     });
 
-    $(document).ready(function(){
-        $.post("submit/isOrdered.php",{},function(data,status){
-            if(data.success){
+    $(document).ready(function () {
+        $.post("submit/isOrdered.php", {}, function (data, status) {
+            if (data.success) {
                 $("#confirm-order").val("确认订餐");
             }
-            else{
+            else {
                 $("#confirm-order").val("取消订餐");
             }
 
-        },"json");
-/*
-        alert(myDate.getHours());*/
+        }, "json");
+        /*
+         alert(myDate.getHours());*/
 
-        $.post("submit/isLiked.php",{},function(data,status){
-            if(data.success || $("#confirm-order").val()=="确认订餐"){
+        $.post("submit/isLiked.php", {}, function (data, status) {
+            if (data.success || $("#confirm-order").val() == "确认订餐") {
                 $("#favourite").val("点个赞");
             }
-            else{
+            else {
                 $("#favourite").val("取消赞");
             }
 
 
-        },"json");
+        }, "json");
 
 
     });

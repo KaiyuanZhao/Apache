@@ -1,11 +1,13 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: lyn
  * Date: 15/7/16
  * Time: 下午6:46
  */
-class OrdersResponse {
+class OrdersResponse
+{
     public $success;
     public $errormessage;
     public $orders;

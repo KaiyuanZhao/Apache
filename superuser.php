@@ -1,7 +1,7 @@
 <?php
 require "entity/User.php";
 session_start();
-if(!isset($_SESSION["user"])){
+if (!isset($_SESSION["user"])) {
     header("location: ./index.php");
 }
 ?>
@@ -10,11 +10,11 @@ if(!isset($_SESSION["user"])){
 <html>
 <head>
     <title>Après-midi</title>
-    <meta charset=UTF-8 />
+    <meta charset=UTF-8/>
     <script src="js/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="amazeui/css/amazeui.flat.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet"/>
     <script src="amazeui/js/amazeui.js" rel="stylesheet" type="text/javascript"></script>
     <script src="js/jquery.ajaxfileupload.js" rel="stylesheet" type="text/javascript"></script>
     <script src="js/actionjs.js" rel="stylesheet" type="text/javascript"></script>
@@ -30,21 +30,21 @@ if(!isset($_SESSION["user"])){
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="application/x-javascript"> addEventListener("load", function () {
-        setTimeout(hideURLbar, 0);
-    }, false);
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    } </script>
+            setTimeout(hideURLbar, 0);
+        }, false);
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        } </script>
     <script type="text/javascript" src="js/move-top.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
-<!--    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            $(".scroll").click(function (event) {
-                event.preventDefault();
-                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+    <!--    <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+                });
             });
-        });
-    </script>-->
+        </script>-->
     <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
     <script type="text/javascript" id="sourcecode">
         $(function () {
@@ -61,8 +61,9 @@ if(!isset($_SESSION["user"])){
         <div class="menu">
             <ul class="menu-top">
 
-                <li><img src="http://192.168.100.53/submit/<?php echo $_SESSION['user']->icon;?>" class="avator"></li>
-                <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->username;?></a></li>
+                <li><img src="http://192.168.100.53/submit/<?php echo $_SESSION['user']->icon; ?>" class="avator"></li>
+                <li><a class="play-icon popup-with-zoom-anim"
+                       id="bar_username"><?php echo $username = $_SESSION["user"]->username; ?></a></li>
 
             </ul>
             <!---pop-up-box---->
@@ -97,36 +98,34 @@ if(!isset($_SESSION["user"])){
             <div class="box1">
 
                 <div class="orders">
-                    <div class="ordertitle" >
+                    <div class="ordertitle">
                         All Oders
                     </div>
 
                     <div class="order-area">
                         <script>
-                            $(document).ready(function(){
-                                $.post("submit/getOrders.php",{},function(data,status){
-                                    if(data.success){
+                            $(document).ready(function () {
+                                $.post("submit/getOrders.php", {}, function (data, status) {
+                                    if (data.success) {
 
-                                        var orders=data.orders;
-                                        var totalnum=data.total;
+                                        var orders = data.orders;
+                                        var totalnum = data.total;
 
 
-                                        var newline=$("<div class='or'></div>").innerHTML="<div class='or'>"+"<div class='oc1'> 当日总计:</div>"+"<div class='oc2'>"+ totalnum+"份订单</div>"+"<div class='oc3'></div>"+"</div>";
-                                        newline.class="or";
+                                        var newline = $("<div class='or'></div>").innerHTML = "<div class='or'>" + "<div class='oc1'> 当日总计:</div>" + "<div class='oc2'>" + totalnum + "份订单</div>" + "<div class='oc3'></div>" + "</div>";
+                                        newline.class = "or";
                                         $(".order-area").append(newline);
 
 
-                                        orders.forEach(function(val)
-                                        {
-                                            var users=val.users;
+                                        orders.forEach(function (val) {
+                                            var users = val.users;
 
 
-                                            var newline=$("<div class='or'></div>").innerHTML="<div class='or'>"+"<div class='oc1'>"+ val.location+"一共有:</div>"+"<div class='oc2'>"+ val.count+"份订单</div>"+"<div class='oc3'></div>"+"</div>";
+                                            var newline = $("<div class='or'></div>").innerHTML = "<div class='or'>" + "<div class='oc1'>" + val.location + "一共有:</div>" + "<div class='oc2'>" + val.count + "份订单</div>" + "<div class='oc3'></div>" + "</div>";
                                             $(".order-area").append(newline);
 
-                                            users.forEach(function(e)
-                                            {
-                                                var newline=$("<div class='or'></div>").innerHTML="<div class='or'>"+"<div class='oc1'></div>"+"<div class='oc2'>"+ e.username+"</div>"+"<div class='oc3'>"+ e.createtime+"</div>"+"</div>";
+                                            users.forEach(function (e) {
+                                                var newline = $("<div class='or'></div>").innerHTML = "<div class='or'>" + "<div class='oc1'></div>" + "<div class='oc2'>" + e.username + "</div>" + "<div class='oc3'>" + e.createtime + "</div>" + "</div>";
                                                 $(".order-area").append(newline);
                                             });
 
@@ -134,10 +133,10 @@ if(!isset($_SESSION["user"])){
 
 
                                     }
-                                    else{
+                                    else {
                                         alert("error!");
                                     }
-                                },"json");
+                                }, "json");
 
                             });
 
@@ -145,15 +144,15 @@ if(!isset($_SESSION["user"])){
                         </script>
 
 
+                    </div>
 
                 </div>
-
             </div>
-                </div>
             <div class="box2">
 
                 <div class="rank">
-                    <h1 class="ranktitle" >Like Rank</h1>
+                    <h1 class="ranktitle">Like Rank</h1>
+
                     <div class="ranktable">
                         <div class="r0 r">
                             <div class="col00 col0"></div>
@@ -197,23 +196,23 @@ if(!isset($_SESSION["user"])){
                         </div>
 
                         <script>
-                            $(document).ready(function(){
-                                $.post("submit/getTopTen.php",{},function(data,status){
-                                    if(data.success){
-                                        var count=0;
-                                        var Arr=data.meals;
-                                        Arr.forEach(function(e){
-                                            var col0=$("<p></p>").innerHTML= e.meal.mealName;
-                                            var col1=$("<p></p>").innerHTML= e.favorCount.toString()+"个赞";
-                                            $(".col"+count.toString()+"0").append(col0);
-                                            $(".col"+count.toString()+"1").append(col1);
+                            $(document).ready(function () {
+                                $.post("submit/getTopTen.php", {}, function (data, status) {
+                                    if (data.success) {
+                                        var count = 0;
+                                        var Arr = data.meals;
+                                        Arr.forEach(function (e) {
+                                            var col0 = $("<p></p>").innerHTML = e.meal.mealName;
+                                            var col1 = $("<p></p>").innerHTML = e.favorCount.toString() + "个赞";
+                                            $(".col" + count.toString() + "0").append(col0);
+                                            $(".col" + count.toString() + "1").append(col1);
                                             count++;
                                         })
                                     }
-                                    else{
+                                    else {
                                         alert("error!");
                                     }
-                                },"json");
+                                }, "json");
 
                             });
 
@@ -224,35 +223,31 @@ if(!isset($_SESSION["user"])){
                 </div>
 
 
-
             </div>
-
-
 
 
             <div class="box3">
 
 
-
                 <div class="su-todaymeal-area">
                 </div>
                 <script>
-                    $(document).ready(function(){
-                        $.post("submit/getTodayMeals.php",{},function(data,status){
-                            if(data.success){
-                                if(data.meals==null){
-                                    var obj=$("<div></div>").innerHTML="<div id='today-meal'>今天的加班餐:"+"还没有发布噢~</div>";
+                    $(document).ready(function () {
+                        $.post("submit/getTodayMeals.php", {}, function (data, status) {
+                            if (data.success) {
+                                if (data.meals == null) {
+                                    var obj = $("<div></div>").innerHTML = "<div id='today-meal'>今天的加班餐:" + "还没有发布噢~</div>";
                                 }
-                                else{
-                                    var obj=$("<div></div>").innerHTML="<div id='today-meal'>今天的加班餐:"+data.meals[0].mealName+"</div>";
+                                else {
+                                    var obj = $("<div></div>").innerHTML = "<div id='today-meal'>今天的加班餐:" + data.meals[0].mealName + "</div>";
                                 }
 
                                 $(".su-todaymeal-area").append(obj);
                             }
-                            else{
+                            else {
                                 alert("error!");
                             }
-                        },"json");
+                        }, "json");
 
                     });
 
@@ -260,11 +255,10 @@ if(!isset($_SESSION["user"])){
                 </script>
 
 
-                <input class="today-answer" id="answer" placeholder="今天吃的啥？" type="text" >
-                <input class="cast-button"  onclick="Castanswer()" type="button" value="发布">
+                <input class="today-answer" id="answer" placeholder="今天吃的啥？" type="text">
+                <input class="cast-button" onclick="Castanswer()" type="button" value="发布">
 
             </div>
-
 
 
             <div class="box4">
@@ -312,13 +306,13 @@ if(!isset($_SESSION["user"])){
 <script src="assets/js/script.js"></script>
 <script type="text/javascript">
 
-    $(function() {
+    $(function () {
         $('#doc-vld-msg').validator({
-            onValid: function(validity) {
+            onValid: function (validity) {
                 $(validity.field).closest('.am-form-group').find('.am-alert').hide();
             },
 
-            onInValid: function(validity) {
+            onInValid: function (validity) {
                 var $field = $(validity.field);
                 var $group = $field.closest('.am-form-group');
                 var $alert = $group.find('.am-alert');
@@ -326,7 +320,7 @@ if(!isset($_SESSION["user"])){
 
                 if (!$alert.length) {
                     $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
-                            appendTo($group);
+                        appendTo($group);
                 }
 
                 $alert.html(msg).show();

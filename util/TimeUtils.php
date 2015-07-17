@@ -57,7 +57,7 @@ class TimeUtils
     {
         $dt = new DateTime('now');
         $beginTime = new DateTime();
-        $beginTime->setTime(15, 0);
+        $beginTime->setTime(12, 0);
         $endTime = new DateTime();
         $endTime->setTime(17, 0);
         $beginInterval = $dt->diff($beginTime);

@@ -6,6 +6,7 @@
  * Time: 16:04
  */
 require_once "../entity/User.php";
+require_once "../extension/response/LoginResponse.php";
 
 session_start();
 $result = NULL;

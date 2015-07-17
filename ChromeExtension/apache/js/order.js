@@ -23,6 +23,17 @@ $(document).ready(function () {
         },
         "json");
 
+    $("#logout").click(function (){
+        $.post("http://192.168.100.53/extension/logout.php",
+            {},
+            function(data, status) {
+                if (status == "success") {
+                    localStorage.removeItem("apache_user");
+                    location.href = "popup.html";
+                }
+            });
+    });
+
     var order_button = $("#order-button");
     order_button.click(function () {
         if (order_button.hasClass("success")) {

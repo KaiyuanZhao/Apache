@@ -22,10 +22,10 @@ function Favourite(){
 
     var obj = $("#favourite");
     var myDate=new Date();
-/*    if(myDate.getHours()<15 || myDate.getHours()>17){
+    if(myDate.getHours()<15 || myDate.getHours()>17){
         alert("非订餐时间,订餐时间为:当天15:00~17:00");
         return;
-    }*/
+    }
     if (obj.val() == "点个赞") {
         $.post("submit/favorite.php", {}, function (data, status) {
             if (!data.success) {
@@ -193,10 +193,10 @@ $(function () {
 function Confirm() {
     var obj = $("#confirm-order");
     var myDate=new Date();
-/*    if(myDate.getHours()<15 || myDate.getHours()>17){
+    if(myDate.getHours()<15 || myDate.getHours()>17){
         alert("非订餐时间,订餐时间为:当天15:00~17:00");
         return;
-    }*/
+    }
     if (obj.val() == "确认订餐") {
         $.post("submit/orderSubmit.php", {}, function (data, status) {
             if (!data.success) {

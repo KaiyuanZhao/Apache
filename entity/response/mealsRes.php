@@ -12,7 +12,7 @@ class mealsRes {
     public $errormessage;
     public $meals= array();
     public $amount;
-    function __construct($success, $errormessage, $meals,$amount)
+    function __construct($success, $errormessage, $meals, $amount)
     {
         $this->success = $success;
         $this->errormessage = $errormessage;

@@ -10,8 +10,7 @@ require_once "../extension/response/LoginResponse.php";
 
 session_start();
 $result = NULL;
-if (isset($_SESSION['user']))
-{
+if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
     $result = new LoginResponse(true, "", $user->userId, $user->username, $user->nickname);
 } else {

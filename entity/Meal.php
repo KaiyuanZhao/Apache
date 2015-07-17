@@ -45,18 +45,4 @@ class Meal
         }
     }
 
-    /**
-     * run when writing data to inaccessible members.
-     *
-     * @param $name string
-     * @param $value mixed
-     * @return void
-     * @link http://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members
-     */
-    function __set($name, $value)
-    {
-        $this->$name = $value;
-    }
-
-
 }

@@ -21,6 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     width: 25px;
     height: 25px;
     margin-bottom: 3px;
+    border:0px !important;
 }
 
 .su-todaymeal-area {

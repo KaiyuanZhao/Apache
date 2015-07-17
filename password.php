@@ -68,7 +68,12 @@ if (!isset($_SESSION["user"])) {
         </div>
         <div class="menu">
             <ul class="menu-top">
-                <li><img src="http://192.168.100.53/submit/<?php echo $_SESSION['user']->icon; ?>" class="avator"></li>
+                <li><img src="<?php
+                    if($_SESSION['user']->icon!=""){
+                        echo "http://192.168.100.53/submit/".$_SESSION['user']->icon;
+                    }
+                    else{
+                        echo "";}?>" class="avator"></li>
                 <li><a class="play-icon popup-with-zoom-anim"
                        id="bar_username"><?php $username = $_SESSION["user"]->username;
                         echo $username; ?></a></li>

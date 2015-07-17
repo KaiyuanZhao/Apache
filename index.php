@@ -1,4 +1,5 @@
 <?php
+header("Content-Type: text/html; charset=utf-8");
 require 'entity/User.php';
 session_start();
 if (isset($_SESSION["user"])) {
@@ -17,7 +18,6 @@ if (isset($_SESSION["user"])) {
 <html>
 <head>
     <title>Après-midi</title>
-    <link rel="shortcut icon" href="./favicon.icns"/>
     <meta charset=UTF-8/>
     <script src="js/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

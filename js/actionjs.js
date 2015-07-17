@@ -58,22 +58,28 @@ function Favourite(){
 }
 
 function Subnewpassword() {
-    soldpassword = $("#spassword").val();
-    snewpassword = $("#spassword0").val();
+    soldpassword = $("#spassword0").val();
+    snewpassword = $("#spassword").val();
+    alert(soldpassword);
+    alert(snewpassword);
     $.ajaxFileUpload
     (
         {
-            url: 'http://192.168.100.53/submit/newpassword.php', //用于文件上传的服务器端请求地址
+            url: 'submit/changePassword.php', //用于文件上传的服务器端请求地址
             secureuri: false, //是否需要安全协议，一般设置为false
-            fileElementId: 'savator', //文件上传域的ID
-            dataType: 'text', //返回值类型 一般设置为json
+            dataType: 'json', //返回值类型 一般设置为json
             data: {
                 oldpassword: soldpassword,
                 newpassword: snewpassword
             },
             success: function (data, status)  //服务器成功响应处理函数
             {
-                location.reload();
+                if(data.success){
+                    location.href="./ordinaryuser.php";
+                }
+                else{
+                    alert(data.errormessage);
+                }
             },
             error: function (data, status, e)//服务器响应失败处理函数
             {

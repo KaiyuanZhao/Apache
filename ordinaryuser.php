@@ -56,7 +56,7 @@ else{
         </div>
         <div class="menu">
             <ul class="menu-top">
-                <li><img src="" id="bar_useravator"></li>
+                <li><img src="http://192.168.100.53/submit/<?php echo $_SESSION['user']->icon;?>" class="avator"></li>
                 <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->username;?></a></li>
 
             </ul>

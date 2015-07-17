@@ -18,6 +18,9 @@
 <html>
 <head>
     <title>Après-midi</title>
+
+    <link rel="icon" href="icon/16.png" mce_href="icon/16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="icon/16.png" mce_href="icon/16.png" type="image/x-icon">
     <meta charset=UTF-8 />
     <script src="js/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,7 +123,7 @@
                             <div class="am-form-group">
                                 <label class="hint" for="slocation">请输入四位楼层房间编号（如:0206，1808):</label>
                                 <input class="input" name="slocation" type="text" id="slocation" minlength="2"
-                                       pattern= [\d{4}]  data-validation-message="请输入四位楼层房间编号（如:0206，1808)"   placeholder="输入用户名（至少 2 个的中文字符）" required/>
+                                       pattern= ^\d{4}$  data-validation-message="请输入四位楼层房间编号（如:0206，1808)"   placeholder="请输入四位楼层房间编号（如:0206，1808)" required/>
                             </div>
 
 
@@ -160,8 +163,9 @@
                     </fieldset>
                 </div>
             </div>
-            <a href="#" class="right_bt" id="activator"><img src="images/nav.png" alt=""/></a>
 
+<!--            <a href="#" class="right_bt" id="activator"><img src="images/nav.png" alt=""/></a>
+-->
             <div class="box" id="box">
                 <div class="box_content_center">
                     <div class="menu_box_list">

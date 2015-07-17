@@ -5,8 +5,7 @@ $(document).ready(function (e) {
         {},
         function (data, status) {
             if (status == "success") {
-                if (data.success)
-                {
+                if (data.success) {
                     localStorage.apache_user = JSON.stringify(data);
                     location.href = "order.html";
                 }

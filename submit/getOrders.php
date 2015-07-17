@@ -30,20 +30,18 @@ if ($getOrderFlag === OrderAction::$GET_ORDERS_FAIL) {
     $prevLocation = "----";
     $count = 0;
     $users = array();
-    foreach($getOrderFlag as $order)
-    {
-        if ($order->user->location != $prevLocation)
-        {
+    foreach ($getOrderFlag as $order) {
+        if ($order->user->location != $prevLocation) {
             if ($prevLocation != "----")
                 $orders[] = ["location" => $prevLocation,
-                "count" => $count,
-                "users" => $users];
+                    "count" => $count,
+                    "users" => $users];
             $count = 0;
             $prevLocation = $order->user->location;
             $users = array();
         }
         $users[] = ["username" => $order->user->username,
-        "createtime" => $order->createdTime];
+            "createtime" => $order->createdTime];
         $count++;
     }
     if ($prevLocation != "----")

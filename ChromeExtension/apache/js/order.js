@@ -23,10 +23,14 @@ $(document).ready(function () {
         },
         "json");
 
-    $("#logout").click(function (){
+    $("#jump").click(function () {
+        chrome.tabs.create({url: "http://192.168.100.53/"});
+    });
+
+    $("#logout").click(function () {
         $.post("http://192.168.100.53/extension/logout.php",
             {},
-            function(data, status) {
+            function (data, status) {
                 if (status == "success") {
                     localStorage.removeItem("apache_user");
                     location.href = "popup.html";

@@ -64,7 +64,7 @@ class OrderAction
         if ($date == "")
             $date = TimeUtils::getCurrentDate();
         $connection = Database::getInstance()->getConnection();
-        static $query = "select * from `order` natural join user where date = ? order by createTime desc";
+        static $query = "select * from `order` natural join user where date = ? order by location asc, createTime desc";
         $result = $connection->prepare($query);
         $result->bind_param("s", $date);
         $execute = $result->execute();

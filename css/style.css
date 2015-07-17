@@ -5,6 +5,23 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
 
+.profile-title{
+    display: block;
+    position: absolute;
+    width: 90%;
+    left: 10%;
+    height: 20%;
+    font-family: fantasy;
+    text-align: left;
+    padding: 5%;
+    font-size: -webkit-xxx-large;
+}
+.avator{
+    width: 25px;
+    height:25px;
+    margin-bottom: 3px;
+}
+
 .su-todaymeal-area{
     position: absolute;
     width: 90%;
@@ -232,8 +249,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     left: 40%;
     right: 40%;
 }
-.newprofile {
-margin-top:12%;
+.newprofile {  margin-top: 40%;
 }
 .today-answer {
     margin-top: 10%;

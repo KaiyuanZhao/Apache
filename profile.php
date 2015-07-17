@@ -64,7 +64,7 @@ else{
         </div>
         <div class="menu">
             <ul class="menu-top">
-                <li><img src="" id="bar_useravator"></li>
+                <li><img src="http://192.168.100.53/submit/<?php echo $_SESSION['user']->icon;?>" class="avator"></li>
                 <li><a class="play-icon popup-with-zoom-anim" id="bar_username"  ><?php echo $username=$_SESSION["user"]->username;?></a></li>
 
             </ul>
@@ -111,8 +111,8 @@ else{
             <div class="box1">
 
                 <div class="menu">
-                    <h3 class="greetings">
-                        修改资料:(不需修改则留空)
+                    <h3 class="profile-title">
+                        修改资料:
                     </h3>
 
 

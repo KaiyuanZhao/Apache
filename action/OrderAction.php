@@ -82,7 +82,8 @@ class OrderAction
 
     /**
      * @param $userId Integer
-     * @return bool|Integer is ordered or error code
+     * @param string $date
+     * @return bool|int is ordered or error code
      */
     public static function isOrdered($userId, $date = "")
     {

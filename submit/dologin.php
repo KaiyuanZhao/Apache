@@ -22,7 +22,6 @@
 function testLogin($arr)
 {
 
-    $useraction = new UserAction();
     $email = $arr["username"];
     $password = $arr["password"];
     $testformat = new testFormat();
@@ -46,4 +45,3 @@ function testLogin($arr)
     {
         return json_encode($phparr);
     }
-?>

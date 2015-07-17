@@ -350,7 +350,6 @@ else{
                 $("#favourite").val("点个赞");
             }
             else{
-                alert(data.message);
                 $("#favourite").val("取消赞");
             }
 
